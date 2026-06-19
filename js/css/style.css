@@ -861,27 +861,91 @@ footer a:hover {
 }
 
 /* === Responsive === */
+
+/* Tablet (600px - 900px) */
+@media (max-width: 900px) {
+    .container {
+        padding: 1.5rem;
+    }
+    header h1 {
+        font-size: 1.8rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+    .content-section {
+        padding: 1.25rem;
+    }
+    .user-card {
+        gap: 1rem;
+    }
+    .user-avatar {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Mobile (< 600px) */
 @media (max-width: 600px) {
     .container {
         padding: 1rem;
     }
     header h1 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
+    }
+    .subtitle {
+        font-size: 0.85rem;
+    }
+    h2 {
+        font-size: 1.15rem;
+        margin-top: 1.5rem;
+    }
+    .breadcrumb {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
     }
     .content-section {
-        padding: 1rem;
+        padding: 0.85rem;
+        border-radius: 8px;
     }
     .toc-list {
         column-count: 1;
+        padding-left: 1.25rem;
     }
+    /* User card */
     .user-card {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        padding: 1rem;
+        gap: 0.75rem;
     }
+    .user-avatar {
+        width: 64px;
+        height: 64px;
+    }
+    .user-info h3 {
+        font-size: 1rem;
+    }
+    .user-info p {
+        font-size: 0.8rem;
+    }
+    /* Async tracks */
     .async-track {
-        grid-template-columns: 80px 1fr 90px;
-        gap: 0.4rem;
+        grid-template-columns: 70px 1fr 80px;
+        gap: 0.3rem;
+    }
+    .track-label {
+        font-size: 0.7rem;
+    }
+    .track-status {
+        font-size: 0.7rem;
+    }
+    .track-bar {
+        height: 22px;
     }
     .async-controls {
         flex-direction: column;
@@ -890,17 +954,176 @@ footer a:hover {
         width: 100%;
         justify-content: center;
     }
+    .async-tracks {
+        gap: 0.5rem;
+    }
+    /* Concept grid */
     .concept-grid {
         grid-template-columns: 1fr;
+        gap: 0.5rem;
     }
+    .concept-card {
+        padding: 0.75rem;
+    }
+    .concept-card p {
+        font-size: 0.75rem;
+    }
+    /* Data types */
     .datatype-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 0.35rem;
     }
+    .datatype-card {
+        padding: 0.4rem 0.6rem;
+    }
+    .datatype-card code {
+        font-size: 0.75rem;
+    }
+    .datatype-example {
+        font-size: 0.7rem;
+    }
+    /* String controls */
     .string-controls {
         flex-direction: column;
+        align-items: stretch;
     }
     .string-controls .todo-input {
         width: 100%;
+        min-width: unset;
+    }
+    .string-controls .btn-demo {
+        width: 100%;
+        justify-content: center;
+    }
+    /* Array controls */
+    .array-controls {
+        flex-direction: column;
+    }
+    .array-controls .btn-small {
+        width: 100%;
+        text-align: center;
+    }
+    /* Todo list */
+    .todo-input-group {
+        flex-direction: column;
+    }
+    .todo-input-group .btn-demo {
+        width: 100%;
+        justify-content: center;
+    }
+    .todo-item {
+        flex-direction: column;
+        gap: 0.3rem;
+        text-align: center;
+    }
+    .todo-item span {
+        word-break: break-word;
+    }
+    .todo-stats {
+        flex-direction: column;
+        gap: 0.3rem;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+    /* Delegation */
+    .delegation-list li {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    .demo-instruction {
+        font-size: 0.8rem;
+    }
+    /* Fetch */
+    .fetch-container {
+        margin: 0.5rem 0;
+    }
+    .fetch-error {
+        font-size: 0.8rem;
+        padding: 0.6rem 0.8rem;
+    }
+    /* Demo box */
+    .demo-box {
+        padding: 0.85rem;
+    }
+    .demo-box > p {
+        font-size: 0.85rem;
+    }
+    /* Output */
+    .output {
+        font-size: 0.8rem;
+        padding: 0.75rem;
+    }
+    /* Buttons */
+    .btn-demo {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+    .btn-small {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.6rem;
+    }
+    /* Code blocks */
+    .code-example {
+        padding: 0.75rem;
+        font-size: 0.75rem;
+    }
+    .code-example code {
+        font-size: 0.75rem;
+    }
+    /* Info box */
+    .info-box {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+    .info-box ul {
+        padding-left: 1rem;
+    }
+    .info-box li {
+        font-size: 0.85rem;
+    }
+    /* Exercise */
+    .exercise-box {
+        padding: 0.85rem;
+    }
+    .btn-exercise {
+        width: 100%;
+        text-align: center;
+    }
+    .hint {
+        font-size: 0.8rem;
+        padding: 0.6rem;
+    }
+    /* BP list */
+    .bp-list li {
+        font-size: 0.85rem;
+    }
+    /* Spinner */
+    .fetch-loading {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Very small screens (< 400px) */
+@media (max-width: 400px) {
+    .container {
+        padding: 0.6rem;
+    }
+    header h1 {
+        font-size: 1.2rem;
+    }
+    .content-section {
+        padding: 0.6rem;
+    }
+    .datatype-grid {
+        grid-template-columns: 1fr;
+    }
+    .async-track {
+        grid-template-columns: 1fr;
+        gap: 0.15rem;
+    }
+    .concept-grid {
+        gap: 0.35rem;
     }
 }
 

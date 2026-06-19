@@ -904,31 +904,115 @@ footer a:hover {
 }
 
 /* === Responsive === */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .container {
-        padding: 1rem;
+        padding: 1.25rem;
+    }
+    .toc-list {
+        columns: 1;
+    }
+    .format-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .lists-grid {
+        grid-template-columns: 1fr;
+    }
+    .semantic-layout {
+        grid-template-columns: 1fr;
+    }
+    .sem-main { grid-column: 1; }
+    .sem-aside { grid-column: 1; }
+    .demo-table {
+        font-size: 0.85rem;
+    }
+    .heading-demo h1 { font-size: 1.5rem !important; }
+    .heading-demo h2 { font-size: 1.3rem !important; }
+    .heading-demo h3 { font-size: 1.15rem !important; }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.75rem;
+    }
+    .breadcrumb {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
     }
     header h1 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
+    }
+    .subtitle {
+        font-size: 0.9rem;
     }
     .content-section {
-        padding: 1rem;
+        padding: 0.75rem;
+        border-radius: 8px;
+    }
+    h2 {
+        font-size: 1.15rem;
+    }
+    h3 {
+        font-size: 0.95rem;
+    }
+    .format-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.35rem;
+    }
+    .format-card {
+        padding: 0.4rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    .input-types-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.35rem;
+    }
+    .input-type-card {
+        font-size: 0.7rem;
     }
     .form-actions {
         flex-direction: column;
     }
     .btn-submit, .btn-reset {
         width: 100%;
+        text-align: center;
     }
     .image-grid {
         grid-template-columns: 1fr;
     }
+    .media-demo {
+        padding: 0.5rem;
+    }
+    .media-demo video {
+        max-height: 200px;
+    }
     .table-wrapper {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
     .demo-table th,
     .demo-table td {
-        padding: 0.5rem 0.6rem;
+        padding: 0.4rem 0.5rem;
+    }
+    .lists-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    .entities-grid {
+        gap: 0.35rem;
+    }
+    .entity-card {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.5rem;
+    }
+    .best-practices li {
+        font-size: 0.85rem;
+    }
+    .links-demo {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+    .checkbox-group, .radio-group {
+        flex-direction: column;
+        gap: 0.35rem;
     }
 }
 

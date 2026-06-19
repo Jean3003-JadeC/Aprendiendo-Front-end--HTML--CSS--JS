@@ -179,21 +179,167 @@
     color: #1a1a2e;
 }
 
+/* === Breadcrumb del módulo === */
+.module-breadcrumb {
+    background: linear-gradient(135deg, #5a3d8a, #7952b3);
+}
+
+.module-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.module-breadcrumb .breadcrumb-item a:hover {
+    opacity: 0.85;
+}
+
 /* === Scroll margin para secciones (anclas no ocultas tras navbar sticky) === */
 [id^="s-"] {
     scroll-margin-top: 70px;
 }
 
-/* === Responsive for TOC === */
-@media (max-width: 768px) {
-    .toc-list {
-        column-count: 1;
+/* === Responsive refinado === */
+
+/* Tablet (768px - 992px) */
+@media (max-width: 992px) {
+    .container:not(.module-breadcrumb .container) {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+    .section-title {
+        font-size: 1.3rem;
     }
 }
 
+/* Mobile (< 768px) */
+@media (max-width: 768px) {
+    .toc-list {
+        column-count: 1;
+        padding-left: 1rem;
+    }
+    .toc-list li {
+        margin-bottom: 0.35rem;
+    }
+    .toc-list a {
+        font-size: 0.85rem;
+    }
+    .section-title {
+        font-size: 1.15rem;
+    }
+    .module-breadcrumb .container {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+    .breadcrumb {
+        font-size: 0.85rem;
+    }
+    /* Cards stack on mobile */
+    .cards-grid .col-md-6 {
+        margin-bottom: 1rem;
+    }
+    /* Exercise buttons full width */
+    .btn-exercise {
+        width: 100%;
+        text-align: center;
+    }
+    .exercise-box {
+        padding: 1rem;
+    }
+    .hint {
+        font-size: 0.85rem;
+        padding: 0.6rem;
+    }
+    /* Code blocks */
+    .code-demo {
+        font-size: 0.75rem;
+        padding: 0.75rem;
+    }
+    /* Code toggle */
+    .code-toggle summary {
+        font-size: 0.8rem;
+        width: 100%;
+        text-align: center;
+    }
+    /* Images */
+    .img-fluid-demo {
+        max-width: 100%;
+    }
+    /* Tab content spacing */
+    .tab-content {
+        padding: 0.75rem 0 !important;
+    }
+    /* Modal demo buttons */
+    .modal-demo-buttons .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    /* Carousel */
+    .carousel-caption {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+    .carousel-caption h5 {
+        font-size: 1rem;
+    }
+    /* Accordion */
+    .accordion-body {
+        font-size: 0.85rem;
+    }
+    /* Navbar brand */
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    /* Utility demos */
+    .demo-box {
+        padding: 0.75rem;
+    }
+}
+
+/* Small mobile (< 576px) */
 @media (max-width: 576px) {
     .table {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
+    }
+    .table th,
+    .table td {
+        padding: 0.3rem 0.4rem;
+    }
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+    h3 {
+        font-size: 0.95rem;
+    }
+    .navbar .btn {
+        font-size: 0.8rem;
+    }
+    /* Carousel controls smaller */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    /* Utility demos - flex wrap */
+    .d-flex.gap-2.flex-wrap {
+        gap: 0.35rem !important;
+    }
+    .d-flex.gap-2.flex-wrap > * {
+        font-size: 0.8rem;
+    }
+}
+
+/* Very small (< 400px) */
+@media (max-width: 400px) {
+    .container {
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
+    }
+    .code-demo {
+        font-size: 0.65rem;
+        padding: 0.5rem;
     }
 }
 

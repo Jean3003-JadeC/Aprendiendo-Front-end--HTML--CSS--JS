@@ -47,28 +47,28 @@ Aprendiendo Front-end/
 ## Detalle de cada módulo
 
 ### 📄 html/
-- `index.html`: explicación de qué es HTML + ejemplo de estructura básica.
+- `index.html`: **12 secciones** en orden progresivo: Introducción, Sintaxis, Encabezados/Párrafos, Formato de Texto, Enlaces, Multimedia, Listas, Tablas, Formularios, Semántica, Buenas Prácticas, Proyecto Final.
 - `temario.md`: 12 secciones cubriendo desde introducción hasta recursos avanzados.
 - `css/style.css`: estilos con breadcrumb naranja, secciones tipo card, bloques de código oscuros, footer y responsive.
-- `js/script.js`: cambia el color del título al hacer clic (demostración simple de eventos).
+- `js/script.js`: ejercicios interactivos con pistas toggleables, validación de formularios, galería de imágenes.
 
 ### 🎨 css/
-- `index.html`: explicación de qué es CSS + ejemplo de selectores.
+- `index.html`: **14 secciones** en orden progresivo: Introducción, Sintaxis, Selectores, Box Model, Fondos/Bordes, Texto/Fuentes, Posicionamiento, Flexbox, Grid, Responsive, Transiciones/Animaciones, Transformaciones, Variables CSS, Proyecto Final. Incluye playgrounds interactivos de Flexbox y Grid.
 - `temario.md`: 17 secciones cubriendo desde sintaxis hasta preprocesadores.
-- `css/style.css`: incluye ejemplos de clases utilitarias comentadas, estilos de formularios y tablas.
-- `js/script.js`: escala el título al hacer clic (demostración de manipulación de estilos con JS).
+- `css/style.css`: estilos para playgrounds, controles con botones y sliders, paneles de código, animaciones @keyframes.
+- `js/script.js`: playground Flexbox y Grid interactivos con controles en vivo, CSS generado dinámicamente, botón copiar al portapapeles.
 
 ### ⚡ js/
-- `index.html`: explicación de qué es JS + botón interactivo con contador de clics.
+- `index.html`: **13 secciones** en orden progresivo: Introducción, Sintaxis/Fundamentos, Estructuras de Control, Funciones, Objetos, Arrays, Cadenas de Texto, Manejo de Errores, Asincronía/Promesas, DOM/Eventos, BOM/Fetch, Módulos/Buenas Prácticas, Proyecto Final. Incluye To-Do List, Event Delegation, Fetch API y Async Serie/Paralelo.
 - `temario.md`: 18 secciones cubriendo desde fundamentos hasta frameworks y proyecto final.
-- `css/style.css`: tema oscuro para fatiga visual reducida, botón interactivo estilizado.
-- `js/script.js`: contador de clics con cambio de color, manipulación del DOM, ejercicios sugeridos.
+- `css/style.css`: tema oscuro, estilos para todo list, delegación de eventos, fetch API, tracks de progreso asíncrono, demos de objetos/arrays/strings.
+- `js/script.js`: demos interactivas de objetos (generador de personas), arrays (map/filter/reduce), strings (transformador de texto), To-Do List, Event Delegation, Fetch API (randomuser.me), Async Serie/Paralelo/Race.
 
 ### 🅱️ bootstrap/
-- `index.html`: incluye grid de 3 columnas, botones de todos los colores, card, alerta informativa.
+- `index.html`: **11 secciones** en orden progresivo: Introducción, Instalación, Grid, Contenido (tipografía/imágenes/tablas), Componentes (botones/badges/alertas/progress/spinners), Navbar, Carrusel, Acordeón/Tabs, Modal, Utilidades (espaciado/color/flex/bordes/texto), Proyecto Final. Navbar sticky-top funcional con dropdown.
 - `temario.md`: 10 secciones cubriendo desde instalación hasta integración con frameworks.
-- `css/style.css`: usa variables CSS para personalizar Bootstrap, sin `!important`.
-- `js/script.js`: demo que crea y muestra un modal de Bootstrap dinámicamente con la API nativa.
+- `css/style.css`: estilos para bloques de código oscuros, toggles de código, ejercicios, scroll-margin-top para anclas.
+- `js/script.js`: modal dinámico con JS, tooltips Bootstrap, spinner interactivo, botones de pista para ejercicios.
 
 ## Mejoras implementadas (v2.0)
 

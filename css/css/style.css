@@ -588,28 +588,206 @@ footer a:hover {
 }
 
 /* === Responsive === */
+
+/* Tablet (600px - 900px) */
+@media (max-width: 900px) {
+    .container {
+        padding: 1.5rem;
+    }
+    header h1 {
+        font-size: 1.8rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+    .content-section {
+        padding: 1.25rem;
+    }
+}
+
+/* Mobile (< 600px) */
 @media (max-width: 600px) {
     .container {
         padding: 1rem;
     }
     header h1 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
+    }
+    .subtitle {
+        font-size: 0.9rem;
+    }
+    h2 {
+        font-size: 1.15rem;
+    }
+    .breadcrumb {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
     }
     .content-section {
-        padding: 1rem;
+        padding: 0.85rem;
+        border-radius: 8px;
     }
     .flex-viewport,
     .grid-viewport {
-        min-height: 140px;
+        min-height: 120px;
+        padding: 0.5rem;
+        gap: 4px;
     }
     .flex-item,
     .grid-item {
-        font-size: 0.9rem;
-        min-height: 44px;
+        font-size: 0.8rem;
+        min-height: 38px;
+        min-width: 40px;
+        padding: 0.3rem 0.6rem;
     }
     .ctrl-btn {
+        font-size: 0.65rem;
+        padding: 0.25rem 0.4rem;
+    }
+    .controls-panel {
+        padding: 0.75rem;
+    }
+    .preview-panel {
+        padding: 0.75rem;
+    }
+    .code-panel {
+        padding: 0.75rem;
+    }
+    .code-panel .code-example {
+        font-size: 0.75rem;
+    }
+    .playground-layout {
+        gap: 0.75rem;
+    }
+    .copy-btn {
         font-size: 0.7rem;
-        padding: 0.3rem 0.5rem;
+        padding: 0.3rem 0.7rem;
+    }
+    /* Box model */
+    .box-model-visual {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+    .bm-margin {
+        padding: 0.75rem;
+    }
+    .bm-content {
+        padding: 1rem;
+    }
+    /* Animation demo */
+    .animation-demo {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .anim-box {
+        width: 44px;
+        height: 44px;
+    }
+    /* Transform demo */
+    .transform-demo {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+    /* Units */
+    .units-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* Pseudo demo */
+    .pseudo-demo {
+        flex-direction: column;
+    }
+    .pseudo-btn {
+        width: 100%;
+        text-align: center;
+    }
+    /* Transition demo */
+    .transition-demo {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+        width: 100%;
+    }
+    .t-width {
+        width: 100% !important;
+    }
+    /* Info box */
+    .info-box {
+        font-size: 0.8rem;
+        padding: 0.6rem 0.8rem;
+    }
+    /* Display demo */
+    .display-demo {
+        flex-direction: column;
+    }
+    .disp-inline-block {
+        width: 100%;
+    }
+    /* Table */
+    .mini-table {
+        font-size: 0.75rem;
+    }
+    .mini-table th,
+    .mini-table td {
+        padding: 0.3rem 0.4rem;
+    }
+    /* Code blocks */
+    .code-example {
+        padding: 0.75rem;
+        font-size: 0.75rem;
+    }
+    .code-example code {
+        font-size: 0.75rem;
+    }
+    /* Exercise */
+    .exercise-box {
+        padding: 0.85rem;
+    }
+    .btn-exercise {
+        width: 100%;
+        text-align: center;
+    }
+    .hint {
+        font-size: 0.8rem;
+        padding: 0.6rem;
+    }
+    /* Range slider */
+    .range-slider {
+        height: 5px;
+    }
+    .range-slider::-webkit-slider-thumb {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Very small screens (< 400px) */
+@media (max-width: 400px) {
+    .container {
+        padding: 0.6rem;
+    }
+    header h1 {
+        font-size: 1.3rem;
+    }
+    .content-section {
+        padding: 0.6rem;
+    }
+    .flex-item,
+    .grid-item {
+        font-size: 0.7rem;
+        min-height: 32px;
+        min-width: 32px;
+    }
+    .btn-group {
+        gap: 0.2rem;
+    }
+    .ctrl-btn {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.3rem;
+    }
+    .units-grid {
+        grid-template-columns: 1fr 1fr;
     }
 }
 

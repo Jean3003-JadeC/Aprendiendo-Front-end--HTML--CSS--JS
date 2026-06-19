@@ -265,18 +265,72 @@
         }
 
         /* === Responsive === */
-        @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .hero p {
-                font-size: 1rem;
+        @media (max-width: 768px) {
+            .hero {
+                padding: 2.5rem 1.5rem 2rem;
             }
             .cards-container {
-                padding: 0 1rem;
+                margin-top: -1.5rem;
+            }
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .hero p {
+                font-size: 0.95rem;
+            }
+            .hero-badge {
+                font-size: 0.75rem;
+                padding: 0.3rem 1rem;
+            }
+            .cards-container {
+                padding: 0 0.75rem;
+                margin-top: -1rem;
             }
             .cards-grid {
                 grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            .card {
+                padding: 1.25rem 1rem;
+            }
+            .card-icon {
+                font-size: 2rem;
+            }
+            .card h3 {
+                font-size: 1.1rem;
+            }
+            .card p {
+                font-size: 0.8rem;
+            }
+            .card-tags span {
+                font-size: 0.6rem;
+            }
+            .btn-card {
+                padding: 0.5rem 1.25rem;
+                font-size: 0.8rem;
+            }
+            .info-bar {
+                padding: 0 0.75rem;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            .info-item {
+                padding: 0.75rem;
+            }
+            .info-item .number {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -293,12 +347,12 @@
             <div class="card">
                 <span class="card-icon">📄</span>
                 <h3>HTML</h3>
-                <p>Estructura y semántica de la web. Aprende etiquetas, formularios, tablas, multimedia y accesibilidad.</p>
+                <p>12 secciones progresivas: sintaxis, encabezados, formato de texto, enlaces, multimedia, listas, tablas, formularios, semántica y buenas prácticas.</p>
                 <div class="card-tags">
+                    <span>sintaxis</span>
+                    <span>tablas</span>
+                    <span>formularios</span>
                     <span>semántica</span>
-                    <span>forms</span>
-                    <span>SEO</span>
-                    <span>accesibilidad</span>
                 </div>
                 <a href="html/index.html" class="btn-card">Comenzar →</a>
             </div>
@@ -306,11 +360,11 @@
             <div class="card">
                 <span class="card-icon">🎨</span>
                 <h3>CSS</h3>
-                <p>Diseño visual profesional. Domina Flexbox, Grid, animaciones, responsive design y metodologías.</p>
+                <p>14 secciones: selectores, box model, fondos, texto, posicionamiento, flexbox, grid, responsive, animaciones, transformaciones y variables CSS.</p>
                 <div class="card-tags">
+                    <span>selectores</span>
                     <span>flexbox</span>
                     <span>grid</span>
-                    <span>animaciones</span>
                     <span>responsive</span>
                 </div>
                 <a href="css/index.html" class="btn-card">Comenzar →</a>
@@ -319,12 +373,12 @@
             <div class="card">
                 <span class="card-icon">⚡</span>
                 <h3>JavaScript</h3>
-                <p>Interactividad y lógica. DOM, eventos, asincronía, APIs web, ES6+, módulos y fundamentos de frameworks.</p>
+                <p>13 secciones: sintaxis, estructuras de control, funciones, objetos, arrays, cadenas, errores, asincronía, DOM, fetch, módulos y buenas prácticas.</p>
                 <div class="card-tags">
+                    <span>funciones</span>
                     <span>DOM</span>
-                    <span>ES6+</span>
                     <span>async</span>
-                    <span>APIs</span>
+                    <span>fetch</span>
                 </div>
                 <a href="js/index.html" class="btn-card">Comenzar →</a>
             </div>
@@ -332,12 +386,12 @@
             <div class="card">
                 <span class="card-icon">🅱️</span>
                 <h3>Bootstrap 5.3.8</h3>
-                <p>El framework CSS más popular. Grid, componentes, utilidades y personalización con Sass.</p>
+                <p>11 secciones: instalación (CDN/npm), grid, contenido, componentes (navbar, carrusel, modal, acordeón), utilidades de espaciado, color, flex y bordes.</p>
                 <div class="card-tags">
                     <span>grid</span>
                     <span>componentes</span>
+                    <span>modales</span>
                     <span>utilidades</span>
-                    <span>responsive</span>
                 </div>
                 <a href="bootstrap/index.html" class="btn-card">Comenzar →</a>
             </div>
