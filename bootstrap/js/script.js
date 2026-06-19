@@ -9,7 +9,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     console.log('🅱️ Módulo de Bootstrap 5.3.8 cargado correctamente');
-    console.log('💡 Bootstrap está funcionando desde CDN');
 
     // ============================================================
     // Inicializar Tooltips (requieren JS en Bootstrap 5)
@@ -54,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     </div>
                                 </div>
                                 <hr>
-                                <p class="mb-0">Este modal se creó dinámicamente con <code>document.createElement()</code> y la API de Bootstrap JS. Usa componentes Bootstrap con confianza — todo funciona.</p>
+                                <p class="mb-0">Este modal se creó dinámicamente con <code>document.createElement()</code> y la API de Bootstrap JS.</p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -65,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 `;
                 document.body.appendChild(demoModal);
 
-                // Evento en el botón sorpresa dentro del modal
                 demoModal.querySelector('#modal-surprise')?.addEventListener('click', function () {
                     alert('🎉 ¡Has descubierto el botón sorpresa! Bootstrap + JS = poder.');
                 });
@@ -76,6 +74,37 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         console.log('✅ Demo de modal dinámico lista');
+    }
+
+    // ============================================================
+    // Demo: Botón de spinner (cargar datos simulado)
+    // ============================================================
+    const spinnerBtn = document.getElementById('spinnerBtn');
+    if (spinnerBtn) {
+        spinnerBtn.addEventListener('click', function () {
+            const icon = document.getElementById('spinnerIcon');
+            const text = document.getElementById('spinnerText');
+            if (!icon || !text) return;
+
+            const isLoading = !icon.classList.contains('d-none');
+
+            if (isLoading) {
+                icon.classList.add('d-none');
+                text.textContent = 'Cargar datos';
+            } else {
+                icon.classList.remove('d-none');
+                text.textContent = 'Cargando...';
+
+                // Simular carga de 2 segundos
+                setTimeout(() => {
+                    icon.classList.add('d-none');
+                    text.textContent = '✅ Datos cargados';
+                    setTimeout(() => {
+                        text.textContent = 'Cargar datos';
+                    }, 1500);
+                }, 2000);
+            }
+        });
     }
 
     // ============================================================
@@ -97,12 +126,11 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('✅ Todos los componentes de Bootstrap inicializados');
 });
 
-/* 
+/*
  * 🧪 EJERCICIOS SUGERIDOS:
  * 1. Agrega un Toast de Bootstrap que aparezca al cargar la página
  * 2. Inicializa un Popover en un botón con texto personalizado
- * 3. Crea un Offcanvas que se abra desde un botón en la navbar
- * 4. Agrega un Spinner animado que se muestre al hacer clic en un botón
+ * 3. Crea un Offcanvas que se abra desde un botón
  */
 
 /* Fin de script.js */

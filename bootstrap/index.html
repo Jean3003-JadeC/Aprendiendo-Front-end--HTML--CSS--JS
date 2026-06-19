@@ -9,39 +9,29 @@
 </head>
 <body>
     <!-- ============================================================ -->
-    <!-- DEMO 1: NAVBAR                                               -->
+    <!-- NAVBAR (Demo funcional en S5)                               -->
     <!-- ============================================================ -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                🅱️ <strong>Bootstrap 5.3</strong>
-            </a>
+            <a class="navbar-brand" href="#">🅱️ <strong>Bootstrap 5.3</strong></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDemo" 
                     aria-controls="navbarDemo" aria-expanded="false" aria-label="Abrir menú">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarDemo">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#navbar-section">Navbar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#carousel-section">Carrusel</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#accordion-section">Acordeón</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#s-intro">Intro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#s-grid">Grid</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#s-contenido">Contenido</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Más componentes
-                        </a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Componentes</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#grid-section">Grid</a></li>
-                            <li><a class="dropdown-item" href="#buttons-section">Botones</a></li>
-                            <li><a class="dropdown-item" href="#modal-section">Modal</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#final-section">Proyecto final</a></li>
+                            <li><a class="dropdown-item" href="#s-componentes">Botones / Alertas</a></li>
+                            <li><a class="dropdown-item" href="#s-navbar">Navbar</a></li>
+                            <li><a class="dropdown-item" href="#s-carousel">Carrusel</a></li>
+                            <li><a class="dropdown-item" href="#s-accordion">Acordeón</a></li>
+                            <li><a class="dropdown-item" href="#s-modal">Modal</a></li>
+                            <li><a class="dropdown-item" href="#s-utilidades">Utilidades</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -53,26 +43,445 @@
         </div>
     </nav>
 
-    <!-- ============================================================ -->
-    <!-- CONTENIDO PRINCIPAL                                          -->
-    <!-- ============================================================ -->
     <div class="container py-4">
         <header class="mb-4" id="top">
             <h1 class="display-4">Lecciones de Bootstrap 5.3.8</h1>
             <p class="lead">Crea interfaces responsivas y modernas sin escribir CSS desde cero</p>
         </header>
 
-        <section class="mb-4 p-4 bg-light rounded-3">
-            <h2>¿Qué es Bootstrap?</h2>
-            <p><strong>Bootstrap</strong> es el framework de CSS más popular. Proporciona un <strong>sistema de grid</strong>, <strong>componentes preconstruidos</strong> (navbar, carrusel, acordeón, modales) y <strong>utilidades</strong> para crear sitios web responsivos rápida y consistentemente.</p>
+        <!-- ============================================================ -->
+        <!-- ÍNDICE DE CONTENIDOS                                        -->
+        <!-- ============================================================ -->
+        <section class="mb-5 p-4 bg-light rounded-3" id="s-indice">
+            <h2>📑 Índice de Contenidos</h2>
+            <ol class="toc-list mb-0">
+                <li><a href="#s-intro">Introducción a Bootstrap</a></li>
+                <li><a href="#s-instalacion">Instalación y Configuración</a></li>
+                <li><a href="#s-grid">Sistema de Rejilla (Grid)</a></li>
+                <li><a href="#s-contenido">Contenido: Tipografía, Imágenes, Tablas</a></li>
+                <li><a href="#s-componentes">Componentes: Botones, Alertas, Badges</a></li>
+                <li><a href="#s-navbar">Navbar responsivo</a></li>
+                <li><a href="#s-carousel">Carrusel de imágenes</a></li>
+                <li><a href="#s-accordion">Acordeón y Tabs</a></li>
+                <li><a href="#s-modal">Ventana Modal</a></li>
+                <li><a href="#s-utilidades">Utilidades: Espaciado, Color, Flex, Bordes</a></li>
+                <li><a href="#s-proyecto">🎯 Proyecto Final</a></li>
+            </ol>
         </section>
 
         <!-- ============================================================ -->
-        <!-- NAVBAR SECTION                                               -->
+        <!-- SECCIÓN 1: INTRODUCCIÓN                                     -->
         <!-- ============================================================ -->
-        <section class="mb-5" id="navbar-section">
-            <h2 class="section-title">🧭 Navbar responsivo</h2>
-            <p>La barra de navegación de Bootstrap es <strong>responsiva por defecto</strong>. Incluye brand, enlaces, dropdown, buscador y se colapsa en móviles.</p>
+        <section class="mb-5" id="s-intro">
+            <h2 class="section-title">1. Introducción a Bootstrap</h2>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <p><strong>Bootstrap</strong> es el framework de CSS más popular del mundo, creado por Twitter (2011). Proporciona un <strong>sistema de grid responsivo</strong>, <strong>componentes preconstruidos</strong> y <strong>utilidades CSS</strong> para crear interfaces web rápidamente.</p>
+                </div>
+            </div>
+
+            <div class="row g-3 mb-3">
+                <div class="col-md-4">
+                    <div class="card h-100 text-center p-3 border-primary shadow-sm">
+                        <div class="card-body">
+                            <div class="display-6 mb-2">📐</div>
+                            <h5 class="card-title">Grid Responsivo</h5>
+                            <p class="card-text small">Sistema de 12 columnas con 6 breakpoints: de móvil a pantallas grandes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center p-3 border-success shadow-sm">
+                        <div class="card-body">
+                            <div class="display-6 mb-2">🧩</div>
+                            <h5 class="card-title">Componentes</h5>
+                            <p class="card-text small">Navbar, modales, carrusel, acordeón, cards, tooltips y más</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center p-3 border-warning shadow-sm">
+                        <div class="card-body">
+                            <div class="display-6 mb-2">⚡</div>
+                            <h5 class="card-title">Utilidades</h5>
+                            <p class="card-text small">Clases para espaciado, colores, tipografía y flex sin escribir CSS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>💡 Versiones:</strong> Bootstrap 5.3.8 es la última versión estable. Ya no depende de jQuery ni de Popper.js para componentes básicos.
+            </div>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Identificar componentes</h4>
+                <p>Esta página ya usa Bootstrap. Navega por la página e identifica al menos 5 componentes diferentes (navbar, cards, alertas, botones, etc.). ¿Cuántos encuentras?</p>
+                <button class="btn-exercise" data-exercise="intro">Mostrar pista</button>
+                <p class="hint" id="hint-intro" hidden>💡 Mira la navbar, las tarjetas de arriba, la alerta azul, los botones en las secciones y el footer. ¡Bootstrap lo está manejando todo!</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 2: INSTALACIÓN                                      -->
+        <!-- ============================================================ -->
+        <section class="mb-5" id="s-instalacion">
+            <h2 class="section-title">2. Instalación y Configuración</h2>
+
+            <p>Hay tres formas principales de incluir Bootstrap en tu proyecto:</p>
+
+            <div class="row g-3 mb-3">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-primary text-white fw-bold">☁️ CDN (recomendado)</div>
+                        <div class="card-body">
+                            <p class="card-text small">Agrega los <code>&lt;link&gt;</code> y <code>&lt;script&gt;</code> en tu HTML. Sin descargas ni instalaciones.</p>
+                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#cdnCode">Ver código</button>
+                            <div class="collapse mt-2" id="cdnCode">
+                                <div class="code-demo small">
+                                    <pre><code>&lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-success text-white fw-bold">📦 npm</div>
+                        <div class="card-body">
+                            <p class="card-text small">Para proyectos con Node.js: <code>npm install bootstrap@5.3.8</code> e importa desde <code>node_modules</code>.</p>
+                            <button class="btn btn-sm btn-outline-success" data-bs-toggle="collapse" data-bs-target="#npmCode">Ver código</button>
+                            <div class="collapse mt-2" id="npmCode">
+                                <div class="code-demo small">
+                                    <pre><code>npm install bootstrap@5.3.8
+
+// En tu JS:
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap';</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-dark text-white fw-bold">⬇️ Descarga</div>
+                        <div class="card-body">
+                            <p class="card-text small">Descarga los archivos compilados desde <a href="https://getbootstrap.com/docs/5.3/getting-started/download/" target="_blank" rel="noopener">getbootstrap.com</a> e inclúyelos localmente.</p>
+                            <a href="https://getbootstrap.com/docs/5.3/getting-started/download/" target="_blank" rel="noopener" class="btn btn-sm btn-dark">Ir a descargas →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-3">
+                <div class="card-header bg-secondary text-white fw-bold">
+                    🏁 Plantilla inicial (starter template)
+                </div>
+                <div class="card-body">
+                    <div class="code-demo">
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;title&gt;Mi proyecto Bootstrap&lt;/title&gt;
+    &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;¡Hola, Bootstrap!&lt;/h1&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Starter template</h4>
+                <p>Crea un archivo <code>bootstrap/mi-primer-bootstrap.html</code> con la plantilla inicial. Agrega un <code>h1</code> y un <code>p.lead</code>, luego ábrelo en el navegador.</p>
+                <button class="btn-exercise" data-exercise="instalacion">Mostrar pista</button>
+                <p class="hint" id="hint-instalacion" hidden>💡 Copia la plantilla de arriba, guárdala como HTML y ábrela. Si ves texto con la fuente de Bootstrap y la página se ve bien, ¡está funcionando!</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 3: GRID                                             -->
+        <!-- ============================================================ -->
+        <section class="mb-5" id="s-grid">
+            <h2 class="section-title">3. Sistema de Rejilla (Grid)</h2>
+
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <p>El grid de Bootstrap divide el ancho en <strong>12 columnas</strong>. Usa <code>.container</code> → <code>.row</code> → <code>.col-*</code>. Hay 6 breakpoints responsivos:</p>
+                    <div class="row text-center g-1 mb-3">
+                        <div class="col-4 col-sm-2"><span class="badge bg-secondary w-100 py-2">xs<br><small>&lt;576px</small></span></div>
+                        <div class="col-4 col-sm-2"><span class="badge bg-primary w-100 py-2">sm<br><small>≥576px</small></span></div>
+                        <div class="col-4 col-sm-2"><span class="badge bg-success w-100 py-2">md<br><small>≥768px</small></span></div>
+                        <div class="col-4 col-sm-2"><span class="badge bg-warning text-dark w-100 py-2">lg<br><small>≥992px</small></span></div>
+                        <div class="col-4 col-sm-2"><span class="badge bg-info text-dark w-100 py-2">xl<br><small>≥1200px</small></span></div>
+                        <div class="col-4 col-sm-2"><span class="badge bg-danger w-100 py-2">xxl<br><small>≥1400px</small></span></div>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="mb-2">📊 Columnas iguales (3 columnas)</h5>
+            <div class="row mb-3 g-2">
+                <div class="col-md-4"><div class="grid-demo bg-primary text-white p-3 rounded text-center">.col-md-4</div></div>
+                <div class="col-md-4"><div class="grid-demo bg-success text-white p-3 rounded text-center">.col-md-4</div></div>
+                <div class="col-md-4"><div class="grid-demo bg-warning text-dark p-3 rounded text-center">.col-md-4</div></div>
+            </div>
+
+            <h5 class="mb-2">📐 Columnas de diferentes tamaños</h5>
+            <div class="row mb-3 g-2">
+                <div class="col-md-3"><div class="grid-demo bg-info text-dark p-3 rounded text-center">.col-md-3</div></div>
+                <div class="col-md-6"><div class="grid-demo bg-primary text-white p-3 rounded text-center">.col-md-6</div></div>
+                <div class="col-md-3"><div class="grid-demo bg-secondary text-white p-3 rounded text-center">.col-md-3</div></div>
+            </div>
+
+            <h5 class="mb-2">🔄 Responsivo: apilamiento en móvil</h5>
+            <div class="row mb-3 g-2">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="grid-demo bg-danger text-white p-3 rounded text-center">col-12 col-md-6 col-lg-3</div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="grid-demo bg-success text-white p-3 rounded text-center">col-12 col-md-6 col-lg-3</div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="grid-demo bg-warning text-dark p-3 rounded text-center">col-12 col-md-6 col-lg-3</div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="grid-demo bg-info text-dark p-3 rounded text-center">col-12 col-md-6 col-lg-3</div>
+                </div>
+            </div>
+            <p class="text-muted"><small>🔄 Redimensiona la ventana — las columnas se reordenan en cada breakpoint.</small></p>
+
+            <details class="code-toggle mb-3">
+                <summary>📝 Ver código del Grid</summary>
+                <div class="code-demo">
+                    <pre><code>&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-md-4&quot;&gt;Columna 1&lt;/div&gt;
+        &lt;div class=&quot;col-md-4&quot;&gt;Columna 2&lt;/div&gt;
+        &lt;div class=&quot;col-md-4&quot;&gt;Columna 3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </details>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Grid de 2-8-2</h4>
+                <p>Crea un layout con 3 columnas de ancho 2, 8 y 2 usando <code>col-md-2</code>, <code>col-md-8</code>, <code>col-md-2</code>. ¿Qué contenido pondrías en cada sección?</p>
+                <button class="btn-exercise" data-exercise="grid">Mostrar pista</button>
+                <p class="hint" id="hint-grid" hidden>💡 El diseño 2-8-2 es ideal para sidebar-content-sidebar. Un blog típico: menú izquierdo (2), artículo principal (8), widgets (2).</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 4: CONTENIDO (Tipografía, Imágenes, Tablas)          -->
+        <!-- ============================================================ -->
+        <section class="mb-5" id="s-contenido">
+            <h2 class="section-title">4. Contenido: Tipografía, Imágenes, Tablas</h2>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5>📝 Tipografía Bootstrap</h5>
+                    <p>Bootstrap aplica estilos base a toda la tipografía y añade clases auxiliares:</p>
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <h1>h1. Encabezado</h1>
+                            <h2>h2. Encabezado</h2>
+                            <h3>h3. Encabezado</h3>
+                            <h4>h4. Encabezado</h4>
+                            <h5>h5. Encabezado</h5>
+                            <h6>h6. Encabezado</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="display-1">display-1</p>
+                            <p class="display-4">display-4</p>
+                            <p class="display-6">display-6</p>
+                            <p class="lead">Esta es una clase <code>.lead</code> para destacar párrafos.</p>
+                            <p>Texto normal con <mark>marcado</mark> y <small>texto pequeño</small>.</p>
+                            <p class="text-muted">Texto atenuado con <code>.text-muted</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5>🖼️ Imágenes responsivas</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <img src="https://placehold.co/600x300/7952b3/white?text=.img-fluid&font=raleway" class="img-fluid rounded" alt="Imagen responsiva">
+                            <p class="text-muted small mt-1"><code>.img-fluid</code> — la imagen se escala con el contenedor</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="https://placehold.co/300x300/0d6efd/white?text=.thumbnail&font=raleway" class="img-thumbnail" alt="Thumbnail">
+                            <p class="text-muted small mt-1"><code>.img-thumbnail</code> — imagen con borde redondeado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <h5>📊 Tablas Bootstrap</h5>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Componente</th>
+                                    <th scope="col">Requiere JS</th>
+                                    <th scope="col">Clase principal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td>Navbar</td><td>✅ Sí (toggle)</td><td><code>.navbar</code></td></tr>
+                                <tr><td>2</td><td>Carrusel</td><td>✅ Sí</td><td><code>.carousel</code></td></tr>
+                                <tr><td>3</td><td>Modal</td><td>✅ Sí</td><td><code>.modal</code></td></tr>
+                                <tr><td>4</td><td>Cards</td><td>❌ No</td><td><code>.card</code></td></tr>
+                                <tr><td>5</td><td>Grid</td><td>❌ No</td><td><code>.row / .col</code></td></tr>
+                                <tr><td>6</td><td>Acordeón</td><td>✅ Sí</td><td><code>.accordion</code></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-muted small mb-0">Clases usadas: <code>.table</code> <code>.table-striped</code> <code>.table-hover</code> <code>.table-bordered</code> <code>.table-responsive</code></p>
+                </div>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Personalizar la tabla</h4>
+                <p>Agrega una fila a la tabla con <code>class=\"table-primary\"</code> para el componente Card, y otra con <code>class=\"table-success\"</code> para Spinner. ¿Qué color tiene cada una?</p>
+                <button class="btn-exercise" data-exercise="contenido">Mostrar pista</button>
+                <p class="hint" id="hint-contenido" hidden>💡 <code>&lt;tr class=&quot;table-primary&quot;&gt;&lt;td&gt;7&lt;/td&gt;&lt;td&gt;Card&lt;/td&gt;...&lt;/tr&gt;</code>. <code>table-primary</code> es azul, <code>table-success</code> es verde.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 5: COMPONENTES - BOTONES, ALERTAS, BADGES, PROGRESS  -->
+        <!-- ============================================================ -->
+        <section class="mb-5" id="s-componentes">
+            <h2 class="section-title">5. Componentes: Botones, Alertas, Badges, Progress</h2>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5>🔘 Botones</h5>
+                    <p>Usa <code>.btn</code> + <code>.btn-{color}</code> para botones sólidos y <code>.btn-outline-{color}</code> para delineados.</p>
+                    <div class="d-flex gap-2 flex-wrap mb-2">
+                        <button class="btn btn-primary">Primary</button>
+                        <button class="btn btn-secondary">Secondary</button>
+                        <button class="btn btn-success">Success</button>
+                        <button class="btn btn-danger">Danger</button>
+                        <button class="btn btn-warning">Warning</button>
+                        <button class="btn btn-info">Info</button>
+                        <button class="btn btn-dark">Dark</button>
+                        <button class="btn btn-light border">Light</button>
+                        <button class="btn btn-link">Link</button>
+                    </div>
+                    <div class="d-flex gap-2 flex-wrap mb-2">
+                        <button class="btn btn-outline-primary">Outline Primary</button>
+                        <button class="btn btn-outline-success">Outline Success</button>
+                        <button class="btn btn-outline-danger">Outline Danger</button>
+                    </div>
+                    <div class="d-flex gap-2 flex-wrap align-items-center mb-0">
+                        <button class="btn btn-primary btn-lg">.btn-lg</button>
+                        <button class="btn btn-primary">Normal</button>
+                        <button class="btn btn-primary btn-sm">.btn-sm</button>
+                        <button class="btn btn-primary" disabled>Desactivado</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5>🏷️ Badges (insignias)</h5>
+                    <div class="d-flex gap-2 flex-wrap align-items-center">
+                        <span class="badge bg-primary">Nuevo</span>
+                        <span class="badge bg-success">Activo</span>
+                        <span class="badge bg-warning text-dark">Pendiente</span>
+                        <span class="badge bg-danger">Error</span>
+                        <span class="badge bg-info text-dark">Info</span>
+                        <span class="badge bg-dark rounded-pill">3</span>
+                        <span class="badge bg-secondary rounded-pill">99+</span>
+                        <span class="badge bg-primary rounded-pill">Notificaciones</span>
+                    </div>
+                    <div class="code-demo mt-2">
+                        <pre><code>&lt;span class=&quot;badge bg-primary&quot;&gt;Nuevo&lt;/span&gt;
+&lt;span class=&quot;badge bg-danger rounded-pill&quot;&gt;3&lt;/span&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5>⚠️ Alertas</h5>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>✅ ¡Bootstrap cargado!</strong> Esta alerta se puede cerrar con el botón ✕.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="alert alert-warning d-flex align-items-center" role="alert">
+                        <span class="me-2">⚠️</span>
+                        <div>Alerta de advertencia con <code>.d-flex</code> para alinear el ícono.</div>
+                    </div>
+                    <div class="alert alert-info mb-0" role="alert">
+                        💡 <strong>Info:</strong> Las alertas también aceptan <code>.alert-{color}</code> como primary, secondary, danger.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5>📊 Barras de progreso</h5>
+                    <div class="progress mb-2" role="progressbar" aria-label="Progreso 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: 75%">75%</div>
+                    </div>
+                    <div class="progress mb-2" role="progressbar" aria-label="Progreso 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-striped bg-warning" style="width: 40%">40%</div>
+                    </div>
+                    <div class="progress" role="progressbar" aria-label="Progreso 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar bg-danger" style="width: 100%">100%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <h5>⏳ Spinners</h5>
+                    <div class="d-flex gap-3 align-items-center">
+                        <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Cargando...</span></div>
+                        <div class="spinner-border text-success" role="status"><span class="visually-hidden">Cargando...</span></div>
+                        <div class="spinner-grow text-warning" role="status"><span class="visually-hidden">Cargando...</span></div>
+                        <div class="spinner-border spinner-border-sm text-danger" role="status"><span class="visually-hidden">Cargando...</span></div>
+                        <div>
+                            <button class="btn btn-primary" id="spinnerBtn">
+                                <span class="spinner-border spinner-border-sm d-none" id="spinnerIcon" role="status"></span>
+                                <span id="spinnerText">Cargar datos</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Botón con spinner</h4>
+                <p>El botón "Cargar datos" debería mostrar un spinner al hacer clic. Usa JavaScript para agregar/quitar la clase <code>.d-none</code> del spinner interior.</p>
+                <button class="btn-exercise" data-exercise="componentes">Mostrar pista</button>
+                <p class="hint" id="hint-componentes" hidden>💡 <code>document.getElementById('spinnerBtn').addEventListener('click', function() { document.getElementById('spinnerIcon').classList.toggle('d-none'); });</code></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- NAVBAR                                                       -->
+        <!-- ============================================================ -->
+        <section class="mb-5" id="s-navbar">
+            <h2 class="section-title">6. 🧭 Navbar responsivo</h2>
+            <p>La barra de navegación se colapsa en móviles usando <code>.navbar-expand-{breakpoint}</code>. Incluye brand, enlaces, dropdown y formularios.</p>
 
             <div class="demo-box">
                 <p class="mb-2 text-muted"><small>⬆️ La navbar de arriba es funcional. Navega entre secciones y prueba el menú desplegable.</small></p>
@@ -81,30 +490,15 @@
             <details class="code-toggle mb-3">
                 <summary>📝 Ver código del Navbar</summary>
                 <div class="code-demo">
-                    <pre><code>&lt;nav class="navbar navbar-expand-lg navbar-dark bg-dark"&gt;
-    &lt;div class="container"&gt;
-        &lt;a class="navbar-brand" href="#"&gt;🅱️ Bootstrap&lt;/a&gt;
-
-        &lt;button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"&gt;
-            &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+                    <pre><code>&lt;nav class=&quot;navbar navbar-expand-lg navbar-dark bg-dark&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;🅱️ Bootstrap&lt;/a&gt;
+        &lt;button class=&quot;navbar-toggler&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarNav&quot;&gt;
+            &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
         &lt;/button&gt;
-
-        &lt;div class="collapse navbar-collapse" id="navbarNav"&gt;
-            &lt;ul class="navbar-nav"&gt;
-                &lt;li class="nav-item"&gt;
-                    &lt;a class="nav-link active" href="#"&gt;Inicio&lt;/a&gt;
-                &lt;/li&gt;
-                &lt;li class="nav-item dropdown"&gt;
-                    &lt;a class="nav-link dropdown-toggle" href="#"
-                       data-bs-toggle="dropdown"&gt;
-                        Más
-                    &lt;/a&gt;
-                    &lt;ul class="dropdown-menu"&gt;
-                        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Opción&lt;/a&gt;&lt;/li&gt;
-                    &lt;/ul&gt;
-                &lt;/li&gt;
+        &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarNav&quot;&gt;
+            &lt;ul class=&quot;navbar-nav&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link active&quot; href=&quot;#&quot;&gt;Inicio&lt;/a&gt;&lt;/li&gt;
             &lt;/ul&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -113,54 +507,49 @@
             </details>
 
             <div class="exercise-box">
-                <h4>🧪 Ejercicio: Navbar con colores</h4>
-                <p>Cambia las clases de la navbar de arriba: prueba <code>navbar-light bg-light</code>, <code>bg-primary</code> o <code>bg-success</code>. Observa cómo cambian los colores.</p>
+                <h4>🧪 Ejercicio: Cambiar color del navbar</h4>
+                <p>Prueba a cambiar la clase de la navbar de arriba a <code>navbar-dark bg-primary</code> o <code>navbar-light bg-light</code>. ¿Qué combinación prefieres?</p>
                 <button class="btn-exercise" data-exercise="navbar">Mostrar pista</button>
-                <p class="hint" id="hint-navbar" hidden>💡 Edita la línea <code>&lt;nav class="navbar navbar-expand-lg navbar-dark bg-dark"&gt;</code> en el HTML. Cambia <code>navbar-dark</code> por <code>navbar-light</code> y <code>bg-dark</code> por <code>bg-primary</code>.</p>
+                <p class="hint" id="hint-navbar" hidden>💡 Edita el <code>&lt;nav&gt;</code> al inicio del HTML: cambia <code>navbar-dark bg-dark</code> por <code>navbar-light bg-light</code> o <code>bg-success</code>.</p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- CAROUSEL SECTION                                             -->
+        <!-- CAROUSEL                                                     -->
         <!-- ============================================================ -->
-        <section class="mb-5" id="carousel-section">
-            <h2 class="section-title">🎠 Carrusel de imágenes</h2>
-            <p>El carrusel (slider) muestra imágenes o contenido desplazable con controles, indicadores y transiciones suaves.</p>
+        <section class="mb-5" id="s-carousel">
+            <h2 class="section-title">7. 🎠 Carrusel de imágenes</h2>
+            <p>El carrusel muestra contenido desplazable con controles, indicadores y transiciones. Soporta auto-play y efecto fade.</p>
 
-            <div id="demoCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <!-- Indicadores -->
+            <div id="demoCarousel" class="carousel slide carousel-fade mb-3" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#demoCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#demoCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#demoCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
-
-                <!-- Slides -->
                 <div class="carousel-inner rounded-3">
                     <div class="carousel-item active">
                         <img src="https://placehold.co/800x350/7952b3/white?text=Bootstrap+5.3&font=raleway" class="d-block w-100" alt="Bootstrap 5.3">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>🅱️ Bootstrap 5.3.8</h5>
-                            <p>El framework CSS más popular del mundo</p>
+                            <p>El framework CSS más popular</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="https://placehold.co/800x350/0d6efd/white?text=Componentes&font=raleway" class="d-block w-100" alt="Componentes">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>🧩 Componentes preconstruidos</h5>
-                            <p>Navbar, cards, modales, tablas y más</p>
+                            <p>Navbar, cards, modales y más</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="https://placehold.co/800x350/198754/white?text=Responsive&font=raleway" class="d-block w-100" alt="Responsive">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>📱 Diseño responsive</h5>
-                            <p>Sistema de grid de 12 columnas con 6 breakpoints</p>
+                            <p>Grid de 12 columnas con 6 breakpoints</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Controles -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#demoCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Anterior</span>
@@ -171,124 +560,159 @@
                 </button>
             </div>
 
-            <details class="code-toggle mt-3">
+            <details class="code-toggle">
                 <summary>📝 Ver código del Carrusel</summary>
                 <div class="code-demo">
-                    <pre><code>&lt;div id="miCarrusel" class="carousel slide carousel-fade" data-bs-ride="carousel"&gt;
-    &lt;!-- Indicadores --&gt;
-    &lt;div class="carousel-indicators"&gt;
-        &lt;button data-bs-target="#miCarrusel" data-bs-slide-to="0" class="active"&gt;&lt;/button&gt;
-        &lt;button data-bs-target="#miCarrusel" data-bs-slide-to="1"&gt;&lt;/button&gt;
-    &lt;/div&gt;
-
-    &lt;!-- Slides --&gt;
-    &lt;div class="carousel-inner"&gt;
-        &lt;div class="carousel-item active"&gt;
-            &lt;img src="..." class="d-block w-100" alt="..."&gt;
-            &lt;div class="carousel-caption"&gt;
-                &lt;h5&gt;Título&lt;/h5&gt;
-                &lt;p&gt;Descripción&lt;/p&gt;
-            &lt;/div&gt;
+                    <pre><code>&lt;div id=&quot;miCarrusel&quot; class=&quot;carousel slide carousel-fade&quot; data-bs-ride=&quot;carousel&quot;&gt;
+    &lt;div class=&quot;carousel-inner&quot;&gt;
+        &lt;div class=&quot;carousel-item active&quot;&gt;
+            &lt;img src=&quot;...&quot; class=&quot;d-block w-100&quot; alt=&quot;...&quot;&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-
-    &lt;!-- Controles --&gt;
-    &lt;button class="carousel-control-prev" data-bs-target="#miCarrusel" data-bs-slide="prev"&gt;...&lt;/button&gt;
-    &lt;button class="carousel-control-next" data-bs-target="#miCarrusel" data-bs-slide="next"&gt;...&lt;/button&gt;
+    &lt;button class=&quot;carousel-control-prev&quot; data-bs-target=&quot;#miCarrusel&quot; data-bs-slide=&quot;prev&quot;&gt;...&lt;/button&gt;
+    &lt;button class=&quot;carousel-control-next&quot; data-bs-target=&quot;#miCarrusel&quot; data-bs-slide=&quot;next&quot;&gt;...&lt;/button&gt;
 &lt;/div&gt;</code></pre>
                 </div>
             </details>
 
             <div class="exercise-box">
-                <h4>🧪 Ejercicio: Personalizar el carrusel</h4>
-                <p>Agrega una cuarta imagen al carrusel con <strong>tema oscuro</strong> (fondo negro, texto blanco). No olvides agregar su indicador correspondiente.</p>
+                <h4>🧪 Ejercicio: Agregar slide 4</h4>
+                <p>Agrega un cuarto slide al carrusel con una imagen de <code>placehold.co/800x350/dc3545/white?text=Personalizar</code> y un caption que diga "Personalización con Sass".</p>
                 <button class="btn-exercise" data-exercise="carousel">Mostrar pista</button>
-                <p class="hint" id="hint-carousel" hidden>💡 Duplica un <code>&lt;div class="carousel-item"&gt;</code> existente, cambia la URL de la imagen y agrega un botón indicador extra con <code>data-bs-slide-to="3"</code>.</p>
+                <p class="hint" id="hint-carousel" hidden>💡 Duplica un <code>.carousel-item</code>, cambia el src de la imagen y agrega un indicador extra con <code>data-bs-slide-to=&quot;3&quot;</code>.</p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- ACCORDION SECTION                                            -->
+        <!-- ACCORDEÓN Y TABS                                             -->
         <!-- ============================================================ -->
-        <section class="mb-5" id="accordion-section">
-            <h2 class="section-title">📑 Acordeón</h2>
-            <p>El acordeón muestra contenido colapsable en secciones. Solo una sección se abre a la vez (a menos que uses <code>.accordion-flush</code>).</p>
+        <section class="mb-5" id="s-accordion">
+            <h2 class="section-title">8. 📑 Acordeón y Tabs (Pestañas)</h2>
 
-            <div class="accordion" id="demoAccordion">
+            <h5>📂 Acordeón</h5>
+            <p>Muestra contenido colapsable. Solo una sección abierta a la vez gracias a <code>data-bs-parent</code>.</p>
+            <div class="accordion mb-4" id="demoAccordion">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true">
                             📦 ¿Qué es Bootstrap?
                         </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#demoAccordion">
                         <div class="accordion-body">
-                            <p><strong>Bootstrap</strong> es un framework de CSS de código abierto creado por Twitter. Proporciona una colección de herramientas, componentes y utilidades para crear interfaces web responsivas y modernas de forma rápida y consistente.</p>
-                            <p>Características principales:</p>
-                            <ul>
-                                <li>Sistema de grid responsivo de 12 columnas</li>
-                                <li>Componentes preconstruidos (navbar, modales, cards, etc.)</li>
-                                <li>Utilidades CSS para espaciado, colores, tipografía y más</li>
-                                <li>Plugins JavaScript (carrusel, acordeón, tooltips, etc.)</li>
+                            <p><strong>Bootstrap</strong> es un framework CSS de código abierto creado por Twitter. Proporciona grid responsivo, componentes preconstruidos y utilidades para crear interfaces web rápidamente.</p>
+                            <ul class="mb-0">
+                                <li>Sistema de grid de 12 columnas con 6 breakpoints</li>
+                                <li>Componentes: navbar, modales, cards, carrusel, acordeón</li>
+                                <li>Utilidades CSS para espaciado, colores, tipografía</li>
+                                <li>Plugins JavaScript incluidos (carrusel, tooltips, etc.)</li>
                                 <li>Personalizable con variables Sass</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false">
                             🎨 ¿Cómo personalizar Bootstrap?
                         </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#demoAccordion">
                         <div class="accordion-body">
-                            <p>Hay varias formas de personalizar Bootstrap:</p>
-                            <ol>
-                                <li><strong>Variables CSS:</strong> Sobrescribe las variables de Bootstrap en tu propio CSS (<code>--bs-primary</code>, <code>--bs-border-radius</code>, etc.)</li>
-                                <li><strong>Sass:</strong> Si usas Sass, puedes modificar las variables <code>$theme-colors</code>, <code>$font-family-base</code>, etc. antes de importar Bootstrap</li>
-                                <li><strong>Clases de utilidad:</strong> Combina clases como <code>bg-*</code>, <code>text-*</code>, <code>border-*</code> para crear variaciones sin escribir CSS extra</li>
+                            <ol class="mb-0">
+                                <li><strong>Variables CSS:</strong> Sobrescribe <code>--bs-primary</code>, <code>--bs-border-radius</code></li>
+                                <li><strong>Sass:</strong> Modifica <code>$theme-colors</code> antes de importar Bootstrap</li>
+                                <li><strong>Clases de utilidad:</strong> Combina <code>bg-*</code>, <code>text-*</code>, <code>border-*</code></li>
                             </ol>
                         </div>
                     </div>
                 </div>
-
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            🚀 ¿Cómo empezar un proyecto con Bootstrap?
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false">
+                            🚀 ¿Cómo empezar?
                         </button>
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#demoAccordion">
                         <div class="accordion-body">
-                            <p>Puedes comenzar de 3 maneras:</p>
-                            <ol>
-                                <li><strong>CDN (recomendado):</strong> Agrega los enlaces a <code>cdn.jsdelivr.net</code> en tu HTML — como en esta misma página</li>
-                                <li><strong>npm:</strong> <code>npm install bootstrap@5.3.8</code> y luego importa los archivos desde <code>node_modules</code></li>
-                                <li><strong>Descarga:</strong> Descarga los archivos compilados desde <a href="https://getbootstrap.com/docs/5.3/getting-started/download/" target="_blank" rel="noopener">getbootstrap.com</a></li>
+                            <ol class="mb-0">
+                                <li><strong>CDN:</strong> Agrega <code>&lt;link&gt;</code> y <code>&lt;script&gt;</code> de jsDelivr</li>
+                                <li><strong>npm:</strong> <code>npm install bootstrap@5.3.8</code></li>
+                                <li><strong>Descarga:</strong> Desde <a href="https://getbootstrap.com" target="_blank">getbootstrap.com</a></li>
                             </ol>
-                            <p class="mb-0">📖 <a href="temario.md" target="_blank">Temario completo →</a></p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <details class="code-toggle mt-3">
-                <summary>📝 Ver código del Acordeón</summary>
+            <h5>📋 Pestañas (Tabs)</h5>
+            <ul class="nav nav-tabs" id="demoTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tab-html" data-bs-toggle="tab" data-bs-target="#tab-html-pane" type="button" role="tab" aria-selected="true">📄 HTML</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-css" data-bs-toggle="tab" data-bs-target="#tab-css-pane" type="button" role="tab" aria-selected="false">🎨 CSS</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-js" data-bs-toggle="tab" data-bs-target="#tab-js-pane" type="button" role="tab" aria-selected="false">⚡ JavaScript</button>
+                </li>
+            </ul>
+            <div class="tab-content p-3 border border-top-0 rounded-bottom bg-white" id="demoTabsContent">
+                <div class="tab-pane fade show active" id="tab-html-pane" role="tabpanel" tabindex="0">
+                    <strong>📄 HTML</strong> define la <em>estructura</em> de la página. Bootstrap usa HTML semántico con atributos <code>data-*</code> para activar componentes.
+                </div>
+                <div class="tab-pane fade" id="tab-css-pane" role="tabpanel" tabindex="0">
+                    <strong>🎨 CSS</strong> controla la <em>apariencia</em>. Bootstrap está escrito en Sass con más de 1000 variables personalizables.
+                </div>
+                <div class="tab-pane fade" id="tab-js-pane" role="tabpanel" tabindex="0">
+                    <strong>⚡ JavaScript</strong> añade <em>interactividad</em>. Los plugins JS de Bootstrap manejan modales, carrusel, acordeón y tooltips.
+                </div>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Tu propio acordeón</h4>
+                <p>Agrega una cuarta sección al acordeón sobre <strong>Utilidades de espaciado</strong> (<code>m-*</code>, <code>p-*</code>, <code>gap-*</code>). Ponle <code>id="collapseFour"</code>.</p>
+                <button class="btn-exercise" data-exercise="accordion">Mostrar pista</button>
+                <p class="hint" id="hint-accordion" hidden>💡 Duplica un <code>.accordion-item</code>, cambia <code>data-bs-target</code> a <code>#collapseFour</code> y el <code>id</code> del contenido a <code>collapseFour</code>.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- MODAL                                                        -->
+        <!-- ============================================================ -->
+        <section class="mb-5" id="s-modal">
+            <h2 class="section-title">9. 🪟 Ventana Modal</h2>
+            <p>Los modales son cuadros de diálogo que se superponen a la página. Se activan con <code>data-bs-toggle="modal"</code> o con JavaScript.</p>
+
+            <div class="d-flex gap-2 flex-wrap mb-3">
+                <button id="demo-modal-btn" class="btn btn-primary btn-lg">🚀 Modal con JS</button>
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticModal">
+                    Modal con data-bs-toggle
+                </button>
+                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#tamanosModal">
+                    Tamaños de modal
+                </button>
+            </div>
+
+            <details class="code-toggle">
+                <summary>📝 Ver código del Modal</summary>
                 <div class="code-demo">
-                    <pre><code>&lt;div class="accordion" id="miAcordeon"&gt;
-    &lt;div class="accordion-item"&gt;
-        &lt;h2 class="accordion-header"&gt;
-            &lt;button class="accordion-button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseUno"&gt;
-                Sección 1
-            &lt;/button&gt;
-        &lt;/h2&gt;
-        &lt;div id="collapseUno" class="accordion-collapse collapse show"
-             data-bs-parent="#miAcordeon"&gt;
-            &lt;div class="accordion-body"&gt;
-                Contenido aquí...
+                    <pre><code>&lt;!-- Abrir --&gt;
+&lt;button data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#miModal&quot;&gt;
+    Abrir Modal
+&lt;/button&gt;
+
+&lt;!-- Estructura --&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;miModal&quot; tabindex=&quot;-1&quot;&gt;
+    &lt;div class=&quot;modal-dialog modal-dialog-centered&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div class=&quot;modal-header&quot;&gt;
+                &lt;h5 class=&quot;modal-title&quot;&gt;Título&lt;/h5&gt;
+                &lt;button class=&quot;btn-close&quot; data-bs-dismiss=&quot;modal&quot;&gt;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;modal-body&quot;&gt;Contenido...&lt;/div&gt;
+            &lt;div class=&quot;modal-footer&quot;&gt;
+                &lt;button class=&quot;btn btn-secondary&quot; data-bs-dismiss=&quot;modal&quot;&gt;Cerrar&lt;/button&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -297,214 +721,144 @@
             </details>
 
             <div class="exercise-box">
-                <h4>🧪 Ejercicio: Acordeón con datos dinámicos</h4>
-                <p>Agrega una cuarta sección al acordeón que explique qué son las <strong>utilidades de espaciado</strong> de Bootstrap (<code>m-*</code>, <code>p-*</code>, <code>gap-*</code>).</p>
-                <button class="btn-exercise" data-exercise="accordion">Mostrar pista</button>
-                <p class="hint" id="hint-accordion" hidden>💡 Duplica un <code>&lt;div class="accordion-item"&gt;</code> completo. Cambia los <code>id</code> y <code>data-bs-target</code> a algo único como <code>#collapseFour</code>.</p>
+                <h4>🧪 Ejercicio: Modal con video</h4>
+                <p>Crea un botón que abra un modal con un <code>&lt;iframe&gt;</code> de YouTube. El modal debe tener clase <code>modal-xl</code> para que el video se vea grande.</p>
+                <button class="btn-exercise" data-exercise="modal">Mostrar pista</button>
+                <p class="hint" id="hint-modal" hidden>💡 Usa <code>.ratio .ratio-16x9</code> dentro del <code>.modal-body</code> para que el iframe sea responsivo. <code>&lt;a href=&quot;https://youtu.be/...&quot;&gt;...&lt;/a&gt;</code></p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- GRID SECTION (existente)                                     -->
+        <!-- SECCIÓN 6: UTILIDADES                                        -->
         <!-- ============================================================ -->
-        <section class="mb-5" id="grid-section">
-            <h2 class="section-title">📐 Sistema de Grid</h2>
-            <div class="row mb-3">
-                <div class="col-md-4 mb-2">
-                    <div class="p-3 bg-primary text-white rounded text-center">Col 1</div>
+        <section class="mb-5" id="s-utilidades">
+            <h2 class="section-title">10. Utilidades: Espaciado, Color, Flex, Bordes</h2>
+            <p>Las utilidades son clases CSS que hacen una sola cosa. Bootstrap tiene cientos — sin necesidad de escribir CSS personalizado.</p>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5>📏 Espaciado (Margin & Padding)</h5>
+                    <p>Formato: <code>.{m|p}{t|b|s|e|x|y}-{tamaño}</code>. Tamaños: <code>0, 1, 2, 3, 4, 5, auto</code></p>
+                    <div class="d-flex gap-2 flex-wrap align-items-center">
+                        <div class="bg-primary text-white p-1 rounded">p-1</div>
+                        <div class="bg-success text-white p-2 rounded">p-2</div>
+                        <div class="bg-warning text-dark p-3 rounded">p-3</div>
+                        <div class="bg-info text-dark p-4 rounded">p-4</div>
+                        <div class="bg-danger text-white p-5 rounded">p-5</div>
+                    </div>
+                    <div class="code-demo mt-2">
+                        <pre><code>&lt;div class=&quot;bg-primary text-white p-3 rounded&quot;&gt;p-3&lt;/div&gt;
+&lt;div class=&quot;mt-4 mb-2 ms-3&quot;&gt;margin-top, margin-bottom, margin-start&lt;/div&gt;</code></pre>
+                    </div>
                 </div>
-                <div class="col-md-4 mb-2">
-                    <div class="p-3 bg-success text-white rounded text-center">Col 2</div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5>🎨 Colores de texto y fondo</h5>
+                    <div class="row g-2 mb-3">
+                        <div class="col-4 col-md-3"><div class="p-2 bg-primary text-white rounded text-center">.bg-primary</div></div>
+                        <div class="col-4 col-md-3"><div class="p-2 bg-success text-white rounded text-center">.bg-success</div></div>
+                        <div class="col-4 col-md-3"><div class="p-2 bg-danger text-white rounded text-center">.bg-danger</div></div>
+                        <div class="col-4 col-md-3"><div class="p-2 bg-warning rounded text-center">.bg-warning</div></div>
+                        <div class="col-4 col-md-3"><div class="p-2 bg-info rounded text-center">.bg-info</div></div>
+                        <div class="col-4 col-md-3"><div class="p-2 bg-dark text-white rounded text-center">.bg-dark</div></div>
+                        <div class="col-4 col-md-3"><div class="p-2 bg-secondary text-white rounded text-center">.bg-secondary</div></div>
+                        <div class="col-4 col-md-3"><div class="p-2 bg-light border rounded text-center">.bg-light</div></div>
+                    </div>
+                    <p class="mb-0">Colores de texto: <span class="text-primary">.text-primary</span> <span class="text-success">.text-success</span> <span class="text-danger">.text-danger</span> <span class="text-warning">.text-warning</span> <span class="text-muted">.text-muted</span></p>
                 </div>
-                <div class="col-md-4 mb-2">
-                    <div class="p-3 bg-warning text-dark rounded text-center">Col 3</div>
-                </div>
-            </div>
-            <p class="text-muted"><small>Redimensiona la ventana — las columnas se apilan en móvil.</small></p>
-        </section>
-
-        <!-- ============================================================ -->
-        <!-- BUTTONS SECTION                                              -->
-        <!-- ============================================================ -->
-        <section class="mb-5" id="buttons-section">
-            <h2 class="section-title">🔘 Botones y badges</h2>
-            <div class="d-flex gap-2 flex-wrap mb-3">
-                <button class="btn btn-primary">Primary</button>
-                <button class="btn btn-secondary">Secondary</button>
-                <button class="btn btn-success">Success</button>
-                <button class="btn btn-danger">Danger</button>
-                <button class="btn btn-warning">Warning</button>
-                <button class="btn btn-info">Info</button>
-                <button class="btn btn-dark">Dark</button>
-                <button class="btn btn-light border">Light</button>
             </div>
 
-            <div class="d-flex gap-2 flex-wrap mb-3">
-                <button class="btn btn-outline-primary">Outline</button>
-                <button class="btn btn-outline-success">Outline</button>
-                <button class="btn btn-outline-danger">Outline</button>
-            </div>
-
-            <div class="d-flex gap-2 flex-wrap align-items-center mb-3">
-                <button class="btn btn-primary btn-lg">Grande</button>
-                <button class="btn btn-primary">Normal</button>
-                <button class="btn btn-primary btn-sm">Pequeño</button>
-                <span class="ms-3">
-                    <span class="badge bg-primary">Nuevo</span>
-                    <span class="badge bg-success">Activo</span>
-                    <span class="badge bg-danger rounded-pill">3</span>
-                </span>
-            </div>
-
-            <button class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="¡Soy un tooltip de Bootstrap!">
-                Pasa el mouse sobre mí 🖱️
-            </button>
-        </section>
-
-        <!-- ============================================================ -->
-        <!-- ALERTS & PROGRESS                                            -->
-        <!-- ============================================================ -->
-        <section class="mb-5">
-            <h2 class="section-title">⚠️ Alertas y barras de progreso</h2>
-
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>✅ ¡Bootstrap cargado correctamente!</strong> Esta alerta se puede cerrar.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-            </div>
-
-            <div class="progress mb-2" role="progressbar" aria-label="Progreso" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: 75%">75%</div>
-            </div>
-            <div class="progress" role="progressbar" aria-label="Progreso" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-bar progress-bar-striped bg-warning" style="width: 40%">40%</div>
-            </div>
-        </section>
-
-        <!-- ============================================================ -->
-        <!-- MODAL SECTION                                                -->
-        <!-- ============================================================ -->
-        <section class="mb-5" id="modal-section">
-            <h2 class="section-title">🪟 Ventana Modal</h2>
-            <p>Los modales son cuadros de diálogo que se superponen al contenido principal.</p>
-
-            <!-- Botón para abrir modal -->
-            <button id="demo-modal-btn" class="btn btn-primary btn-lg">
-                🚀 Abrir Modal de demostración
-            </button>
-
-            <!-- Modal con data-bs-toggle nativo (sin JS) -->
-            <button type="button" class="btn btn-outline-primary ms-2" data-bs-toggle="modal" data-bs-target="#staticModal">
-                Modal con data-bs-toggle
-            </button>
-
-            <details class="code-toggle mt-3">
-                <summary>📝 Ver código del Modal</summary>
-                <div class="code-demo">
-                    <pre><code>&lt;!-- Botón que abre el modal --&gt;
-&lt;button data-bs-toggle="modal" data-bs-target="#miModal"&gt;
-    Abrir Modal
-&lt;/button&gt;
-
-&lt;!-- Estructura del modal --&gt;
-&lt;div class="modal fade" id="miModal" tabindex="-1"&gt;
-    &lt;div class="modal-dialog modal-dialog-centered"&gt;
-        &lt;div class="modal-content"&gt;
-            &lt;div class="modal-header"&gt;
-                &lt;h5 class="modal-title"&gt;Título&lt;/h5&gt;
-                &lt;button class="btn-close" data-bs-dismiss="modal"&gt;&lt;/button&gt;
-            &lt;/div&gt;
-            &lt;div class="modal-body"&gt;
-                Contenido del modal...
-            &lt;/div&gt;
-            &lt;div class="modal-footer"&gt;
-                &lt;button class="btn btn-secondary" data-bs-dismiss="modal"&gt;Cerrar&lt;/button&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5>🔄 Flexbox utilities</h5>
+                    <p>Bootstrap tiene clases <code>.d-flex</code>, <code>.justify-content-*</code>, <code>.align-items-*</code>, <code>.flex-*</code></p>
+                    <div class="d-flex justify-content-between align-items-center bg-light p-3 rounded mb-2">
+                        <span class="badge bg-primary">.justify-content-between</span>
+                        <span class="badge bg-success">.align-items-center</span>
+                        <span class="badge bg-danger">.d-flex</span>
+                    </div>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <div class="border p-2 rounded flex-fill text-center bg-primary text-white">flex-fill 1</div>
+                        <div class="border p-2 rounded flex-fill text-center bg-success text-white">flex-fill 2</div>
+                        <div class="border p-2 rounded flex-fill text-center bg-warning text-dark">flex-fill 3</div>
+                    </div>
+                    <div class="code-demo mt-2">
+                        <pre><code>&lt;div class=&quot;d-flex justify-content-between align-items-center&quot;&gt;
+    &lt;span&gt;Item 1&lt;/span&gt;
+    &lt;span&gt;Item 2&lt;/span&gt;
 &lt;/div&gt;</code></pre>
+                    </div>
                 </div>
-            </details>
-        </section>
+            </div>
 
-        <!-- ============================================================ -->
-        <!-- TABS / NAVS                                                  -->
-        <!-- ============================================================ -->
-        <section class="mb-5">
-            <h2 class="section-title">📋 Pestañas (Tabs)</h2>
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5>🖼️ Bordes y sombras</h5>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <div class="p-3 border rounded">.border .rounded</div>
+                        <div class="p-3 border border-primary rounded-3">.border-primary .rounded-3</div>
+                        <div class="p-3 border border-success rounded-pill">.border-success .rounded-pill</div>
+                        <div class="p-3 shadow-sm bg-body rounded">.shadow-sm</div>
+                        <div class="p-3 shadow bg-body rounded">.shadow</div>
+                        <div class="p-3 shadow-lg bg-body rounded">.shadow-lg</div>
+                    </div>
+                </div>
+            </div>
 
-            <ul class="nav nav-tabs" id="demoTabs" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="tab-html" data-bs-toggle="tab" data-bs-target="#tab-html-pane" type="button" role="tab" aria-controls="tab-html-pane" aria-selected="true">HTML</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="tab-css" data-bs-toggle="tab" data-bs-target="#tab-css-pane" type="button" role="tab" aria-controls="tab-css-pane" aria-selected="false">CSS</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="tab-js" data-bs-toggle="tab" data-bs-target="#tab-js-pane" type="button" role="tab" aria-controls="tab-js-pane" aria-selected="false">JavaScript</button>
-                </li>
-            </ul>
-            <div class="tab-content p-3 border border-top-0 rounded-bottom bg-white" id="demoTabsContent">
-                <div class="tab-pane fade show active" id="tab-html-pane" role="tabpanel" aria-labelledby="tab-html" tabindex="0">
-                    <strong>📄 HTML</strong> define la <em>estructura</em> de la página: encabezados, párrafos, imágenes, tablas, formularios y más. Es el esqueleto de toda web.
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <h5>📝 Text utilities</h5>
+                    <p class="text-start">.text-start ← alineación</p>
+                    <p class="text-center">.text-center ← centrado</p>
+                    <p class="text-end">.text-end ← derecha</p>
+                    <p><span class="fw-bold">.fw-bold</span> <span class="fw-normal">.fw-normal</span> <span class="fw-light">.fw-light</span> <span class="fst-italic">.fst-italic</span></p>
+                    <p><span class="text-lowercase">TEXT-LOWERCASE</span> <span class="text-uppercase">text-uppercase</span> <span class="text-capitalize">texto capitalizado</span></p>
+                    <p class="text-truncate" style="max-width: 300px;">.text-truncate corta el texto con puntos suspensivos cuando es muy largo y no cabe en el contenedor.</p>
                 </div>
-                <div class="tab-pane fade" id="tab-css-pane" role="tabpanel" aria-labelledby="tab-css" tabindex="0">
-                    <strong>🎨 CSS</strong> controla la <em>apariencia</em>: colores, fuentes, layout, animaciones y diseño responsivo. Bootstrap está construido con CSS.
-                </div>
-                <div class="tab-pane fade" id="tab-js-pane" role="tabpanel" aria-labelledby="tab-js" tabindex="0">
-                    <strong>⚡ JavaScript</strong> añade <em>interactividad</em>: eventos, manipulación del DOM, fetch API y lógica del lado del cliente. Los plugins de Bootstrap usan JS.
-                </div>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Card con utilidades</h4>
+                <p>Crea una card usando solo clases de utilidad (sin <code>.card</code>): <code>bg-light p-4 rounded-3 shadow</code>, y dentro <code>h5</code>, <code>p</code>, <code>btn btn-primary</code>. ¡Así de flexible es Bootstrap!</p>
+                <button class="btn-exercise" data-exercise="utilidades">Mostrar pista</button>
+                <p class="hint" id="hint-utilidades" hidden>💡 <code>&lt;div class=&quot;bg-light p-4 rounded-3 shadow&quot;&gt;&lt;h5&gt;Título&lt;/h5&gt;&lt;p&gt;Texto...&lt;/p&gt;&lt;button class=&quot;btn btn-primary&quot;&gt;Acción&lt;/button&gt;&lt;/div&gt;</code></p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- TABLAS                                                       -->
+        <!-- SECCIÓN 7: PROYECTO FINAL                                   -->
         <!-- ============================================================ -->
-        <section class="mb-5">
-            <h2 class="section-title">📊 Tablas Bootstrap</h2>
-            <table class="table table-striped table-hover">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Componente</th>
-                        <th scope="col">Requiere JS</th>
-                        <th scope="col">Dificultad</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>1</td><td>Navbar</td><td>✅ Sí (toggle móvil)</td><td>🟢 Fácil</td></tr>
-                    <tr><td>2</td><td>Carrusel</td><td>✅ Sí</td><td>🟡 Medio</td></tr>
-                    <tr><td>3</td><td>Acordeón</td><td>✅ Sí</td><td>🟢 Fácil</td></tr>
-                    <tr><td>4</td><td>Modal</td><td>✅ Sí</td><td>🟡 Medio</td></tr>
-                    <tr><td>5</td><td>Cards</td><td>❌ No</td><td>🟢 Fácil</td></tr>
-                    <tr><td>6</td><td>Grid</td><td>❌ No</td><td>🟡 Medio</td></tr>
-                </tbody>
-            </table>
-        </section>
+        <section class="mb-5" id="s-proyecto">
+            <h2 class="section-title">🎯 Proyecto Final: Landing Page con Bootstrap</h2>
+            <p>Crea una <strong>landing page</strong> completa que combine todos los conceptos:</p>
 
-        <!-- ============================================================ -->
-        <!-- PROYECTO FINAL                                              -->
-        <!-- ============================================================ -->
-        <section class="mb-4" id="final-section">
-            <h2 class="section-title">🎯 Proyecto final del módulo</h2>
-            <p>Crea una <strong>landing page</strong> completa usando Bootstrap que incluya:</p>
-            <ol class="project-list">
-                <li><strong>Navbar</strong> responsivo con brand, enlaces y dropdown</li>
-                <li><strong>Carrusel</strong> con 3+ imágenes y captions</li>
-                <li><strong>Sección de tarjetas</strong> con <code>.card</code> en grid de 3 columnas</li>
-                <li><strong>Acordeón</strong> con información relevante</li>
-                <li><strong>Modal</strong> que se abra con un botón</li>
-                <li><strong>Footer</strong> con enlaces y redes sociales</li>
-            </ol>
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <ol class="project-list mb-0">
+                        <li><strong>Navbar</strong> responsivo con brand, enlaces y dropdown</li>
+                        <li><strong>Hero section</strong> con <code>.display-*</code>, <code>.lead</code>, <code>.btn-lg</code></li>
+                        <li><strong>Grid de tarjetas</strong> con <code>.card</code> en 3 columnas (<code>.col-md-4</code>)</li>
+                        <li><strong>Carrusel</strong> con 3+ imágenes y captions</li>
+                        <li><strong>Acordeón</strong> con secciones de información</li>
+                        <li><strong>Modal</strong> que se abre desde un botón</li>
+                        <li><strong>Footer</strong> con utilidades de espaciado y color</li>
+                    </ol>
+                </div>
+            </div>
+
             <div class="project-hint">
-                <p>💡 Crea un archivo <code>bootstrap/mi-proyecto.html</code>. ¡Usa esta página como referencia!</p>
+                <p>💡 Crea un archivo <code>bootstrap/mi-landing.html</code>. ¡Usa esta página como referencia!</p>
                 <p>🔗 <a href="https://getbootstrap.com/docs/5.3/components/" target="_blank" rel="noopener">Documentación oficial de Bootstrap 5.3</a></p>
+                <p>📖 <a href="temario.md" target="_blank">Temario completo →</a></p>
             </div>
         </section>
 
     </div>
 
     <!-- ============================================================ -->
-    <!-- MODAL ESTÁTICO (data-bs-toggle nativo)                       -->
+    <!-- MODAL ESTÁTICO (data-bs-toggle)                              -->
     <!-- ============================================================ -->
     <div class="modal fade" id="staticModal" tabindex="-1" aria-labelledby="staticModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -515,10 +869,38 @@
                 </div>
                 <div class="modal-body">
                     <p>Este modal se abre usando <strong>solo atributos HTML</strong>, sin JavaScript personalizado.</p>
-                    <p>Bootstrap inicializa automáticamente los modales cuando detecta <code>data-bs-toggle="modal"</code> y <code>data-bs-target="#id"</code>.</p>
+                    <p>Bootstrap detecta <code>data-bs-toggle="modal"</code> y <code>data-bs-target="#id"</code> automáticamente.</p>
                     <div class="alert alert-info mb-0">
-                        💡 También puedes abrirlo con JavaScript: <code>new bootstrap.Modal(element).show()</code>
+                        💡 También con JS: <code>new bootstrap.Modal(element).show()</code>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- MODAL TAMAÑOS                                                -->
+    <!-- ============================================================ -->
+    <div class="modal fade" id="tamanosModal" tabindex="-1" aria-labelledby="tamanosModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tamanosModalLabel">📐 Tamaños de Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Este es un <code>.modal-lg</code> (modal grande). Otros tamaños:</p>
+                    <ul class="mb-0">
+                        <li><code>.modal-sm</code> — pequeño</li>
+                        <li><code>.modal-lg</code> — grande (este)</li>
+                        <li><code>.modal-xl</code> — extra grande</li>
+                        <li><code>.modal-fullscreen</code> — pantalla completa</li>
+                        <li><code>.modal-dialog-centered</code> — centrado verticalmente</li>
+                        <li><code>.modal-dialog-scrollable</code> — con scroll interno</li>
+                    </ul>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -530,7 +912,7 @@
     <!-- ============================================================ -->
     <!-- FOOTER                                                       -->
     <!-- ============================================================ -->
-    <footer class="text-center py-4 bg-dark text-white-50">
+    <footer class="text-center py-5 bg-dark text-white-50">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3 mb-md-0">
@@ -550,6 +932,7 @@
                     <small>
                         <a href="../index.html" class="text-white-50 d-block">🏠 Hub</a>
                         <a href="temario.md" class="text-white-50 d-block">📖 Temario</a>
+                        <a href="https://getbootstrap.com/docs/5.3/" target="_blank" class="text-white-50 d-block">📘 Documentación</a>
                     </small>
                 </div>
             </div>

@@ -18,33 +18,283 @@
             <p class="subtitle">Dale estilo y vida a tus páginas web</p>
         </header>
 
-        <section class="content-section">
-            <h2>¿Qué es CSS?</h2>
-            <p><strong>CSS</strong> (<em>Cascading Style Sheets</em>) es el lenguaje que describe la <strong>presentación visual</strong> de un documento HTML. Controla colores, fuentes, espaciado, layout y diseño responsivo.</p>
+        <section class="content-section toc">
+            <h2>📋 Temario</h2>
+            <ol class="toc-list">
+                <li><a href="#s1">Introducción a CSS</a></li>
+                <li><a href="#s2">Sintaxis Básica</a></li>
+                <li><a href="#s3">Selectores</a></li>
+                <li><a href="#s4">Modelo de Caja</a></li>
+                <li><a href="#s5">Fondos y Bordes</a></li>
+                <li><a href="#s6">Texto y Fuentes</a></li>
+                <li><a href="#s7">Posicionamiento</a></li>
+                <li><a href="#s8">Flexbox</a></li>
+                <li><a href="#s9">Grid Layout</a></li>
+                <li><a href="#s10">Diseño Responsivo</a></li>
+                <li><a href="#s11">Transiciones y Animaciones</a></li>
+                <li><a href="#s12">Transformaciones</a></li>
+                <li><a href="#s13">Variables CSS</a></li>
+                <li><a href="#s14">Proyecto Final</a></li>
+            </ol>
         </section>
 
         <!-- ============================================================ -->
-        <!-- FLEXBOX PLAYGROUND                                           -->
+        <!-- S1: INTRODUCCIÓN                                            -->
         <!-- ============================================================ -->
-        <section class="content-section" id="flexbox-playground">
-            <h2>🧩 Flexbox Playground</h2>
-            <p>Modifica las propiedades del contenedor <strong>Flexbox</strong> y observa cómo se comportan los elementos en tiempo real.</p>
+        <section class="content-section" id="s1">
+            <h2>1. Introducción a CSS</h2>
+            <p><strong>CSS</strong> (Cascading Style Sheets) es el lenguaje que describe la <strong>presentación visual</strong> de un documento HTML.</p>
+            <h3>Formas de aplicar CSS</h3>
+            <div class="code-example">
+                <pre><code>&lt;!-- 1. CSS en línea (inline) --&gt;
+&lt;p style="color: blue; font-size: 16px;"&gt;Texto azul&lt;/p&gt;
 
-            <div class="playground-layout">
-                <!-- Panel de controles -->
+&lt;!-- 2. CSS interno (en el &lt;head&gt;) --&gt;
+&lt;style&gt;
+    p { color: blue; }
+&lt;/style&gt;
+
+&lt;!-- 3. CSS externo (archivo separado) --&gt;
+&lt;link href="estilos.css" rel="stylesheet"&gt;</code></pre>
+            </div>
+            <div class="info-box"><strong>💡</strong> La opción recomendada es CSS externo: separa contenido (HTML) de presentación (CSS).</div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- S2: SINTAXIS                                                -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s2">
+            <h2>2. Sintaxis Básica</h2>
+            <p>Cada regla CSS tiene un <strong>selector</strong> y un <strong>bloque de declaraciones</strong>:</p>
+            <div class="code-example">
+                <pre><code>selector {
+    propiedad: valor;
+    propiedad: valor;
+}
+
+/* Ejemplo */
+h1 {
+    color: #1572b6;
+    font-size: 2rem;
+    text-align: center;
+}</code></pre>
+            </div>
+            <h3>Unidades de medida</h3>
+            <div class="units-grid">
+                <div class="unit-card"><strong>Absolutas</strong><br><code>px</code>, <code>pt</code>, <code>cm</code>, <code>in</code></div>
+                <div class="unit-card"><strong>Relativas</strong><br><code>%</code>, <code>em</code>, <code>rem</code>, <code>vh</code>, <code>vw</code></div>
+                <div class="unit-card"><code>1rem</code> = 16px (tamaño base del navegador)</div>
+                <div class="unit-card"><code>100vh</code> = toda la altura de la ventana</div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- S3: SELECTORES                                              -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s3">
+            <h2>3. Selectores</h2>
+            <p>Los selectores determinan <strong>qué elementos</strong> reciben los estilos.</p>
+            <table class="mini-table">
+                <tr><th>Selector</th><th>Ejemplo</th><th>Selecciona</th></tr>
+                <tr><td>Tipo</td><td><code>p</code></td><td>Todos los &lt;p&gt;</td></tr>
+                <tr><td>Clase</td><td><code>.destacado</code></td><td>Elementos con class="destacado"</td></tr>
+                <tr><td>ID</td><td><code>#logo</code></td><td>El elemento con id="logo"</td></tr>
+                <tr><td>Universal</td><td><code>*</code></td><td>Todos los elementos</td></tr>
+                <tr><td>Descendente</td><td><code>div p</code></td><td>&lt;p&gt; dentro de &lt;div&gt;</td></tr>
+                <tr><td>Hijo directo</td><td><code>div &gt; p</code></td><td>&lt;p&gt; hijo directo de &lt;div&gt;</td></tr>
+            </table>
+
+            <h3>Pseudo-clases</h3>
+            <p>Se activan con una <strong>acción del usuario</strong>:</p>
+            <div class="pseudo-demo">
+                <button class="pseudo-btn">:hover</button>
+                <button class="pseudo-btn pseudo-focus">:focus</button>
+                <button class="pseudo-btn pseudo-active">:active</button>
+                <button class="pseudo-btn disabled">:disabled</button>
+            </div>
+            <div class="code-example">
+                <pre><code>/* Pseudo-clases comunes */
+a:hover { color: red; }       /* Al pasar el mouse */
+input:focus { border: 2px solid blue; }  /* Al enfocar */
+li:first-child { }            /* Primer hijo */
+li:nth-child(odd) { }         /* Hijos impares */</code></pre>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- S4: BOX MODEL                                               -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s4">
+            <h2>4. Modelo de Caja (Box Model)</h2>
+            <p>Todos los elementos HTML son <strong>cajas rectangulares</strong>. El box model describe sus partes:</p>
+            <div class="box-model-visual">
+                <div class="bm-margin">
+                    <span class="bm-label">margin</span>
+                    <div class="bm-border">
+                        <span class="bm-label">border</span>
+                        <div class="bm-padding">
+                            <span class="bm-label">padding</span>
+                            <div class="bm-content">
+                                <span class="bm-label">content</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-example">
+                <pre><code>/* Box model completo */
+.caja {
+    width: 200px;
+    height: 100px;
+    padding: 20px;      /* Espacio interno */
+    border: 2px solid black;  /* Borde */
+    margin: 10px;       /* Espacio externo */
+    box-sizing: border-box;  /* Incluye padding y border en el ancho */
+}</code></pre>
+            </div>
+            <div class="info-box"><strong>💡</strong> Siempre usa <code>box-sizing: border-box</code> para que el ancho/alto incluyan padding y border.</div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- S5: FONDOS Y BORDES                                         -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s5">
+            <h2>5. Fondos y Bordes</h2>
+            <div class="demo-cols">
+                <div class="demo-col">
+                    <h3>Fondos</h3>
+                    <div class="bg-demo bg-color">background-color</div>
+                    <div class="bg-demo bg-gradient">background: linear-gradient()</div>
+                </div>
+                <div class="demo-col">
+                    <h3>Bordes</h3>
+                    <div class="border-demo b-solid">solid</div>
+                    <div class="border-demo b-dashed">dashed</div>
+                    <div class="border-demo b-rounded">border-radius</div>
+                </div>
+            </div>
+            <div class="code-example">
+                <pre><code>/* Fondos */
+div {
+    background-color: #f0f0f0;
+    background-image: url('fondo.jpg');
+    background-size: cover;
+}
+
+/* Bordes */
+div {
+    border: 2px solid #333;
+    border-radius: 8px;  /* Esquinas redondeadas */
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- S6: TEXTO Y FUENTES                                         -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s6">
+            <h2>6. Texto y Fuentes</h2>
+            <div class="text-demo-list">
+                <p style="text-align:left"><code>text-align: left</code> — Alineación izquierda</p>
+                <p style="text-align:center"><code>text-align: center</code> — Centrado</p>
+                <p style="font-weight:bold"><code>font-weight: bold</code> — Negrita</p>
+                <p style="font-style:italic"><code>font-style: italic</code> — Cursiva</p>
+                <p style="text-decoration:underline"><code>text-decoration: underline</code> — Subrayado</p>
+                <p style="line-height:2"><code>line-height: 2</code> — Interlineado doble</p>
+                <p style="letter-spacing:3px"><code>letter-spacing: 3px</code> — Espaciado entre letras</p>
+                <p style="text-shadow:2px 2px 4px rgba(0,0,0,0.3)"><code>text-shadow</code> — Sombra de texto</p>
+            </div>
+            <div class="code-example">
+                <pre><code>/* Propiedades de texto comunes */
+p {
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 400;   /* 100-900 */
+    text-align: center;
+    line-height: 1.6;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- S7: POSICIONAMIENTO                                         -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s7">
+            <h2>7. Posicionamiento</h2>
+            <p>La propiedad <code>position</code> define cómo se coloca un elemento:</p>
+            <table class="mini-table">
+                <tr><th>Valor</th><th>Comportamiento</th></tr>
+                <tr><td><code>static</code></td><td>Flujo normal (por defecto)</td></tr>
+                <tr><td><code>relative</code></td><td>Relativo a su posición normal</td></tr>
+                <tr><td><code>absolute</code></td><td>Relativo al ancestro posicionado más cercano</td></tr>
+                <tr><td><code>fixed</code></td><td>Fijo en la ventana (no se mueve al hacer scroll)</td></tr>
+                <tr><td><code>sticky</code></td><td>Híbrido: relativo hasta que llega a un tope, luego fixed</td></tr>
+            </table>
+            <div class="code-example">
+                <pre><code>/* Posicionamiento */
+.elemento-absoluto {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    z-index: 10;  /* Control de superposición */
+}
+
+.elemento-fijo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}</code></pre>
+            </div>
+            <p>La propiedad <code>display</code> controla cómo se muestra un elemento:</p>
+            <div class="display-demo">
+                <span class="disp-block">block</span>
+                <span class="disp-inline">inline</span>
+                <span class="disp-inline">inline</span>
+                <span class="disp-inline-block">inline-block</span>
+                <span class="disp-none" style="display:none">none (oculto)</span>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- S8: FLEXBOX                                                 -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s8">
+            <h2>8. Flexbox Layout</h2>
+            <p><strong>Flexbox</strong> es un modelo de layout unidimensional que distribuye elementos en una fila o columna.</p>
+            <h3>Propiedades del contenedor</h3>
+            <div class="demo-cols">
+                <div class="demo-col">
+                    <ul>
+                        <li><code>display: flex</code> — activa flexbox</li>
+                        <li><code>flex-direction</code> — dirección (row/column)</li>
+                        <li><code>justify-content</code> — alineación horizontal</li>
+                    </ul>
+                </div>
+                <div class="demo-col">
+                    <ul>
+                        <li><code>align-items</code> — alineación vertical</li>
+                        <li><code>flex-wrap</code> — salto de línea</li>
+                        <li><code>gap</code> — espacio entre elementos</li>
+                    </ul>
+                </div>
+            </div>
+            <h3>Propiedades de los items</h3>
+            <p><code>order</code> (cambia el orden), <code>flex-grow</code> (crece para llenar espacio), <code>flex-shrink</code> (se encoge), <code>align-self</code> (alineación individual).</p>
+
+            <!-- Playground Flexbox (ya existente) -->
+            <div class="playground-layout" style="margin-top:1rem">
                 <div class="controls-panel">
-                    <h3>Controles</h3>
-
+                    <h3>🎮 Playground Flexbox</h3>
                     <div class="control-group">
                         <label><code>flex-direction</code></label>
                         <div class="btn-group" data-prop="flexDirection">
-                            <button class="ctrl-btn active" data-value="row">row</button>
-                            <button class="ctrl-btn" data-value="column">column</button>
-                            <button class="ctrl-btn" data-value="row-reverse">row-reverse</button>
-                            <button class="ctrl-btn" data-value="column-reverse">column-reverse</button>
+                            <button class="ctrl-btn active" data-value="row" aria-pressed="true">row</button>
+                            <button class="ctrl-btn" data-value="column" aria-pressed="false">column</button>
+                            <button class="ctrl-btn" data-value="row-reverse" aria-pressed="false">row-reverse</button>
+                            <button class="ctrl-btn" data-value="column-reverse" aria-pressed="false">column-reverse</button>
                         </div>
                     </div>
-
                     <div class="control-group">
                         <label><code>justify-content</code></label>
                         <div class="btn-group" data-prop="justifyContent">
@@ -56,41 +306,40 @@
                             <button class="ctrl-btn" data-value="space-evenly" aria-pressed="false">space-evenly</button>
                         </div>
                     </div>
-
                     <div class="control-group">
                         <label><code>align-items</code></label>
                         <div class="btn-group" data-prop="alignItems">
-                            <button class="ctrl-btn active" data-value="stretch">stretch</button>
-                            <button class="ctrl-btn" data-value="flex-start">flex-start</button>
-                            <button class="ctrl-btn" data-value="center">center</button>
-                            <button class="ctrl-btn" data-value="flex-end">flex-end</button>
-                            <button class="ctrl-btn" data-value="baseline">baseline</button>
+                            <button class="ctrl-btn active" data-value="stretch" aria-pressed="true">stretch</button>
+                            <button class="ctrl-btn" data-value="flex-start" aria-pressed="false">flex-start</button>
+                            <button class="ctrl-btn" data-value="center" aria-pressed="false">center</button>
+                            <button class="ctrl-btn" data-value="flex-end" aria-pressed="false">flex-end</button>
+                            <button class="ctrl-btn" data-value="baseline" aria-pressed="false">baseline</button>
                         </div>
                     </div>
-
-                    <div class="control-group" id="flexAlignContentGroup" style="display:none;">
+                    <div class="control-group">
+                        <label><code>flex-wrap</code></label>
+                        <div class="btn-group" data-prop="flexWrap">
+                            <button class="ctrl-btn active" data-value="nowrap" aria-pressed="true">nowrap</button>
+                            <button class="ctrl-btn" data-value="wrap" aria-pressed="false">wrap</button>
+                            <button class="ctrl-btn" data-value="wrap-reverse" aria-pressed="false">wrap-reverse</button>
+                        </div>
+                    </div>
+                    <div class="control-group" id="flexAlignContentGroup" style="display:none">
                         <label><code>align-content</code></label>
                         <div class="btn-group" data-prop="alignContent">
-                            <button class="ctrl-btn active" data-value="stretch">stretch</button>
-                            <button class="ctrl-btn" data-value="flex-start">flex-start</button>
-                            <button class="ctrl-btn" data-value="center">center</button>
-                            <button class="ctrl-btn" data-value="flex-end">flex-end</button>
-                            <button class="ctrl-btn" data-value="space-between">space-between</button>
-                            <button class="ctrl-btn" data-value="space-around">space-around</button>
+                            <button class="ctrl-btn active" data-value="stretch" aria-pressed="true">stretch</button>
+                            <button class="ctrl-btn" data-value="flex-start" aria-pressed="false">flex-start</button>
+                            <button class="ctrl-btn" data-value="center" aria-pressed="false">center</button>
+                            <button class="ctrl-btn" data-value="flex-end" aria-pressed="false">flex-end</button>
+                            <button class="ctrl-btn" data-value="space-between" aria-pressed="false">space-between</button>
+                            <button class="ctrl-btn" data-value="space-around" aria-pressed="false">space-around</button>
                         </div>
                     </div>
-
                     <div class="control-group">
                         <label><code>gap</code> <span id="flexGapValue">8px</span></label>
                         <input type="range" id="flexGap" min="0" max="40" value="8" class="range-slider">
-                        <div class="range-labels">
-                            <span>0px</span>
-                            <span>40px</span>
-                        </div>
                     </div>
-
-                    <h3 style="margin-top:1.25rem;padding-top:1rem;border-top:2px solid #e0e0e0;">Propiedades de los items</h3>
-
+                    <h3 style="margin-top:1rem;padding-top:0.75rem;border-top:2px solid #e0e0e0;">Items</h3>
                     <div class="control-group" id="flexOrderGroup">
                         <label><code>order</code> del elemento 3</label>
                         <div class="btn-group" data-prop="flexOrder" data-target="2">
@@ -101,7 +350,6 @@
                             <button class="ctrl-btn" data-value="3" aria-pressed="false">3</button>
                         </div>
                     </div>
-
                     <div class="control-group" id="flexGrowGroup">
                         <label><code>flex-grow</code> del elemento 3</label>
                         <div class="btn-group" data-prop="flexGrow" data-target="2">
@@ -112,8 +360,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Visualización en vivo -->
                 <div class="preview-panel">
                     <h3>Vista previa</h3>
                     <div class="flex-viewport" id="flexViewport">
@@ -124,8 +370,6 @@
                         <div class="flex-item" style="background:#6f42c1;">5</div>
                     </div>
                 </div>
-
-                <!-- Código CSS generado -->
                 <div class="code-panel">
                     <h3>CSS Generado</h3>
                     <div class="code-example" id="flexCodeDisplay">
@@ -143,97 +387,87 @@
             </div>
 
             <div class="exercise-box">
-                <h4>🧪 Ejercicio: Centrar un elemento</h4>
-                <p>Usa los controles de arriba para centrar perfectamente el elemento <strong>#3</strong> en el medio del contenedor. ¿Qué combinación de propiedades lo logra?</p>
-                <button class="btn-exercise" data-exercise="flex-center">Mostrar solución</button>
-                <p class="hint" id="hint-flex-center" hidden>💡 Usa <code>justify-content: center</code> + <code>align-items: center</code>. O mejor aún, pon <code>margin: auto</code> en el elemento #3.</p>
-            </div>
-
-            <div class="exercise-box">
-                <h4>🧪 Ejercicio: Distribución equitativa</h4>
-                <p>Configura los controles para que los 5 elementos se distribuyan con el mismo espacio entre ellos, ocupando todo el ancho del contenedor.</p>
-                <button class="btn-exercise" data-exercise="flex-distribute">Mostrar solución</button>
-                <p class="hint" id="hint-flex-distribute" hidden>💡 Usa <code>justify-content: space-between</code> o <code>space-evenly</code> con <code>flex-direction: row</code>.</p>
+                <h4>🧪 Ejercicio 1: Centrar un elemento</h4>
+                <p>Usa los controles para centrar el elemento #3 en el medio del contenedor.</p>
+                <button class="btn-exercise" data-exercise="flex-center">Solución</button>
+                <p class="hint" id="hint-flex-center" hidden>💡 <code>justify-content: center</code> + <code>align-items: center</code></p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- GRID PLAYGROUND                                              -->
+        <!-- S9: GRID                                                    -->
         <!-- ============================================================ -->
-        <section class="content-section" id="grid-playground">
-            <h2>🔲 Grid Playground</h2>
-            <p>Modifica las propiedades del contenedor <strong>CSS Grid</strong> y observa cómo se distribuyen los elementos en filas y columnas.</p>
+        <section class="content-section" id="s9">
+            <h2>9. Grid Layout</h2>
+            <p><strong>CSS Grid</strong> es un sistema de layout <strong>bidimensional</strong> (filas y columnas simultáneamente).</p>
+            <div class="code-example">
+                <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;  /* 3 columnas iguales */
+    grid-template-rows: auto;            /* filas automáticas */
+    gap: 10px;                           /* espacio entre celdas */
+}</code></pre>
+            </div>
 
-            <div class="playground-layout">
-                <!-- Panel de controles -->
+            <!-- Playground Grid (ya existente) -->
+            <div class="playground-layout" style="margin-top:1rem">
                 <div class="controls-panel">
-                    <h3>Controles</h3>
-
+                    <h3>🎮 Playground Grid</h3>
                     <div class="control-group">
                         <label><code>grid-template-columns</code></label>
                         <div class="btn-group" data-prop="gridColumns">
-                            <button class="ctrl-btn active" data-value="1fr 1fr 1fr">1fr 1fr 1fr</button>
-                            <button class="ctrl-btn" data-value="1fr 2fr 1fr">1fr 2fr 1fr</button>
-                            <button class="ctrl-btn" data-value="repeat(3, 1fr)">repeat(3, 1fr)</button>
-                            <button class="ctrl-btn" data-value="2fr 1fr">2fr 1fr</button>
-                            <button class="ctrl-btn" data-value="100px 1fr 100px">100px 1fr 100px</button>
-                            <button class="ctrl-btn" data-value="1fr 1fr 1fr 1fr">4 columnas</button>
+                            <button class="ctrl-btn active" data-value="1fr 1fr 1fr" aria-pressed="true">1fr 1fr 1fr</button>
+                            <button class="ctrl-btn" data-value="1fr 2fr 1fr" aria-pressed="false">1fr 2fr 1fr</button>
+                            <button class="ctrl-btn" data-value="repeat(3, 1fr)" aria-pressed="false">repeat(3, 1fr)</button>
+                            <button class="ctrl-btn" data-value="2fr 1fr" aria-pressed="false">2fr 1fr</button>
+                            <button class="ctrl-btn" data-value="100px 1fr 100px" aria-pressed="false">100px 1fr 100px</button>
+                            <button class="ctrl-btn" data-value="repeat(4, 1fr)" aria-pressed="false">4 cols</button>
                         </div>
                     </div>
-
                     <div class="control-group">
                         <label><code>grid-template-rows</code></label>
                         <div class="btn-group" data-prop="gridRows">
-                            <button class="ctrl-btn active" data-value="auto">auto</button>
-                            <button class="ctrl-btn" data-value="100px 100px">100px 100px</button>
-                            <button class="ctrl-btn" data-value="1fr 1fr">1fr 1fr</button>
-                            <button class="ctrl-btn" data-value="100px 1fr">100px 1fr</button>
-                            <button class="ctrl-btn" data-value="repeat(2, 80px)">repeat(2, 80px)</button>
+                            <button class="ctrl-btn active" data-value="auto" aria-pressed="true">auto</button>
+                            <button class="ctrl-btn" data-value="100px 100px" aria-pressed="false">100px 100px</button>
+                            <button class="ctrl-btn" data-value="1fr 1fr" aria-pressed="false">1fr 1fr</button>
+                            <button class="ctrl-btn" data-value="100px 1fr" aria-pressed="false">100px 1fr</button>
                         </div>
                     </div>
-
                     <div class="control-group">
-                        <label><code>justify-items</code></label>
-                        <div class="btn-group" data-prop="justifyItems">
-                            <button class="ctrl-btn active" data-value="stretch">stretch</button>
-                            <button class="ctrl-btn" data-value="start">start</button>
-                            <button class="ctrl-btn" data-value="center">center</button>
-                            <button class="ctrl-btn" data-value="end">end</button>
+                        <label><code>justify-content</code> (grid)</label>
+                        <div class="btn-group" data-prop="justifyContent">
+                            <button class="ctrl-btn active" data-value="stretch" aria-pressed="true">stretch</button>
+                            <button class="ctrl-btn" data-value="start" aria-pressed="false">start</button>
+                            <button class="ctrl-btn" data-value="center" aria-pressed="false">center</button>
+                            <button class="ctrl-btn" data-value="end" aria-pressed="false">end</button>
+                            <button class="ctrl-btn" data-value="space-between" aria-pressed="false">space-between</button>
+                            <button class="ctrl-btn" data-value="space-around" aria-pressed="false">space-around</button>
                         </div>
                     </div>
-
                     <div class="control-group">
-                        <label><code>align-items</code></label>
-                        <div class="btn-group" data-prop="alignItems">
-                            <button class="ctrl-btn active" data-value="stretch">stretch</button>
-                            <button class="ctrl-btn" data-value="start">start</button>
-                            <button class="ctrl-btn" data-value="center">center</button>
-                            <button class="ctrl-btn" data-value="end">end</button>
+                        <label><code>align-content</code> (grid)</label>
+                        <div class="btn-group" data-prop="alignContent">
+                            <button class="ctrl-btn active" data-value="stretch" aria-pressed="true">stretch</button>
+                            <button class="ctrl-btn" data-value="start" aria-pressed="false">start</button>
+                            <button class="ctrl-btn" data-value="center" aria-pressed="false">center</button>
+                            <button class="ctrl-btn" data-value="end" aria-pressed="false">end</button>
+                            <button class="ctrl-btn" data-value="space-between" aria-pressed="false">space-between</button>
                         </div>
                     </div>
-
                     <div class="control-group">
                         <label><code>gap</code> <span id="gridGapValue">8px</span></label>
                         <input type="range" id="gridGap" min="0" max="40" value="8" class="range-slider">
-                        <div class="range-labels">
-                            <span>0px</span>
-                            <span>40px</span>
-                        </div>
                     </div>
-
-                    <h3 style="margin-top:1.25rem;padding-top:1rem;border-top:2px solid #e0e0e0;">Posición de items</h3>
-
+                    <h3 style="margin-top:1rem;padding-top:0.75rem;border-top:2px solid #e0e0e0;">Posición de items</h3>
                     <div class="control-group" id="gridColGroup">
                         <label><code>grid-column</code> del elem. 3</label>
                         <div class="btn-group" data-prop="gridColumn" data-target="2">
                             <button class="ctrl-btn active" data-value="auto" aria-pressed="true">auto</button>
                             <button class="ctrl-btn" data-value="span 2" aria-pressed="false">span 2</button>
                             <button class="ctrl-btn" data-value="1 / 3" aria-pressed="false">1 / 3</button>
-                            <button class="ctrl-btn" data-value="2 / 4" aria-pressed="false">2 / 4</button>
                             <button class="ctrl-btn" data-value="1 / -1" aria-pressed="false">1 / -1</button>
                         </div>
                     </div>
-
                     <div class="control-group" id="gridRowGroup">
                         <label><code>grid-row</code> del elem. 3</label>
                         <div class="btn-group" data-prop="gridRow" data-target="2">
@@ -243,8 +477,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Visualización en vivo -->
                 <div class="preview-panel">
                     <h3>Vista previa</h3>
                     <div class="grid-viewport" id="gridViewport">
@@ -256,17 +488,12 @@
                         <div class="grid-item" style="background:#20c997;">6</div>
                     </div>
                 </div>
-
-                <!-- Código CSS generado -->
                 <div class="code-panel">
                     <h3>CSS Generado</h3>
                     <div class="code-example" id="gridCodeDisplay">
                         <pre><code>.grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    justify-items: stretch;
-    align-items: stretch;
     gap: 8px;
 }</code></pre>
                     </div>
@@ -275,34 +502,157 @@
             </div>
 
             <div class="exercise-box">
-                <h4>🧪 Ejercicio: Sidebar layout</h4>
-                <p>Configura el grid para simular un layout con <strong>sidebar</strong> (200px) + <strong>contenido principal</strong> (ocupa el resto) + <strong>footer</strong> (abajo).</p>
-                <button class="btn-exercise" data-exercise="grid-sidebar">Mostrar solución</button>
-                <p class="hint" id="hint-grid-sidebar" hidden>💡 Usa <code>grid-template-columns: 200px 1fr</code> y <code>grid-template-rows: 1fr auto</code>. Luego selecciona <code>grid-column: 1 / -1</code> en los controles de item de arriba para que un elemento ocupe todo el ancho (como un footer).</p>
-            </div>
-
-            <div class="exercise-box">
-                <h4>🧪 Ejercicio: Galería de imágenes</h4>
-                <p>Configura los controles para crear una <strong>galería de 4 columnas</strong> iguales con filas de 100px de alto.</p>
-                <button class="btn-exercise" data-exercise="grid-gallery">Mostrar solución</button>
-                <p class="hint" id="hint-grid-gallery" hidden>💡 Usa <code>grid-template-columns: repeat(4, 1fr)</code> y <code>grid-template-rows: 100px 100px</code>.</p>
+                <h4>🧪 Ejercicio 2: Galería de 4 columnas</h4>
+                <p>Crea una galería de 4 columnas iguales con filas de 100px.</p>
+                <button class="btn-exercise" data-exercise="grid-gallery">Solución</button>
+                <p class="hint" id="hint-grid-gallery" hidden>💡 <code>grid-template-columns: repeat(4, 1fr)</code> y <code>grid-template-rows: 100px 100px</code></p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- PROYECTO FINAL DEL MÓDULO                                    -->
+        <!-- S10: RESPONSIVE                                             -->
         <!-- ============================================================ -->
-        <section class="content-section">
-            <h2>🎯 Proyecto final del módulo</h2>
-            <p>Crea una página web que incluya:</p>
+        <section class="content-section" id="s10">
+            <h2>10. Diseño Responsivo</h2>
+            <p>El diseño responsivo adapta la página al tamaño de pantalla usando <strong>media queries</strong>.</p>
+            <div class="code-example">
+                <pre><code>/* Mobile-first: estilos base para móvil */
+.container {
+    width: 100%;
+    padding: 1rem;
+}
+
+/* Tablet: a partir de 768px */
+@media (min-width: 768px) {
+    .container { max-width: 750px; margin: 0 auto; }
+}
+
+/* Escritorio: a partir de 1024px */
+@media (min-width: 1024px) {
+    .container { max-width: 960px; }
+}</code></pre>
+            </div>
+            <div class="info-box"><strong>📱</strong> Redimensiona esta ventana del navegador para ver cómo se adaptan los componentes.</div>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio 3: Layout responsive</h4>
+                <p>Crea 3 columnas con <code>grid-template-columns</code> que se apilen en 1 columna en móvil usando media queries. Pista: <code>@media (max-width: 600px) { ... }</code></p>
+                <button class="btn-exercise" data-exercise="responsive">Solución</button>
+                <p class="hint" id="hint-responsive" hidden>💡 <code>.grid { grid-template-columns: 1fr 1fr 1fr; } @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }</code></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- S11: TRANSICIONES Y ANIMACIONES                             -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s11">
+            <h2>11. Transiciones y Animaciones</h2>
+            <h3>Transiciones</h3>
+            <p>Cambios <strong>suaves</strong> entre estados (como hover):</p>
+            <div class="demo-cols">
+                <div class="demo-col">
+                    <div class="transition-demo t-width">Ancho</div>
+                </div>
+                <div class="demo-col">
+                    <div class="transition-demo t-transform">Escala</div>
+                </div>
+            </div>
+            <div class="code-example">
+                <pre><code>.boton {
+    background: blue;
+    transition: all 0.3s ease;
+}
+.boton:hover {
+    background: darkblue;
+    transform: scale(1.05);
+}</code></pre>
+            </div>
+            <h3>Animaciones con @keyframes</h3>
+            <div class="animation-demo">
+                <div class="anim-box"></div>
+                <div class="anim-box anim-delay"></div>
+            </div>
+            <div class="code-example">
+                <pre><code>@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.elemento {
+    animation: pulse 2s infinite;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- S12: TRANSFORMACIONES                                       -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s12">
+            <h2>12. Transformaciones</h2>
+            <p>Las transformaciones modifican la <strong>forma, posición y tamaño</strong> de un elemento.</p>
+            <div class="demo-cols">
+                <div class="demo-col">
+                    <div class="transform-demo" style="transform:rotate(15deg)">rotate(15deg)</div>
+                    <div class="transform-demo" style="transform:scale(1.2)">scale(1.2)</div>
+                </div>
+                <div class="demo-col">
+                    <div class="transform-demo" style="transform:translateX(20px)">translateX(20px)</div>
+                    <div class="transform-demo" style="transform:skewX(-10deg)">skewX(-10deg)</div>
+                </div>
+            </div>
+            <div class="code-example">
+                <pre><code>.elemento {
+    transform: rotate(45deg) scale(1.5) translate(20px, 10px);
+    transform-origin: center;  /* Punto de origen de la transformación */
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- S13: VARIABLES CSS                                          -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s13">
+            <h2>13. Variables CSS (Custom Properties)</h2>
+            <p>Las variables CSS permiten <strong>reutilizar valores</strong> y crear temas fácilmente.</p>
+            <div class="code-example">
+                <pre><code>:root {
+    --color-primario: #1572b6;
+    --color-secundario: #6c757d;
+    --border-radius: 8px;
+    --font-size-base: 16px;
+}
+
+.boton {
+    background: var(--color-primario);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+}
+
+/* Tema oscuro */
+[data-theme="dark"] {
+    --color-primario: #0d4f8b;
+}</code></pre>
+            </div>
+            <div class="info-box"><strong>💡</strong> Las variables CSS se heredan y pueden modificarse con JavaScript para crear temas dinámicos.</div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- S14: PROYECTO FINAL                                         -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s14">
+            <h2>🎯 Proyecto Final</h2>
+            <p>Crea una página web que demuestre todo lo aprendido:</p>
             <ol class="project-list">
-                <li>Un <strong>header</strong> con navegación usando <strong>Flexbox</strong> (logo a la izquierda, menú a la derecha)</li>
-                <li>Una sección de <strong>tarjetas</strong> usando <strong>CSS Grid</strong> (3 columnas responsivas)</li>
-                <li>Un <strong>footer</strong> con 3 columnas usando <strong>Grid</strong></li>
-                <li>Una <strong>barra de progreso</strong> animada con CSS</li>
-                <li>Todo debe ser <strong>responsivo</strong> (usa media queries)</li>
+                <li><strong>Selectores</strong>: usa clases, IDs, combinaciones y pseudo-clases</li>
+                <li><strong>Box Model</strong>: controla padding, border y margin</li>
+                <li><strong>Flexbox</strong>: header con navegación (logo a la izq, menú a la der)</li>
+                <li><strong>Grid</strong>: sección de tarjetas en 3 columnas responsivas</li>
+                <li><strong>Responsive</strong>: media queries para móvil, tablet y escritorio</li>
+                <li><strong>Animaciones</strong>: al menos una transición o animación @keyframes</li>
+                <li><strong>Variables CSS</strong>: usa al menos 3 variables para colores y tamaños</li>
             </ol>
-            <p class="project-tip">💡 Crea un nuevo archivo <code>css/mi-proyecto.html</code> y empieza desde ahí. ¡Usa lo que aprendiste en el playground!</p>
+            <p class="project-tip">💡 Crea <code>css/mi-proyecto.html</code> con su propio <code>css/mi-estilo.css</code>.</p>
         </section>
 
     </div>

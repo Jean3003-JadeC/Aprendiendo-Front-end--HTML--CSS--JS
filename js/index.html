@@ -18,77 +18,727 @@
             <p class="subtitle">Dale interactividad y lógica a tus páginas web</p>
         </header>
 
-        <section class="content-section">
-            <h2>¿Qué es JavaScript?</h2>
-            <p><strong>JavaScript</strong> es un lenguaje de programación que permite añadir <strong>interactividad</strong> a las páginas web. Manipula el DOM, responde a eventos, se comunica con servidores y mucho más.</p>
+        <!-- ============================================================ -->
+        <!-- ÍNDICE DE CONTENIDOS                                        -->
+        <!-- ============================================================ -->
+        <section class="content-section toc-section">
+            <h2>📑 Índice de Contenidos</h2>
+            <ol class="toc-list">
+                <li><a href="#s-intro">Introducción a JavaScript</a></li>
+                <li><a href="#s-sintaxis">Sintaxis y Fundamentos</a></li>
+                <li><a href="#s-control">Estructuras de Control</a></li>
+                <li><a href="#s-funciones">Funciones</a></li>
+                <li><a href="#s-objetos">Objetos</a></li>
+                <li><a href="#s-arrays">Arrays</a></li>
+                <li><a href="#s-cadenas">Cadenas de Texto</a></li>
+                <li><a href="#s-errores">Manejo de Errores</a></li>
+                <li><a href="#s-async">Asincronía y Promesas</a></li>
+                <li><a href="#s-dom">DOM y Eventos</a></li>
+                <li><a href="#s-bom">BOM y APIs Web (Fetch)</a></li>
+                <li><a href="#s-modulos">Módulos y Buenas Prácticas</a></li>
+                <li><a href="#s-proyecto">🎯 Proyecto Final</a></li>
+            </ol>
         </section>
 
         <!-- ============================================================ -->
-        <!-- DEMO 1: DOM MANIPULATION - TO-DO LIST                       -->
+        <!-- SECCIÓN 1: INTRODUCCIÓN                                     -->
         <!-- ============================================================ -->
-        <section class="content-section">
-            <h2>📋 DOM: Lista de Tareas (To-Do List)</h2>
-            <p><strong>Manipulación del DOM:</strong> Agrega y elimina elementos de la lista usando <code>createElement</code>, <code>appendChild</code> y <code>removeChild</code>.</p>
+        <section id="s-intro" class="content-section">
+            <h2>1. Introducción a JavaScript</h2>
+            <p><strong>JavaScript</strong> es el lenguaje de programación que permite añadir interactividad y lógica a las páginas web. Creado en 1995 por Brendan Eich, hoy es uno de los lenguajes más populares del mundo.</p>
 
-            <div class="todo-container">
-                <div class="todo-input-group">
-                    <input type="text" id="todoInput" class="todo-input" placeholder="Escribe una tarea..." maxlength="60">
-                    <button id="todoAddBtn" class="btn-demo">➕ Agregar</button>
-                </div>
-                <ul id="todoList" class="todo-list">
-                    <li class="todo-item">
-                        <span>Aprender manipulación del DOM</span>
-                        <button class="todo-delete" aria-label="Eliminar">✕</button>
-                    </li>
-                    <li class="todo-item">
-                        <span>Practicar con eventos</span>
-                        <button class="todo-delete" aria-label="Eliminar">✕</button>
-                    </li>
-                    <li class="todo-item">
-                        <span>¡Completar este proyecto!</span>
-                        <button class="todo-delete" aria-label="Eliminar">✕</button>
-                    </li>
-                </ul>
-                <div class="todo-stats">
-                    <span id="todoCount">3 tareas</span>
-                    <button id="todoClearBtn" class="btn-small">Limpiar todo</button>
+            <div class="concept-box">
+                <h3>🔧 ¿Dónde se ejecuta?</h3>
+                <div class="concept-grid">
+                    <div class="concept-card">
+                        <span class="concept-icon">🌐</span>
+                        <strong>Navegador</strong>
+                        <p>Motor V8 (Chrome), SpiderMonkey (Firefox), JavaScriptCore (Safari)</p>
+                    </div>
+                    <div class="concept-card">
+                        <span class="concept-icon">🖥️</span>
+                        <strong>Servidor</strong>
+                        <p>Node.js, Deno, Bun — JavaScript fuera del navegador</p>
+                    </div>
+                    <div class="concept-card">
+                        <span class="concept-icon">📱</span>
+                        <strong>Multiplataforma</strong>
+                        <p>Electron (escritorio), React Native (móvil)</p>
+                    </div>
                 </div>
             </div>
 
-            <details class="code-toggle">
-                <summary>📝 Ver código: crear elemento</summary>
-                <div class="code-example">
-                    <pre><code>// Crear un nuevo elemento li
-const li = document.createElement('li');
-li.className = 'todo-item';
-li.innerHTML = `&lt;span&gt;${texto}&lt;/span&gt;
-    &lt;button class=&quot;todo-delete&quot;&gt;✕&lt;/button&gt;`;
+            <div class="info-box">
+                <h3>💻 Herramientas de desarrollo</h3>
+                <ul>
+                    <li><strong>Consola</strong> — <kbd>F12</kbd> → Console. Prueba código en tiempo real</li>
+                    <li><strong>Depurador</strong> — Pestaña Sources, breakpoints, paso a paso</li>
+                    <li><strong>ESLint</strong> — Analiza tu código en busca de errores y malas prácticas</li>
+                    <li><strong>Prettier</strong> — Formatea tu código automáticamente</li>
+                </ul>
+            </div>
 
-// Agregarlo a la lista
-lista.appendChild(li);
-
-// Eliminar un elemento
-li.remove();</code></pre>
-                </div>
-            </details>
+            <div class="code-example">
+                <pre><code>// Tu primer código JavaScript
+console.log("¡Hola, mundo!");     // Muestra en consola
+console.warn("Esto es un aviso"); // Advertencia amarilla
+console.error("¡Esto es error!"); // Error en rojo</code></pre>
+            </div>
 
             <div class="exercise-box">
-                <h4>🧪 Ejercicio: Contador de tareas pendientes</h4>
-                <p>Modifica el código para que muestre "X tarea(s) pendiente(s)" y cambie de color cuando no haya tareas.</p>
-                <button class="btn-exercise" data-exercise="todo-counter">Mostrar pista</button>
-                <p class="hint" id="hint-todo-counter" hidden>💡 Usa <code>document.querySelectorAll('.todo-item').length</code> para contar los items. Si es 0, muestra un mensaje especial.</p>
+                <h4>🧪 Ejercicio: Saludo personalizado</h4>
+                <p>Abre la consola (<kbd>F12</kbd> → Console) y escribe: <code>console.log("Hola, " + "tu nombre")</code>. Prueba también con <code>console.table([1, 2, 3])</code>.</p>
+                <button class="btn-exercise" data-exercise="intro">Mostrar pista</button>
+                <p class="hint" id="hint-intro" hidden>💡 Usa comillas dobles o simples para los strings. El <code>+</code> concatena texto. <code>console.table()</code> muestra datos en formato tabla.</p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- DEMO 2: EVENT DELEGATION - LISTA INTERACTIVA                -->
+        <!-- SECCIÓN 2: SINTAXIS Y FUNDAMENTOS                           -->
         <!-- ============================================================ -->
-        <section class="content-section">
-            <h2>🖱️ Event Delegation: Lista interactiva</h2>
-            <p><strong>Delegación de eventos:</strong> Un solo event listener en el contenedor maneja clics en múltiples elementos hijos.</p>
+        <section id="s-sintaxis" class="content-section">
+            <h2>2. Sintaxis y Fundamentos</h2>
+            <p>JavaScript se compone de <strong>sentencias</strong> (instrucciones) y <strong>expresiones</strong> (valores). Cada sentencia termina en punto y coma <code>;</code> (opcional pero recomendado).</p>
 
-            <div class="delegation-container">
-                <p class="demo-instruction">Haz clic en cualquier elemento de la lista:</p>
+            <div class="mini-section">
+                <h3>📝 Comentarios</h3>
+                <div class="code-example">
+                    <pre><code>// Comentario de una línea
+
+/*
+   Comentario
+   de varias
+   líneas
+*/</code></pre>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>📦 Variables: let, const, var</h3>
+                <div class="code-example">
+                    <pre><code>let nombre = "Ana";       // Puede reasignarse
+const PI = 3.1416;       // No puede reasignarse
+var edad = 25;           // Obsoleto, mejor usar let/const
+
+nombre = "Carlos";       // ✅ Válido
+// PI = 3.14;            // ❌ Error: constante</code></pre>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>🔤 Tipos de datos primitivos</h3>
+                <div class="datatype-grid">
+                    <div class="datatype-card"><code>String</code> <span class="datatype-example">"Hola"</span></div>
+                    <div class="datatype-card"><code>Number</code> <span class="datatype-example">42, 3.14</span></div>
+                    <div class="datatype-card"><code>Boolean</code> <span class="datatype-example">true / false</span></div>
+                    <div class="datatype-card"><code>Null</code> <span class="datatype-example">null</span></div>
+                    <div class="datatype-card"><code>Undefined</code> <span class="datatype-example">undefined</span></div>
+                    <div class="datatype-card"><code>BigInt</code> <span class="datatype-example">900n</span></div>
+                    <div class="datatype-card"><code>Symbol</code> <span class="datatype-example">Symbol()</span></div>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>➕ Operadores básicos</h3>
+                <div class="code-example">
+                    <pre><code>let a = 10, b = 3;
+
+// Aritméticos
+console.log(a + b);  // 13   (suma)
+console.log(a - b);  // 7    (resta)
+console.log(a * b);  // 30   (multiplicación)
+console.log(a / b);  // 3.33 (división)
+console.log(a % b);  // 1    (módulo / residuo)
+
+// Comparación
+console.log(a > b);   // true
+console.log(a === b); // false (igualdad estricta)
+console.log(a !== b); // true  (desigualdad estricta)</code></pre>
+                </div>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Calculadora de propinas</h4>
+                <p>Crea variables <code>totalCuenta = 450</code> y <code>propina = 15</code>. Calcula el monto de propina y el total a pagar. Muestra el resultado en consola.</p>
+                <button class="btn-exercise" data-exercise="sintaxis">Mostrar pista</button>
+                <p class="hint" id="hint-sintaxis" hidden>💡 <code>let montoPropina = totalCuenta * (propina / 100);</code> luego <code>console.log("Propina: $" + montoPropina);</code></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 3: ESTRUCTURAS DE CONTROL                            -->
+        <!-- ============================================================ -->
+        <section id="s-control" class="content-section">
+            <h2>3. Estructuras de Control</h2>
+            <p>Controlan el flujo de ejecución: ejecutar código solo si se cumple una condición, o repetirlo varias veces.</p>
+
+            <div class="mini-section">
+                <h3>🚦 Condicionales: if / else if / else</h3>
+                <div class="code-example">
+                    <pre><code>let edad = 18;
+
+if (edad >= 18) {
+    console.log("Eres mayor de edad");
+} else {
+    console.log("Eres menor de edad");
+}
+
+// Operador ternario (abreviatura)
+let mensaje = edad >= 18 ? "Mayor" : "Menor";</code></pre>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>🔄 Bucles: for, while</h3>
+                <div class="code-example">
+                    <pre><code>// for: cuando sabes cuántas veces iterar
+for (let i = 0; i < 5; i++) {
+    console.log("Iteración:", i);
+}
+
+// while: cuando no sabes cuántas veces
+let contador = 0;
+while (contador < 3) {
+    console.log("Contador:", contador);
+    contador++;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>🔀 switch</h3>
+                <div class="code-example">
+                    <pre><code>let dia = 3;
+
+switch (dia) {
+    case 1: console.log("Lunes");    break;
+    case 2: console.log("Martes");   break;
+    case 3: console.log("Miércoles"); break;
+    case 4: console.log("Jueves");   break;
+    case 5: console.log("Viernes");  break;
+    default: console.log("Fin de semana");
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Tabla de multiplicar</h4>
+                <p>Escribe un bucle <code>for</code> que muestre la tabla de multiplicar del 7 (del 1 al 10) en la consola.</p>
+                <button class="btn-exercise" data-exercise="control">Mostrar pista</button>
+                <p class="hint" id="hint-control" hidden>💡 <code>for (let i = 1; i <= 10; i++) { console.log("7 x " + i + " = " + (7 * i)); }</code></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 4: FUNCIONES                                         -->
+        <!-- ============================================================ -->
+        <section id="s-funciones" class="content-section">
+            <h2>4. Funciones</h2>
+            <p>Las funciones son bloques de código reutilizable. Reciben datos de entrada (parámetros) y devuelven un resultado.</p>
+
+            <div class="mini-section">
+                <h3>📜 Declaración de funciones</h3>
+                <div class="code-example">
+                    <pre><code>// Función tradicional
+function saludar(nombre) {
+    return "¡Hola, " + nombre + "!";
+}
+
+console.log(saludar("Ana")); // "¡Hola, Ana!"
+
+// Arrow function (ES6)
+const sumar = (a, b) => a + b;
+console.log(sumar(5, 3));    // 8</code></pre>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>📞 Callbacks (funciones como argumento)</h3>
+                <div class="code-example">
+                    <pre><code>function procesarUsuario(nombre, callback) {
+    const mensaje = "Usuario: " + nombre;
+    callback(mensaje);  // Ejecuta la función recibida
+}
+
+procesarUsuario("Ana", function(m) {
+    console.log(m.toUpperCase());
+});</code></pre>
+                </div>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Conversor de temperatura</h4>
+                <p>Crea una función flecha que convierta grados Celsius a Fahrenheit: <code>F = C * 9/5 + 32</code>. Prueba con 0°C, 25°C y 100°C.</p>
+                <button class="btn-exercise" data-exercise="funciones">Mostrar pista</button>
+                <p class="hint" id="hint-funciones" hidden>💡 <code>const celsiusAFahrenheit = c => c * 9/5 + 32;</code> Luego <code>[0, 25, 100].forEach(c => console.log(c + "°C = " + celsiusAFahrenheit(c) + "°F"));</code></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 5: OBJETOS                                           -->
+        <!-- ============================================================ -->
+        <section id="s-objetos" class="content-section">
+            <h2>5. Objetos</h2>
+            <p>Los objetos agrupan datos (propiedades) y funciones (métodos) relacionados en una sola entidad.</p>
+
+            <div class="mini-section">
+                <h3>📦 Crear y usar objetos</h3>
+                <div class="code-example">
+                    <pre><code>// Objeto literal
+const persona = {
+    nombre: "Ana",
+    edad: 28,
+    ciudad: "Madrid",
+    saludar: function() {
+        return "Hola, soy " + this.nombre;
+    }
+};
+
+console.log(persona.nombre);       // "Ana"
+console.log(persona["edad"]);      // 28
+console.log(persona.saludar());    // "Hola, soy Ana"</code></pre>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>🔓 Destructuración de objetos</h3>
+                <div class="code-example">
+                    <pre><code>const usuario = { id: 1, email: "ana@mail.com", rol: "admin" };
+
+// Extraer propiedades en variables
+const { email, rol } = usuario;
+console.log(email); // "ana@mail.com"
+console.log(rol);   // "admin"</code></pre>
+                </div>
+            </div>
+
+            <div id="objectDemo" class="demo-box">
+                <h3>🖱️ Demo: Crea un objeto en vivo</h3>
+                <p>Haz clic para generar un objeto persona con datos aleatorios:</p>
+                <button id="objectDemoBtn" class="btn-demo">🎲 Generar persona</button>
+                <div id="objectDemoOutput" class="output">
+                    💡 Presiona el botón para generar un objeto
+                </div>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Libro favorito</h4>
+                <p>Crea un objeto <code>libro</code> con propiedades: título, autor, año, y un método <code>resumen()</code> que devuelva un texto con todos los datos.</p>
+                <button class="btn-exercise" data-exercise="objetos">Mostrar pista</button>
+                <p class="hint" id="hint-objetos" hidden>💡 <code>const libro = { titulo: "1984", autor: "Orwell", año: 1949, resumen() { return this.titulo + " por " + this.autor + " (" + this.año + ")"; } };</code></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 6: ARRAYS                                            -->
+        <!-- ============================================================ -->
+        <section id="s-arrays" class="content-section">
+            <h2>6. Arrays</h2>
+            <p>Los arrays (arreglos) almacenan listas ordenadas de datos. Pueden contener cualquier tipo de valor.</p>
+
+            <div class="mini-section">
+                <h3>📋 Creación y métodos básicos</h3>
+                <div class="code-example">
+                    <pre><code>const frutas = ["Manzana", "Banana", "Naranja"];
+
+console.log(frutas[0]);     // "Manzana"
+console.log(frutas.length); // 3
+
+// Mutadores (modifican el array original)
+frutas.push("Uva");         // Agrega al final
+frutas.pop();               // Elimina el último
+frutas.unshift("Kiwi");     // Agrega al inicio
+
+// No mutadores (devuelven nuevo array)
+const copia = frutas.slice(0, 2);</code></pre>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>🔄 Iteración: forEach, map, filter</h3>
+                <div class="code-example">
+                    <pre><code>const numeros = [1, 2, 3, 4, 5];
+
+// forEach - ejecuta algo por cada elemento
+numeros.forEach(n => console.log(n));
+
+// map - transforma cada elemento
+const dobles = numeros.map(n => n * 2);
+// [2, 4, 6, 8, 10]
+
+// filter - filtra elementos
+const pares = numeros.filter(n => n % 2 === 0);
+// [2, 4]
+
+// reduce - reduce a un solo valor
+const suma = numeros.reduce((acc, n) => acc + n, 0);
+// 15</code></pre>
+                </div>
+            </div>
+
+            <div id="arrayDemo" class="demo-box">
+                <h3>🖱️ Demo: Manipular array en vivo</h3>
+                <div class="array-controls">
+                    <button id="arrayMapBtn" class="btn-small">✨ Doblar</button>
+                    <button id="arrayFilterBtn" class="btn-small">🔢 Pares</button>
+                    <button id="arrayReduceBtn" class="btn-small">➕ Sumar</button>
+                    <button id="arrayResetBtn" class="btn-small">↩️ Reset</button>
+                </div>
+                <div id="arrayDisplay" class="output">
+                    [1, 2, 3, 4, 5]
+                </div>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Lista de compras</h4>
+                <p>Crea un array con 5 productos. Usa <code>push()</code> para agregar uno, <code>pop()</code> para eliminar el último, y <code>forEach()</code> para mostrar todos en consola.</p>
+                <button class="btn-exercise" data-exercise="arrays">Mostrar pista</button>
+                <p class="hint" id="hint-arrays" hidden>💡 <code>const compras = ["Leche", "Pan", "Huevos"]; compras.push("Queso"); compras.pop(); compras.forEach(p => console.log("🛒 " + p));</code></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 7: CADENAS DE TEXTO                                  -->
+        <!-- ============================================================ -->
+        <section id="s-cadenas" class="content-section">
+            <h2>7. Cadenas de Texto (Strings)</h2>
+            <p>Los strings representan texto. Pueden crearse con comillas simples, dobles o backticks (template literals).</p>
+
+            <div class="mini-section">
+                <h3>📝 Template Literals</h3>
+                <div class="code-example">
+                    <pre><code>const nombre = "Ana";
+const edad = 28;
+
+// Concatenación tradicional
+console.log("Me llamo " + nombre + " y tengo " + edad + " años.");
+
+// Template literal (con backticks ``)
+console.log(`Me llamo ${nombre} y tengo ${edad} años.`);
+// ¡Mucho más legible!</code></pre>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>🔧 Métodos útiles de string</h3>
+                <div class="code-example">
+                    <pre><code>const texto = "  JavaScript es genial!  ";
+
+console.log(texto.length);           // 26
+console.log(texto.trim());           // "JavaScript es genial!"
+console.log(texto.toUpperCase());    // "  JAVASCRIPT ES GENIAL!  "
+console.log(texto.includes("JS"));   // false
+console.log(texto.startsWith("  J"));// true
+console.log(texto.slice(2, 12));     // "JavaScript"</code></pre>
+                </div>
+            </div>
+
+            <div id="stringDemo" class="demo-box">
+                <h3>🖱️ Demo: Transformador de texto</h3>
+                <div class="string-controls">
+                    <input type="text" id="stringInput" class="todo-input" placeholder="Escribe algo..." value="JavaScript">
+                    <button id="stringUpperBtn" class="btn-small">🔠 MAYÚS</button>
+                    <button id="stringLowerBtn" class="btn-small">🔡 minús</button>
+                    <button id="stringCountBtn" class="btn-small">🔢 Contar</button>
+                    <button id="stringReverseBtn" class="btn-small">🔄 Invertir</button>
+                </div>
+                <div id="stringOutput" class="output">
+                    💡 Escribe un texto y prueba los botones
+                </div>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Validador de email simple</h4>
+                <p>Crea una función que reciba un string y devuelva <code>true</code> si contiene "@" y un "." después del "@".</p>
+                <button class="btn-exercise" data-exercise="cadenas">Mostrar pista</button>
+                <p class="hint" id="hint-cadenas" hidden>💡 <code>function esEmail(str) { return str.includes("@") && str.includes(".", str.indexOf("@")); }</code></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 8: MANEJO DE ERRORES                                 -->
+        <!-- ============================================================ -->
+        <section id="s-errores" class="content-section">
+            <h2>8. Manejo de Errores</h2>
+            <p>Los errores son inevitables. JavaScript proporciona <code>try...catch</code> para manejarlos sin que rompan tu programa.</p>
+
+            <div class="code-example">
+                <pre><code>try {
+    // Código que puede fallar
+    let resultado = 10 / 0;
+    console.log("Resultado:", resultado);
+
+    // Lanzar nuestro propio error
+    if (resultado === Infinity) {
+        throw new Error("División por cero");
+    }
+} catch (error) {
+    console.error("❌ Error:", error.message);
+} finally {
+    console.log("✅ Esto se ejecuta siempre");
+}</code></pre>
+            </div>
+
+            <div class="info-box">
+                <h3>📋 Tipos de error comunes</h3>
+                <ul>
+                    <li><code>ReferenceError</code> — Variable no definida</li>
+                    <li><code>TypeError</code> — Operación en tipo incorrecto</li>
+                    <li><code>SyntaxError</code> — Error de sintaxis al parsear</li>
+                    <li><code>RangeError</code> — Valor fuera del rango permitido</li>
+                </ul>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: División segura</h4>
+                <p>Crea una función <code>dividir(a, b)</code> que lance un error si <code>b === 0</code> con el mensaje "No se puede dividir por cero". Usa try/catch al llamarla.</p>
+                <button class="btn-exercise" data-exercise="errores">Mostrar pista</button>
+                <p class="hint" id="hint-errores" hidden>💡 <code>function dividir(a, b) { if (b === 0) throw new Error("No se puede dividir por cero"); return a / b; } try { console.log(dividir(10, 0)); } catch(e) { console.error(e.message); }</code></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 9: ASINCRONÍA Y PROMESAS                             -->
+        <!-- ============================================================ -->
+        <section id="s-async" class="content-section">
+            <h2>9. Asincronía y Promesas</h2>
+            <p>JavaScript ejecuta una cosa a la vez (single-threaded), pero puede manejar operaciones que toman tiempo (APIs, archivos, timers) sin bloquear la interfaz.</p>
+
+            <div class="mini-section">
+                <h3>⏱️ Temporizadores: setTimeout / setInterval</h3>
+                <div class="code-example">
+                    <pre><code>// Ejecuta una función después de 2 segundos
+setTimeout(() => {
+    console.log("¡Pasaron 2 segundos!");
+}, 2000);
+
+// Ejecuta una función cada 1 segundo
+const intervalo = setInterval(() => {
+    console.log("Tick...");
+}, 1000);
+
+// Para cancelar después de 5 segundos
+setTimeout(() => clearInterval(intervalo), 5000);</code></pre>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>🤝 Promesas y async/await</h3>
+                <div class="code-example">
+                    <pre><code>// Crear una promesa
+const esperar = (ms) => new Promise(resolve => {
+    setTimeout(() => resolve(`Esperé ${ms}ms`), ms);
+});
+
+// Usar .then()
+esperar(1000).then(msg => console.log(msg));
+
+// Usar async/await (más legible)
+async function ejecutar() {
+    const msg = await esperar(500);
+    console.log(msg);
+}
+
+// Promise.all - ejecuta en paralelo
+const todas = await Promise.all([
+    esperar(1000),
+    esperar(2000),
+    esperar(1500)
+]);</code></pre>
+                </div>
+            </div>
+
+            <!-- Demo de Async (existente) -->
+            <div class="demo-box">
+                <h3>⏳ Demo interactiva: Serie vs Paralelo</h3>
+                <p>Observa la diferencia entre ejecutar tareas <strong>en serie</strong> (una tras otra) y <strong>en paralelo</strong> (todas a la vez).</p>
+
+                <div class="async-container">
+                    <div class="async-controls">
+                        <button id="asyncSeriesBtn" class="btn-demo">▶️ Serie</button>
+                        <button id="asyncParallelBtn" class="btn-demo">⏩ Paralelo</button>
+                        <button id="asyncRaceBtn" class="btn-demo">🏁 Race</button>
+                        <button id="asyncResetBtn" class="btn-small">↩️ Reiniciar</button>
+                    </div>
+
+                    <div class="async-tracks" id="asyncTracks">
+                        <div class="async-track" data-op="1">
+                            <span class="track-label">📦 Op 1 (1s)</span>
+                            <div class="track-bar">
+                                <div class="track-fill" id="track1"></div>
+                            </div>
+                            <span class="track-status" id="status1">⏳ Esperando...</span>
+                        </div>
+                        <div class="async-track" data-op="2">
+                            <span class="track-label">📦 Op 2 (2s)</span>
+                            <div class="track-bar">
+                                <div class="track-fill" id="track2"></div>
+                            </div>
+                            <span class="track-status" id="status2">⏳ Esperando...</span>
+                        </div>
+                        <div class="async-track" data-op="3">
+                            <span class="track-label">📦 Op 3 (1.5s)</span>
+                            <div class="track-bar">
+                                <div class="track-fill" id="track3"></div>
+                            </div>
+                            <span class="track-status" id="status3">⏳ Esperando...</span>
+                        </div>
+                    </div>
+
+                    <div id="asyncResult" class="output">
+                        💡 Elige un modo de ejecución
+                    </div>
+                </div>
+
+                <details class="code-toggle">
+                    <summary>📝 Ver código: serie vs paralelo</summary>
+                    <div class="code-example">
+                        <pre><code>// Serie: ~4.5s
+async function enSerie() {
+    const r1 = await op1();
+    const r2 = await op2();
+    const r3 = await op3();
+    return [r1, r2, r3];
+}
+
+// Paralelo: ~2s
+async function enParalelo() {
+    return await Promise.all([op1(), op2(), op3()]);
+}</code></pre>
+                    </div>
+                </details>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Reloj en vivo</h4>
+                <p>Usa <code>setInterval</code> para mostrar la hora actual actualizada cada segundo en la consola. El formato debe ser HH:MM:SS.</p>
+                <button class="btn-exercise" data-exercise="async">Mostrar pista</button>
+                <p class="hint" id="hint-async" hidden>💡 <code>setInterval(() => { const ahora = new Date(); console.log(ahora.toLocaleTimeString()); }, 1000);</code></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 10: DOM Y EVENTOS                                    -->
+        <!-- ============================================================ -->
+        <section id="s-dom" class="content-section">
+            <h2>10. DOM y Eventos</h2>
+            <p>El <strong>DOM</strong> (Document Object Model) es la representación del HTML como un árbol de objetos. JavaScript puede navegar, crear, modificar y eliminar elementos del DOM.</p>
+
+            <div class="mini-section">
+                <h3>🔍 Seleccionar elementos</h3>
+                <div class="code-example">
+                    <pre><code>// Métodos de selección
+const titulo = document.getElementById("miTitulo");
+const secciones = document.getElementsByClassName("content-section");
+const boton = document.querySelector(".btn-demo");
+const todos = document.querySelectorAll("p");
+
+// querySelector es el más flexible (usa sintaxis CSS)
+const primerItem = document.querySelector(".todo-item");
+</code></pre>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>✏️ Modificar elementos</h3>
+                <div class="code-example">
+                    <pre><code>const elemento = document.querySelector("h1");
+
+// Cambiar contenido
+elemento.textContent = "Nuevo título";      // Solo texto (seguro)
+elemento.innerHTML = "&lt;em&gt;Título&lt;/em&gt;"; // HTML (riesgo XSS)
+
+// Cambiar estilos
+elemento.style.color = "red";
+elemento.style.fontSize = "2rem";
+
+// Cambiar clases
+elemento.classList.add("activo");
+elemento.classList.remove("inactivo");
+elemento.classList.toggle("resaltado");</code></pre>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>🎯 Eventos</h3>
+                <div class="code-example">
+                    <pre><code>const boton = document.querySelector("#miBoton");
+
+// Escuchar eventos
+boton.addEventListener("click", function(event) {
+    console.log("¡Clic!", event.target);
+});
+
+// Tipos comunes:
+// click, dblclick, mouseover, mouseout
+// keydown, keyup, keypress
+// submit, change, input
+// load, DOMContentLoaded, resize, scroll</code></pre>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>🔄 Delegación de eventos</h3>
+                <p>En lugar de agregar un listener a cada elemento, pon uno solo en el padre y usa <code>event.target</code> para detectar qué hijo fue cliqueado.</p>
+                <div class="code-example">
+                    <pre><code>// Un solo listener para todos los items
+document.querySelector("ul").addEventListener("click", function(e) {
+    const item = e.target.closest("li");
+    if (!item) return;
+    console.log("Clic en:", item.textContent);
+});</code></pre>
+                </div>
+            </div>
+
+            <!-- Demo: To-Do List (existente) -->
+            <div class="demo-box">
+                <h3>📋 Demo: Lista de Tareas (To-Do List)</h3>
+                <p>Crea y elimina elementos del DOM usando <code>createElement</code>, <code>appendChild</code> y <code>remove</code>.</p>
+
+                <div class="todo-container">
+                    <div class="todo-input-group">
+                        <input type="text" id="todoInput" class="todo-input" placeholder="Escribe una tarea..." maxlength="60">
+                        <button id="todoAddBtn" class="btn-demo">➕ Agregar</button>
+                    </div>
+                    <ul id="todoList" class="todo-list">
+                        <li class="todo-item">
+                            <span>Aprender manipulación del DOM</span>
+                            <button class="todo-delete" aria-label="Eliminar">✕</button>
+                        </li>
+                        <li class="todo-item">
+                            <span>Practicar con eventos</span>
+                            <button class="todo-delete" aria-label="Eliminar">✕</button>
+                        </li>
+                        <li class="todo-item">
+                            <span>¡Completar este proyecto!</span>
+                            <button class="todo-delete" aria-label="Eliminar">✕</button>
+                        </li>
+                    </ul>
+                    <div class="todo-stats">
+                        <span id="todoCount">3 tareas</span>
+                        <button id="todoClearBtn" class="btn-small">🗑️ Limpiar todo</button>
+                    </div>
+                </div>
+
+                <details class="code-toggle">
+                    <summary>📝 Ver código: crear y eliminar elementos</summary>
+                    <div class="code-example">
+                        <pre><code>const li = document.createElement('li');
+li.className = 'todo-item';
+li.textContent = texto;
+lista.appendChild(li);
+
+// Eliminar
+li.remove();</code></pre>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Demo: Event Delegation (existente) -->
+            <div class="demo-box">
+                <h3>🖱️ Demo: Delegación de Eventos</h3>
+                <p>Un solo <code>addEventListener</code> en el <code>&lt;ul&gt;</code> maneja clics en todos los <code>&lt;li&gt;</code> hijos.</p>
+                <p class="demo-instruction">Haz clic en cualquier tema:</p>
                 <ul id="delegationList" class="delegation-list">
                     <li data-category="frontend" data-difficulty="facil">📄 HTML - Estructura básica</li>
                     <li data-category="frontend" data-difficulty="medio">🎨 CSS - Flexbox y Grid</li>
@@ -99,61 +749,103 @@ li.remove();</code></pre>
                 <div id="delegationOutput" class="output">
                     💡 Haz clic en un tema para ver sus detalles
                 </div>
-            </div>
 
-            <details class="code-toggle">
-                <summary>📝 Ver código: delegación de eventos</summary>
-                <div class="code-example">
-                    <pre><code>// Un solo event listener en el padre
-lista.addEventListener('click', function(e) {
+                <details class="code-toggle">
+                    <summary>📝 Ver código</summary>
+                    <div class="code-example">
+                        <pre><code>lista.addEventListener('click', function(e) {
     const item = e.target.closest('li');
     if (!item) return;
-
-    const categoria = item.dataset.category;
-    const dificultad = item.dataset.difficulty;
-    console.log(`Clic en: ${item.textContent}`);
+    console.log('Clic en:', item.textContent,
+        '| Categoría:', item.dataset.category);
 });</code></pre>
-                </div>
-            </details>
+                    </div>
+                </details>
+            </div>
 
             <div class="exercise-box">
-                <h4>🧪 Ejercicio: Resaltar por categoría</h4>
-                <p>Agrega botones para filtrar la lista: "Frontend", "Backend", "Database". Al hacer clic, solo deben mostrarse los elementos de esa categoría.</p>
-                <button class="btn-exercise" data-exercise="event-filter">Mostrar pista</button>
-                <p class="hint" id="hint-event-filter" hidden>💡 Usa <code>item.style.display = item.dataset.category === filtro ? '' : 'none'</code>. Usa delegación también para los botones de filtro.</p>
+                <h4>🧪 Ejercicio: Contador de clics</h4>
+                <p>Crea un botón que muestre cuántas veces se ha hecho clic en él. El contador debe actualizarse en el DOM, no solo en consola.</p>
+                <button class="btn-exercise" data-exercise="dom">Mostrar pista</button>
+                <p class="hint" id="hint-dom" hidden>💡 <code>let contador = 0; boton.addEventListener('click', () => { contador++; boton.textContent = 'Clics: ' + contador; });</code></p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- DEMO 3: FETCH API - GENERADOR DE USUARIOS                   -->
+        <!-- SECCIÓN 11: BOM Y APIs WEB (FETCH)                           -->
         <!-- ============================================================ -->
-        <section class="content-section">
-            <h2>🌐 Fetch API: Generador de usuarios aleatorios</h2>
-            <p><strong>Promesas y Fetch:</strong> Obtén datos de una API real (<a href="https://randomuser.me" target="_blank" rel="noopener">randomuser.me</a>) y muéstralos en pantalla.</p>
+        <section id="s-bom" class="content-section">
+            <h2>11. BOM y APIs Web (Fetch)</h2>
+            <p>El <strong>BOM</strong> (Browser Object Model) agrupa objetos del navegador: <code>window</code>, <code>location</code>, <code>navigator</code>, <code>history</code>, <code>localStorage</code> y más.</p>
 
-            <div class="fetch-container">
-                <button id="fetchUserBtn" class="btn-demo">🎲 Generar usuario</button>
+            <div class="mini-section">
+                <h3>📦 Web Storage: localStorage</h3>
+                <div class="code-example">
+                    <pre><code>// Guardar datos (persisten al cerrar el navegador)
+localStorage.setItem("nombre", "Ana");
+localStorage.setItem("tema", "JavaScript");
 
-                <div id="fetchLoading" class="fetch-loading" hidden>
-                    <div class="spinner"></div>
-                    <span>Cargando usuario...</span>
+// Recuperar
+const nombre = localStorage.getItem("nombre");
+
+// Eliminar
+localStorage.removeItem("tema");
+
+// Limpiar todo
+localStorage.clear();</code></pre>
                 </div>
+            </div>
 
-                <div id="fetchError" class="fetch-error" hidden></div>
+            <div class="mini-section">
+                <h3>🌐 Fetch API: consumir APIs externas</h3>
+                <div class="code-example">
+                    <pre><code>// GET con async/await
+async function obtenerDatos() {
+    try {
+        const respuesta = await fetch('https://api.example.com/datos');
+        if (!respuesta.ok) throw new Error('HTTP ' + respuesta.status);
+        const datos = await respuesta.json();
+        return datos;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
 
-                <div id="fetchResult" class="user-card" hidden>
-                    <img id="userAvatar" class="user-avatar" src="" alt="Avatar">
-                    <div class="user-info">
-                        <h3 id="userName"></h3>
-                        <p id="userEmail"></p>
-                        <p id="userLocation"></p>
-                        <p id="userPhone"></p>
+// GET con .then()
+fetch('https://api.example.com/datos')
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.error(err));</code></pre>
+                </div>
+            </div>
+
+            <!-- Demo: Fetch API (existente) -->
+            <div class="demo-box">
+                <h3>🌐 Demo: Generador de usuarios aleatorios</h3>
+                <p>Usa <strong>Fetch API</strong> para obtener datos de <a href="https://randomuser.me" target="_blank" rel="noopener">randomuser.me</a> y mostrarlos en pantalla.</p>
+
+                <div class="fetch-container">
+                    <button id="fetchUserBtn" class="btn-demo">🎲 Generar usuario</button>
+
+                    <div id="fetchLoading" class="fetch-loading" hidden>
+                        <div class="spinner"></div>
+                        <span>Cargando usuario...</span>
                     </div>
-                </div>
 
-                <div id="fetchCodeDisplay" class="code-example" style="margin-top:1rem;">
-                    <pre><code>// Fetch API con async/await
-async function obtenerUsuario() {
+                    <div id="fetchError" class="fetch-error" hidden></div>
+
+                    <div id="fetchResult" class="user-card" hidden>
+                        <img id="userAvatar" class="user-avatar" src="" alt="Avatar">
+                        <div class="user-info">
+                            <h3 id="userName"></h3>
+                            <p id="userEmail"></p>
+                            <p id="userLocation"></p>
+                            <p id="userPhone"></p>
+                        </div>
+                    </div>
+
+                    <div id="fetchCodeDisplay" class="code-example" style="margin-top:1rem;">
+                        <pre><code>async function obtenerUsuario() {
     try {
         const res = await fetch('https://randomuser.me/api/');
         const data = await res.json();
@@ -162,130 +854,79 @@ async function obtenerUsuario() {
         console.error('Error:', error);
     }
 }</code></pre>
+                    </div>
                 </div>
             </div>
 
-            <details class="code-toggle">
-                <summary>📝 Ver más: Promise.then vs async/await</summary>
-                <div class="code-example">
-                    <pre><code>// Con promesas (.then)
-fetch('https://api.example.com')
-    .then(resp => resp.json())
-    .then(data => console.log(data))
-    .catch(err => console.error(err));
-
-// Con async/await (más legible)
-async function getData() {
-    try {
-        const resp = await fetch('https://api.example.com');
-        const data = await resp.json();
-        console.log(data);
-    } catch (err) {
-        console.error(err);
-    }
-}</code></pre>
-                </div>
-            </details>
-
             <div class="exercise-box">
-                <h4>🧪 Ejercicio: Múltiples usuarios</h4>
-                <p>Modifica el código para que al hacer clic en "Generar usuario", obtenga <strong>3 usuarios</strong> de una sola vez usando <code>Promise.all</code> y los muestre en una cuadrícula.</p>
-                <button class="btn-exercise" data-exercise="fetch-multiple">Mostrar pista</button>
-                <p class="hint" id="hint-fetch-multiple" hidden>💡 Usa <code>Promise.all([fetch(url1), fetch(url2), fetch(url3)])</code> o simplemente cambia el parámetro: <code>?results=3</code> en la URL de randomuser.</p>
+                <h4>🧪 Ejercicio: Guardar en localStorage</h4>
+                <p>Modifica la demo para que cada usuario generado se guarde en <code>localStorage</code> y se muestre un historial de los últimos 5 usuarios.</p>
+                <button class="btn-exercise" data-exercise="bom">Mostrar pista</button>
+                <p class="hint" id="hint-bom" hidden>💡 <code>let historial = JSON.parse(localStorage.getItem('usuarios') || '[]'); historial.unshift(user); if (historial.length > 5) historial.pop(); localStorage.setItem('usuarios', JSON.stringify(historial));</code></p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- DEMO 4: PROMESAS Y ASYNC - OPERACIONES SIMULADAS            -->
+        <!-- SECCIÓN 12: MÓDULOS Y BUENAS PRÁCTICAS                       -->
         <!-- ============================================================ -->
-        <section class="content-section">
-            <h2>⏳ Promesas y Async/Await: Operaciones simuladas</h2>
-            <p><strong>Asincronía:</strong> Ejecuta operaciones que toman tiempo (simuladas con <code>setTimeout</code>) en <strong>serie</strong> y en <strong>paralelo</strong>.</p>
+        <section id="s-modulos" class="content-section">
+            <h2>12. Módulos y Buenas Prácticas</h2>
+            <p>A medida que tu código crece, organizarlo en <strong>módulos</strong> es esencial para mantenerlo legible y mantenible.</p>
 
-            <div class="async-container">
-                <div class="async-controls">
-                    <button id="asyncSeriesBtn" class="btn-demo">▶️ Ejecutar en serie</button>
-                    <button id="asyncParallelBtn" class="btn-demo">⏩ Ejecutar en paralelo</button>
-                    <button id="asyncRaceBtn" class="btn-demo">🏁 Carrera (race)</button>
-                    <button id="asyncResetBtn" class="btn-small">Reiniciar</button>
-                </div>
+            <div class="mini-section">
+                <h3>📦 Módulos ES6 (import / export)</h3>
+                <div class="code-example">
+                    <pre><code>// --- archivo: utils.js ---
+export function sumar(a, b) { return a + b; }
+export const PI = 3.1416;
 
-                <div class="async-tracks" id="asyncTracks">
-                    <div class="async-track" data-op="1">
-                        <span class="track-label">📦 Operación 1 (1s)</span>
-                        <div class="track-bar">
-                            <div class="track-fill" id="track1"></div>
-                        </div>
-                        <span class="track-status" id="status1">⏳ Esperando...</span>
-                    </div>
-                    <div class="async-track" data-op="2">
-                        <span class="track-label">📦 Operación 2 (2s)</span>
-                        <div class="track-bar">
-                            <div class="track-fill" id="track2"></div>
-                        </div>
-                        <span class="track-status" id="status2">⏳ Esperando...</span>
-                    </div>
-                    <div class="async-track" data-op="3">
-                        <span class="track-label">📦 Operación 3 (1.5s)</span>
-                        <div class="track-bar">
-                            <div class="track-fill" id="track3"></div>
-                        </div>
-                        <span class="track-status" id="status3">⏳ Esperando...</span>
-                    </div>
-                </div>
-
-                <div id="asyncResult" class="output">
-                    💡 Elige un modo de ejecución para comenzar
+// --- archivo: main.js ---
+import { sumar, PI } from './utils.js';
+console.log(sumar(2, 3)); // 5</code></pre>
                 </div>
             </div>
 
-            <details class="code-toggle">
-                <summary>📝 Ver código: serie vs paralelo</summary>
-                <div class="code-example">
-                    <pre><code>// EN SERIE: una después de otra (~4.5s total)
-async function enSerie() {
-    const r1 = await op1();  // 1s
-    const r2 = await op2();  // 2s
-    const r3 = await op3();  // 1.5s
-    return [r1, r2, r3];
-}
-
-// EN PARALELO: todas a la vez (~2s total)
-async function enParalelo() {
-    const results = await Promise.all([
-        op1(),  // 1s
-        op2(),  // 2s
-        op3()   // 1.5s
-    ]);
-    return results;
-}</code></pre>
-                </div>
-            </details>
+            <div class="mini-section">
+                <h3>✅ Buenas prácticas</h3>
+                <ul class="bp-list">
+                    <li>Usa <strong>const</strong> por defecto, <strong>let</strong> solo cuando necesites reasignar</li>
+                    <li>Nombres descriptivos: <code>calcularTotal</code> en vez de <code>ct</code></li>
+                    <li>Usa <strong>camelCase</strong> para variables y funciones: <code>miVariable</code></li>
+                    <li>Comenta el <em>por qué</em>, no el <em>qué</em> (el código ya dice qué hace)</li>
+                    <li>Mantén funciones pequeñas (máximo 20-30 líneas)</li>
+                    <li>Usa <code>===</code> y <code>!==</code> en vez de <code>==</code> y <code>!=</code></li>
+                    <li>Maneja errores con try/catch en operaciones asíncronas</li>
+                </ul>
+            </div>
 
             <div class="exercise-box">
-                <h4>🧪 Ejercicio: Simular carga de imágenes</h4>
-                <p>Crea una función que simule la carga de 3 imágenes con tiempos diferentes (1s, 0.5s, 2s). Muestra cada imagen (con un placeholder) a medida que se "carga", no todas al final.</p>
-                <button class="btn-exercise" data-exercise="async-loading">Mostrar pista</button>
-                <p class="hint" id="hint-async-loading" hidden>💡 No necesitas Promise.all para esto. Itera con un for...of y await cada operación individualmente: <code>for (const img of imagenes) { await cargar(img); }</code></p>
+                <h4>🧪 Ejercicio: Refactoriza a módulos</h4>
+                <p>Toma la función de división segura del ejercicio anterior y muévela a un archivo separado <code>matematicas.js</code>. Luego impórtala desde <code>main.js</code>.</p>
+                <button class="btn-exercise" data-exercise="modulos">Mostrar pista</button>
+                <p class="hint" id="hint-modulos" hidden>💡 Crea dos archivos: <code>matematicas.js</code> con <code>export function dividir(a, b) { ... }</code> y otro HTML con <code>&lt;script type="module"&gt; import { dividir } from './matematicas.js'; ... &lt;/script&gt;</code></p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- PROYECTO FINAL                                              -->
+        <!-- SECCIÓN 13: PROYECTO FINAL                                   -->
         <!-- ============================================================ -->
-        <section class="content-section">
-            <h2>🎯 Proyecto final del módulo</h2>
-            <p>Crea una pequeña aplicación que combine todo lo aprendido:</p>
+        <section id="s-proyecto" class="content-section">
+            <h2>🎯 Proyecto Final: Buscador de usuarios de GitHub</h2>
+            <p>Combina todo lo aprendido: <strong>DOM</strong>, <strong>Fetch API</strong>, <strong>manejo de errores</strong>, <strong>funciones</strong> y <strong>arrays</strong>.</p>
+
             <ol class="project-list">
-                <li>Un <strong>buscador de usuarios de GitHub</strong> usando la <a href="https://api.github.com/" target="_blank" rel="noopener">API de GitHub</a></li>
+                <li>Crea un <strong>buscador de usuarios de GitHub</strong> usando la <a href="https://api.github.com/" target="_blank" rel="noopener">API de GitHub</a></li>
                 <li>Input para escribir un nombre de usuario + botón de búsqueda</li>
                 <li>Al enviar, mostrar: avatar, nombre, bio, repositorios públicos y seguidores</li>
                 <li>Manejar estados: <strong>loading</strong>, <strong>success</strong>, <strong>error</strong> (usuario no encontrado)</li>
                 <li>Mostrar los resultados con manipulación del DOM</li>
+                <li>Guardar el último usuario buscado en localStorage</li>
             </ol>
+
             <div class="project-hint">
                 <p>🔗 API: <code>https://api.github.com/users/{username}</code></p>
-                <p>💡 Crea un archivo <code>js/mi-proyecto.html</code> y empieza desde ahí. ¡Ya tienes todo lo necesario!</p>
+                <p>💡 Crea un archivo <code>mi-proyecto-github.html</code> y empieza desde cero. ¡Tienes todo lo necesario!</p>
+                <p>🧪 Para probar: busca usuarios como <code>octocat</code>, <code>torvalds</code> o <code>mojombo</code></p>
             </div>
         </section>
 

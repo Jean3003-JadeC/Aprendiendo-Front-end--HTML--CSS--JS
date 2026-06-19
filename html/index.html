@@ -18,421 +18,528 @@
             <p class="subtitle">Aprende la estructura y semántica de la web</p>
         </header>
 
-        <section class="content-section">
-            <h2>¿Qué es HTML?</h2>
-            <p>HTML (<strong>HyperText Markup Language</strong>) es el lenguaje de marcado estándar para crear páginas web. Define la <strong>estructura</strong> y el <strong>significado</strong> del contenido web.</p>
+        <!-- Índice de contenidos -->
+        <section class="content-section toc">
+            <h2>📋 Temario</h2>
+            <ol class="toc-list">
+                <li><a href="#s1">Introducción a HTML</a></li>
+                <li><a href="#s2">Sintaxis y Elementos Básicos</a></li>
+                <li><a href="#s3">Encabezados y Párrafos</a></li>
+                <li><a href="#s4">Formato de Texto</a></li>
+                <li><a href="#s5">Enlaces y Navegación</a></li>
+                <li><a href="#s6">Imágenes y Multimedia</a></li>
+                <li><a href="#s7">Listas</a></li>
+                <li><a href="#s8">Tablas</a></li>
+                <li><a href="#s9">Formularios</a></li>
+                <li><a href="#s10">Semántica y Accesibilidad</a></li>
+                <li><a href="#s11">Métodos y Buenas Prácticas</a></li>
+                <li><a href="#s12">Proyecto Final</a></li>
+            </ol>
         </section>
 
         <!-- ============================================================ -->
-        <!-- TABLAS                                                       -->
+        <!-- SECCIÓN 1: INTRODUCCIÓN                                     -->
         <!-- ============================================================ -->
-        <section class="content-section">
-            <h2>📊 Tablas en HTML</h2>
-            <p>Las tablas permiten organizar datos en filas y columnas. Se componen de <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code> (filas), <code>&lt;th&gt;</code> (encabezados) y <code>&lt;td&gt;</code> (celdas).</p>
+        <section class="content-section" id="s1">
+            <h2>1. Introducción a HTML</h2>
+            <p><strong>HTML</strong> (HyperText Markup Language) es el lenguaje de marcado estándar para crear páginas web. Define la <strong>estructura</strong> y el <strong>significado</strong> del contenido web mediante etiquetas.</p>
 
-            <h3>Ejemplo 1: Tabla básica</h3>
-            <div class="table-wrapper">
-                <table class="demo-table">
-                    <caption>Horario de clases</caption>
-                    <thead>
-                        <tr>
-                            <th>Día</th>
-                            <th>Materia</th>
-                            <th>Horario</th>
-                            <th>Salón</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Lunes</td>
-                            <td>HTML</td>
-                            <td>9:00 - 10:30</td>
-                            <td>101</td>
-                        </tr>
-                        <tr>
-                            <td>Miércoles</td>
-                            <td>CSS</td>
-                            <td>9:00 - 10:30</td>
-                            <td>102</td>
-                        </tr>
-                        <tr>
-                            <td>Viernes</td>
-                            <td>JavaScript</td>
-                            <td>11:00 - 12:30</td>
-                            <td>103</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="4">Total: 3 clases por semana</td>
-                        </tr>
-                    </tfoot>
-                </table>
+            <h3>Estructura básica de un documento HTML</h3>
+            <div class="code-example">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Mi primera página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;¡Hola, mundo!&lt;/h1&gt;
+    &lt;p&gt;Esta es mi primera página web.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+            <ul class="concept-list">
+                <li><code>&lt;!DOCTYPE html&gt;</code> — indica al navegador que uses HTML5</li>
+                <li><code>&lt;html&gt;</code> — la raíz del documento</li>
+                <li><code>&lt;head&gt;</code> — metadatos, título, enlaces a CSS</li>
+                <li><code>&lt;body&gt;</code> — todo el contenido visible</li>
+            </ul>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 2: SINTAXIS Y ELEMENTOS BÁSICOS                     -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s2">
+            <h2>2. Sintaxis y Elementos Básicos</h2>
+            <p>Los elementos HTML se escriben con <strong>etiquetas</strong> que tienen apertura y cierre:</p>
+
+            <div class="code-example">
+                <pre><code>&lt;etiqueta atributo="valor"&gt;Contenido&lt;/etiqueta&gt;
+
+&lt;!-- Ejemplos --&gt;
+&lt;p&gt;Esto es un párrafo&lt;/p&gt;
+&lt;a href="https://ejemplo.com"&gt;Esto es un enlace&lt;/a&gt;
+&lt;img src="foto.jpg" alt="Descripción"&gt;  &lt;!-- Elemento vacío (self-closing) --&gt;</code></pre>
             </div>
 
-            <details class="code-toggle">
-                <summary>📝 Ver código de la tabla</summary>
-                <div class="code-example">
-                    <pre><code>&lt;table&gt;
-    &lt;caption&gt;Horario de clases&lt;/caption&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th&gt;Día&lt;/th&gt;
-            &lt;th&gt;Materia&lt;/th&gt;
-            &lt;th&gt;Horario&lt;/th&gt;
-            &lt;th&gt;Salón&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;td&gt;Lunes&lt;/td&gt;
-            &lt;td&gt;HTML&lt;/td&gt;
-            &lt;td&gt;9:00 - 10:30&lt;/td&gt;
-            &lt;td&gt;101&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;Miércoles&lt;/td&gt;
-            &lt;td&gt;CSS&lt;/td&gt;
-            &lt;td&gt;9:00 - 10:30&lt;/td&gt;
-            &lt;td&gt;102&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
-    &lt;tfoot&gt;
-        &lt;tr&gt;
-            &lt;td colspan=&quot;4&quot;&gt;Total: 3 clases&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tfoot&gt;
-&lt;/table&gt;</code></pre>
-                </div>
-            </details>
+            <div class="info-box">
+                <strong>💡 Tip:</strong> Los comentarios en HTML se escriben así: <code>&lt;!-- esto es un comentario --&gt;</code>. El navegador los ignora pero ayudan a documentar el código.
+            </div>
 
-            <h3>Ejemplo 2: Tabla con colspan y rowspan</h3>
-            <div class="table-wrapper">
-                <table class="demo-table">
-                    <caption>Presupuesto mensual</caption>
-                    <thead>
-                        <tr>
-                            <th>Categoría</th>
-                            <th>Concepto</th>
-                            <th>Monto</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td rowspan="3">Ingresos</td>
-                            <td>Salario</td>
-                            <td>$2,500</td>
-                        </tr>
-                        <tr>
-                            <td>Freelance</td>
-                            <td>$800</td>
-                        </tr>
-                        <tr>
-                            <td>Inversiones</td>
-                            <td>$200</td>
-                        </tr>
-                        <tr>
-                            <td rowspan="2">Gastos</td>
-                            <td>Renta</td>
-                            <td>$1,000</td>
-                        </tr>
-                        <tr>
-                            <td>Servicios</td>
-                            <td>$300</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="2"><strong>Total neto</strong></td>
-                            <td><strong>$2,200</strong></td>
-                        </tr>
-                    </tfoot>
-                </table>
+            <h3>Atributos comunes</h3>
+            <table class="mini-table">
+                <tr><th>Atributo</th><th>Descripción</th></tr>
+                <tr><td><code>id</code></td><td>Identificador único del elemento</td></tr>
+                <tr><td><code>class</code></td><td>Clase para aplicar estilos CSS</td></tr>
+                <tr><td><code>style</code></td><td>Estilos CSS en línea</td></tr>
+                <tr><td><code>title</code></td><td>Texto emergente al pasar el mouse</td></tr>
+            </table>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 3: ENCABEZADOS Y PÁRRAFOS                           -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s3">
+            <h2>3. Encabezados y Párrafos</h2>
+            <p>Los <strong>encabezados</strong> (<code>h1</code> a <code>h6</code>) definen títulos y jerarquía. Los <strong>párrafos</strong> (<code>p</code>) contienen texto común.</p>
+
+            <div class="heading-demo">
+                <h1 style="font-size:1.8rem;margin:0.3rem 0;">h1. Título principal</h1>
+                <h2 style="font-size:1.5rem;margin:0.3rem 0;">h2. Subtítulo</h2>
+                <h3 style="font-size:1.3rem;margin:0.3rem 0;">h3. Sección</h3>
+                <h4 style="font-size:1.1rem;margin:0.3rem 0;">h4. Subsección</h4>
+                <h5 style="font-size:1rem;margin:0.3rem 0;">h5. Detalle</h5>
+                <h6 style="font-size:0.9rem;margin:0.3rem 0;">h6. Nota</h6>
+            </div>
+
+            <p>Este es un párrafo normal. HTML ignora los espacios extra y los saltos de línea dentro de un párrafo.</p>
+            <p>Para saltos de línea manuales usa <code>&lt;br&gt;</code>.<br>Así se ve una línea nueva.</p>
+            <p>Para una línea horizontal decorativa usa <code>&lt;hr&gt;</code>:</p>
+            <hr style="margin:0.5rem 0;border-color:#e34f26;">
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio 1</h4>
+                <p>Crea una página que tenga un <code>h1</code> con el título de tu libro favorito, un <code>h2</code> con el autor, y dos párrafos describiendo por qué te gusta.</p>
+                <button class="btn-exercise" data-exercise="h1">Mostrar pista</button>
+                <p class="hint" id="hint-h1" hidden>💡 Estructura: <code>&lt;h1&gt;Título&lt;/h1&gt; &lt;h2&gt;Autor&lt;/h2&gt; &lt;p&gt;Descripción...&lt;/p&gt;</code></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 4: FORMATO DE TEXTO                                 -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s4">
+            <h2>4. Formato de Texto</h2>
+            <p>HTML proporciona etiquetas para dar <strong>significado</strong> y <strong>estilo</strong> al texto:</p>
+
+            <div class="format-grid">
+                <div class="format-card"><strong>Texto en negrita</strong> — <code>&lt;strong&gt;</code></div>
+                <div class="format-card"><em>Texto en cursiva</em> — <code>&lt;em&gt;</code></div>
+                <div class="format-card"><u>Texto subrayado</u> — <code>&lt;u&gt;</code></div>
+                <div class="format-card"><s>Texto tachado</s> — <code>&lt;s&gt;</code></div>
+                <div class="format-card"><mark>Texto resaltado</mark> — <code>&lt;mark&gt;</code></div>
+                <div class="format-card"><small>Texto pequeño</small> — <code>&lt;small&gt;</code></div>
+                <div class="format-card">H<sub>2</sub>O — <code>&lt;sub&gt;</code> (subíndice)</div>
+                <div class="format-card">E=mc<sup>2</sup> — <code>&lt;sup&gt;</code> (superíndice)</div>
+                <div class="format-card"><code>código</code> — <code>&lt;code&gt;</code></div>
+                <div class="format-card"><kbd>Ctrl+C</kbd> — <code>&lt;kbd&gt;</code> (teclado)</div>
+            </div>
+
+            <h3>Citas</h3>
+            <blockquote class="demo-blockquote">
+                <p>"La mejor manera de aprender a programar es programando."</p>
+                <cite>— Anónimo</cite>
+            </blockquote>
+            <p>Cita en línea: <q>HTML es el esqueleto de la web</q> — <code>&lt;q&gt;</code></p>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio 2</h4>
+                <p>Escribe un párrafo que contenga: una palabra en <strong>negrita</strong>, una en <em>cursiva</em>, una <mark>resaltada</mark> y una fórmula con <sup>superíndice</sup>.</p>
+                <button class="btn-exercise" data-exercise="formato">Mostrar pista</button>
+                <p class="hint" id="hint-formato" hidden>💡 Combina etiquetas: <code>&lt;p&gt;&lt;strong&gt;...&lt;/strong&gt; &lt;em&gt;...&lt;/em&gt; ...&lt;/p&gt;</code></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 5: ENLACES                                          -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s5">
+            <h2>5. Enlaces y Navegación</h2>
+            <p>Los enlaces se crean con <code>&lt;a&gt;</code> y el atributo <code>href</code>:</p>
+
+            <div class="links-demo">
+                <p><a href="https://developer.mozilla.org/" target="_blank" rel="noopener">MDN Web Docs</a> — Enlace externo (se abre en nueva pestaña)</p>
+                <p><a href="#s1">Volver a Introducción</a> — Enlace ancla (misma página)</p>
+                <p><a href="temario.md" target="_blank">Temario completo</a> — Enlace relativo a un archivo</p>
+                <p><a href="mailto:ejemplo@correo.com">Enviar correo</a> — Enlace de email</p>
+                <p><a href="https://ejemplo.com" rel="nofollow">Enlace con nofollow</a></p>
+            </div>
+
+            <div class="code-example">
+                <pre><code>&lt;a href="https://ejemplo.com" target="_blank" rel="noopener"&gt;
+    Texto del enlace
+&lt;/a&gt;</code></pre>
             </div>
 
             <div class="exercise-box">
-                <h4>🧪 Ejercicio: Tabla</h4>
-                <p>Crea tu propia tabla con tu horario semanal. Incluye al menos 5 filas y usa <code>colspan</code> en al menos una celda.</p>
-                <button class="btn-exercise" data-exercise="table">Mostrar pista</button>
-                <p class="hint" id="hint-table" hidden>💡 Usa &lt;table&gt;, &lt;tr&gt;, &lt;th&gt; para encabezados y &lt;td&gt; para datos. Ejemplo: &lt;td colspan=&quot;2&quot;&gt;Fusión&lt;/td&gt;</p>
+                <h4>🧪 Ejercicio 3</h4>
+                <p>Crea un menú de navegación con enlaces ancla a las secciones 1, 3 y 6 de esta misma página usando <code>#id</code>.</p>
+                <button class="btn-exercise" data-exercise="enlaces">Mostrar pista</button>
+                <p class="hint" id="hint-enlaces" hidden>💡 Cada sección tiene un <code>id</code> como <code>id="s1"</code>. Usa <code>&lt;a href="#s1"&gt;Introducción&lt;/a&gt;</code>.</p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- FORMULARIOS                                                  -->
+        <!-- SECCIÓN 6: IMÁGENES Y MULTIMEDIA                            -->
         <!-- ============================================================ -->
-        <section class="content-section">
-            <h2>📝 Formularios en HTML</h2>
-            <p>Los formularios permiten recolectar datos del usuario. Se crean con <code>&lt;form&gt;</code> y contienen inputs, labels, botones y más.</p>
+        <section class="content-section" id="s6">
+            <h2>6. Imágenes y Multimedia</h2>
+            <p>Las imágenes se insertan con <code>&lt;img&gt;</code>. Los atributos <code>src</code> (ruta) y <code>alt</code> (texto alternativo) son obligatorios.</p>
 
-            <h3>Ejemplo: Formulario de contacto completo</h3>
-            <form class="demo-form" id="demoForm" novalidate>
-                <fieldset>
-                    <legend>Información personal</legend>
-
-                    <div class="form-group">
-                        <label for="nombre">Nombre completo:</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required minlength="3">
-                        <span class="form-error">El nombre debe tener al menos 3 caracteres</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Correo electrónico:</label>
-                        <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
-                        <span class="form-error">Ingresa un correo válido</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="telefono">Teléfono:</label>
-                        <input type="tel" id="telefono" name="telefono" placeholder="+52 55 1234 5678" pattern="[\+\d\s\-]{7,15}">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="edad">Edad:</label>
-                        <input type="number" id="edad" name="edad" min="1" max="120" value="25">
-                    </div>
-                </fieldset>
-
-                <fieldset>
-                    <legend>Detalles del mensaje</legend>
-
-                    <div class="form-group">
-                        <label for="asunto">Asunto:</label>
-                        <select id="asunto" name="asunto" required>
-                            <option value="">Selecciona un asunto...</option>
-                            <option value="consulta">Consulta general</option>
-                            <option value="soporte">Soporte técnico</option>
-                            <option value="sugerencia">Sugerencia</option>
-                            <option value="otro">Otro</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Intereses:</label>
-                        <div class="checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="intereses" value="html"> HTML
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="intereses" value="css"> CSS
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="intereses" value="js"> JavaScript
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="intereses" value="bootstrap"> Bootstrap
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Experiencia previa:</label>
-                        <div class="radio-group">
-                            <label class="radio-label">
-                                <input type="radio" name="experiencia" value="ninguna" checked> Ninguna
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="experiencia" value="basica"> Básica
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="experiencia" value="intermedia"> Intermedia
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="experiencia" value="avanzada"> Avanzada
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="mensaje">Mensaje:</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required minlength="10"></textarea>
-                        <span class="form-error">El mensaje debe tener al menos 10 caracteres</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="color">Color favorito:</label>
-                        <input type="color" id="color" name="color" value="#e34f26">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="fecha">Fecha de inicio:</label>
-                        <input type="date" id="fecha" name="fecha">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="archivo">Adjuntar archivo:</label>
-                        <input type="file" id="archivo" name="archivo" accept=".pdf,.doc,.txt">
-                    </div>
-                </fieldset>
-
-                <div class="form-actions">
-                    <button type="submit" class="btn-submit">Enviar formulario</button>
-                    <button type="reset" class="btn-reset">Limpiar</button>
-                </div>
-
-                <div id="formFeedback" class="form-feedback" hidden role="alert" aria-live="polite"></div>
-            </form>
-
-            <details class="code-toggle">
-                <summary>📝 Ver código del formulario</summary>
-                <div class="code-example">
-                    <pre><code>&lt;form&gt;
-    &lt;fieldset&gt;
-        &lt;legend&gt;Información personal&lt;/legend&gt;
-
-        &lt;label for=&quot;nombre&quot;&gt;Nombre:&lt;/label&gt;
-        &lt;input type=&quot;text&quot; id=&quot;nombre&quot; required&gt;
-
-        &lt;label for=&quot;email&quot;&gt;Email:&lt;/label&gt;
-        &lt;input type=&quot;email&quot; id=&quot;email&quot; required&gt;
-
-        &lt;label for=&quot;telefono&quot;&gt;Teléfono:&lt;/label&gt;
-        &lt;input type=&quot;tel&quot; id=&quot;telefono&quot; pattern=&quot;[\+\d\s\-]{7,15}&quot;&gt;
-    &lt;/fieldset&gt;
-
-    &lt;fieldset&gt;
-        &lt;legend&gt;Detalles&lt;/legend&gt;
-
-        &lt;label for=&quot;asunto&quot;&gt;Asunto:&lt;/label&gt;
-        &lt;select id=&quot;asunto&quot;&gt;
-            &lt;option&gt;Selecciona...&lt;/option&gt;
-            &lt;option value=&quot;consulta&quot;&gt;Consulta&lt;/option&gt;
-        &lt;/select&gt;
-
-        &lt;label&gt;Intereses:&lt;/label&gt;
-        &lt;input type=&quot;checkbox&quot; value=&quot;html&quot;&gt; HTML
-        &lt;input type=&quot;checkbox&quot; value=&quot;css&quot;&gt; CSS
-
-        &lt;label&gt;Experiencia:&lt;/label&gt;
-        &lt;input type=&quot;radio&quot; name=&quot;exp&quot; value=&quot;ninguna&quot;&gt; Ninguna
-        &lt;input type=&quot;radio&quot; name=&quot;exp&quot; value=&quot;basica&quot;&gt; Básica
-
-        &lt;label for=&quot;mensaje&quot;&gt;Mensaje:&lt;/label&gt;
-        &lt;textarea id=&quot;mensaje&quot; rows=&quot;4&quot;&gt;&lt;/textarea&gt;
-    &lt;/fieldset&gt;
-
-    &lt;button type=&quot;submit&quot;&gt;Enviar&lt;/button&gt;
-&lt;/form&gt;</code></pre>
-                </div>
-            </details>
-
-            <div class="exercise-box">
-                <h4>🧪 Ejercicio: Formulario</h4>
-                <p>Crea un formulario de registro con: nombre, email, contraseña, confirmar contraseña y un botón de registro. Usa <code>type="password"</code> y campos <code>required</code>.</p>
-                <button class="btn-exercise" data-exercise="form">Mostrar pista</button>
-                <p class="hint" id="hint-form" hidden>💡 No olvides el &lt;label&gt; asociado con <code>for</code>, usa <code>type="password"</code> para la contraseña y <code>type="email"</code> para el correo.</p>
+            <div class="code-example">
+                <pre><code>&lt;img src="foto.jpg" alt="Descripción de la imagen" width="400" height="300"&gt;</code></pre>
             </div>
-        </section>
 
-        <!-- ============================================================ -->
-        <!-- MULTIMEDIA                                                   -->
-        <!-- ============================================================ -->
-        <section class="content-section">
-            <h2>🖼️ Multimedia en HTML</h2>
-            <p>HTML permite incrustar imágenes, audio, video y contenido externo para enriquecer tus páginas.</p>
-
-            <h3>Ejemplo 1: Imagen con figura y leyenda</h3>
+            <h3>Figura con leyenda</h3>
             <figure class="demo-figure">
                 <div class="image-grid">
-                    <img src="https://placehold.co/400x250/e34f26/white?text=HTML5+Logo&font=raleway" alt="Logo de HTML5" class="demo-img" loading="lazy">
-                    <img src="https://placehold.co/400x250/1572b6/white?text=CSS3+Logo&font=raleway" alt="Logo de CSS3" class="demo-img" loading="lazy">
-                    <img src="https://placehold.co/400x250/f7df1e/1a1a2e?text=JS+Logo&font=raleway" alt="Logo de JavaScript" class="demo-img" loading="lazy">
+                    <img src="https://placehold.co/300x180/e34f26/white?text=HTML5&font=raleway" alt="Logo HTML5" class="demo-img" loading="lazy">
+                    <img src="https://placehold.co/300x180/1572b6/white?text=CSS3&font=raleway" alt="Logo CSS3" class="demo-img" loading="lazy">
+                    <img src="https://placehold.co/300x180/f7df1e/1a1a2e?text=JS&font=raleway" alt="Logo JavaScript" class="demo-img" loading="lazy">
                 </div>
-                <figcaption>Logotipos de las tecnologías frontend: HTML5, CSS3 y JavaScript</figcaption>
+                <figcaption>Logotipos de tecnologías frontend usando <code>&lt;figure&gt;</code> y <code>&lt;figcaption&gt;</code></figcaption>
             </figure>
 
-            <details class="code-toggle">
-                <summary>📝 Ver código de imagen con figure</summary>
-                <div class="code-example">
-                    <pre><code>&lt;figure&gt;
-    &lt;img src=&quot;logo-html5.png&quot; alt=&quot;Logo de HTML5&quot;&gt;
-    &lt;figcaption&gt;Logotipo de HTML5&lt;/figcaption&gt;
-&lt;/figure&gt;</code></pre>
-                </div>
-            </details>
-
-            <h3>Ejemplo 2: Video</h3>
+            <h3>Video</h3>
             <div class="media-demo">
                 <video controls width="100%" poster="https://placehold.co/640x360/1a1a2e/e34f26?text=Cargando+video..." preload="metadata">
                     <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                     <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
                     Tu navegador no soporta el elemento de video.
                 </video>
-                <p class="media-caption">Video de demostración con controles nativos del navegador</p>
+                <p class="media-caption">Video con controles nativos y múltiples formatos (<code>mp4</code>, <code>ogg</code>)</p>
             </div>
 
-            <details class="code-toggle">
-                <summary>📝 Ver código del video</summary>
-                <div class="code-example">
-                    <pre><code>&lt;video controls width=&quot;100%&quot; poster=&quot;poster.jpg&quot;&gt;
-    &lt;source src=&quot;video.mp4&quot; type=&quot;video/mp4&quot;&gt;
-    &lt;source src=&quot;video.ogg&quot; type=&quot;video/ogg&quot;&gt;
-    Tu navegador no soporta el elemento de video.
-&lt;/video&gt;</code></pre>
-                </div>
-            </details>
-
-            <h3>Ejemplo 3: Audio</h3>
+            <h3>Audio</h3>
             <div class="media-demo">
                 <audio controls preload="none">
                     <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
                     <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
                     Tu navegador no soporta el elemento de audio.
                 </audio>
-                <p class="media-caption">Reproductor de audio con formato MP3 y OGG como fallback</p>
             </div>
 
-            <h3>Ejemplo 4: Contenido embebido (iframe)</h3>
+            <h3>Contenido embebido (iframe)</h3>
             <div class="media-demo">
                 <div class="iframe-wrapper">
                     <iframe 
-                        src="https://www.openstreetmap.org/export/embed.html?bbox=-99.1332%2C19.4326%2C-99.1013%2C19.4524&amp;layer=mapnik"
-                        width="100%"
-                        height="350"
-                        style="border: 1px solid #ddd; border-radius: 8px;"
-                        loading="lazy"
-                        title="Mapa de la Ciudad de México"
-                        allowfullscreen>
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=-99.1332%2C19.4326%2C-99.1013%2C19.4524&layer=mapnik"
+                        width="100%" height="300" style="border:1px solid #ddd;border-radius:8px;"
+                        loading="lazy" title="Mapa de la Ciudad de México" allowfullscreen>
                     </iframe>
                 </div>
-                <p class="media-caption">Mapa embebido de OpenStreetMap usando <code>&lt;iframe&gt;</code></p>
             </div>
 
-            <details class="code-toggle">
-                <summary>📝 Ver código del iframe</summary>
-                <div class="code-example">
-                    <pre><code>&lt;iframe 
-    src=&quot;https://www.openstreetmap.org/export/embed.html?...&quot;
-    width=&quot;100%&quot;
-    height=&quot;350&quot;
-    title=&quot;Mapa de la CDMX&quot;
-    allowfullscreen&gt;
-&lt;/iframe&gt;</code></pre>
-                </div>
-            </details>
-
             <div class="exercise-box">
-                <h4>🧪 Ejercicio: Multimedia</h4>
-                <p>Crea una galería de imágenes con 3 fotos, cada una con su <code>&lt;figure&gt;</code> y <code>&lt;figcaption&gt;</code>. Incluye un video de YouTube embebido usando <code>&lt;iframe&gt;</code>.</p>
+                <h4>🧪 Ejercicio 4</h4>
+                <p>Crea una galería con 3 imágenes, cada una dentro de un <code>&lt;figure&gt;</code> con su <code>&lt;figcaption&gt;</code>. Además, agrega un video de YouTube usando <code>&lt;iframe&gt;</code>.</p>
                 <button class="btn-exercise" data-exercise="multimedia">Mostrar pista</button>
-                <p class="hint" id="hint-multimedia" hidden>💡 Para YouTube: ve al video, haz clic en "Compartir" &gt; "Insertar" y copia el código &lt;iframe&gt; que te dan.</p>
+                <p class="hint" id="hint-multimedia" hidden>💡 En YouTube: haz clic en "Compartir" &gt; "Insertar" y copia el código <code>&lt;iframe&gt;</code>.</p>
             </div>
         </section>
 
         <!-- ============================================================ -->
-        <!-- EJERCICIO FINAL                                              -->
+        <!-- SECCIÓN 7: LISTAS                                           -->
         <!-- ============================================================ -->
-        <section class="content-section">
-            <h2>🎯 Proyecto final del módulo</h2>
-            <p>Combina todo lo aprendido: crea una página HTML que contenga:</p>
+        <section class="content-section" id="s7">
+            <h2>7. Listas</h2>
+            <p>HTML tiene tres tipos de listas:</p>
+
+            <div class="lists-grid">
+                <div class="list-demo">
+                    <h3>Lista desordenada (&lt;ul&gt;)</h3>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>Bootstrap</li>
+                    </ul>
+                </div>
+
+                <div class="list-demo">
+                    <h3>Lista ordenada (&lt;ol&gt;)</h3>
+                    <ol>
+                        <li>Aprender HTML</li>
+                        <li>Aprender CSS</li>
+                        <li>Aprender JavaScript</li>
+                        <li>Crear proyectos</li>
+                    </ol>
+                </div>
+
+                <div class="list-demo">
+                    <h3>Lista de definición (&lt;dl&gt;)</h3>
+                    <dl>
+                        <dt>HTML</dt>
+                        <dd>Lenguaje de marcado para estructurar contenido</dd>
+                        <dt>CSS</dt>
+                        <dd>Lenguaje para diseñar y dar estilo</dd>
+                        <dt>JS</dt>
+                        <dd>Lenguaje de programación para interactividad</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <h3>Listas anidadas</h3>
+            <ul>
+                <li>Frontend
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </li>
+                <li>Backend
+                    <ul>
+                        <li>Node.js</li>
+                        <li>Python</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="code-example">
+                <pre><code>&lt;ul&gt;
+    &lt;li&gt;Elemento 1&lt;/li&gt;
+    &lt;li&gt;Elemento 2
+        &lt;ul&gt;
+            &lt;li&gt;Sub-elemento&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio 5</h4>
+                <p>Crea una lista ordenada de tus 5 canciones favoritas. Luego, anida debajo de cada una una lista desordenada con el artista y el año.</p>
+                <button class="btn-exercise" data-exercise="listas">Mostrar pista</button>
+                <p class="hint" id="hint-listas" hidden>💡 <code>&lt;ol&gt; &lt;li&gt;Canción &lt;ul&gt;&lt;li&gt;Artista&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt; &lt;/ol&gt;</code></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 8: TABLAS                                           -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s8">
+            <h2>8. Tablas</h2>
+            <p>Las tablas organizan datos en filas y columnas. Usa <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code> (fila), <code>&lt;th&gt;</code> (encabezado) y <code>&lt;td&gt;</code> (dato).</p>
+
+            <div class="table-wrapper">
+                <table class="demo-table">
+                    <caption>Horario de clases</caption>
+                    <thead>
+                        <tr><th>Día</th><th>Materia</th><th>Horario</th><th>Salón</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Lunes</td><td>HTML</td><td>9:00 - 10:30</td><td>101</td></tr>
+                        <tr><td>Miércoles</td><td>CSS</td><td>9:00 - 10:30</td><td>102</td></tr>
+                        <tr><td>Viernes</td><td>JavaScript</td><td>11:00 - 12:30</td><td>103</td></tr>
+                    </tbody>
+                    <tfoot>
+                        <tr><td colspan="4">Total: 3 clases por semana</td></tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <h3>colspan y rowspan</h3>
+            <div class="table-wrapper">
+                <table class="demo-table">
+                    <caption>Presupuesto mensual</caption>
+                    <thead>
+                        <tr><th>Categoría</th><th>Concepto</th><th>Monto</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td rowspan="3">Ingresos</td><td>Salario</td><td>$2,500</td></tr>
+                        <tr><td>Freelance</td><td>$800</td></tr>
+                        <tr><td>Inversiones</td><td>$200</td></tr>
+                        <tr><td rowspan="2">Gastos</td><td>Renta</td><td>$1,000</td></tr>
+                        <tr><td>Servicios</td><td>$300</td></tr>
+                    </tbody>
+                    <tfoot>
+                        <tr><td colspan="2"><strong>Total neto</strong></td><td><strong>$2,200</strong></td></tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio 6</h4>
+                <p>Crea una tabla con tu horario semanal. Incluye al menos 5 filas y usa <code>colspan</code> en al menos una celda.</p>
+                <button class="btn-exercise" data-exercise="tabla">Mostrar pista</button>
+                <p class="hint" id="hint-tabla" hidden>💡 <code>&lt;td colspan="2"&gt;Fusión de 2 columnas&lt;/td&gt;</code></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 9: FORMULARIOS                                      -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s9">
+            <h2>9. Formularios</h2>
+            <p>Los formularios recolectan datos del usuario. Se crean con <code>&lt;form&gt;</code> y contienen inputs, labels, botones y más.</p>
+
+            <h3>Tipos de input</h3>
+            <div class="input-types-grid">
+                <div class="input-type-card"><code>text</code><br><input type="text" placeholder="Texto" class="mini-input"></div>
+                <div class="input-type-card"><code>email</code><br><input type="email" placeholder="email@..." class="mini-input"></div>
+                <div class="input-type-card"><code>password</code><br><input type="password" placeholder="****" class="mini-input"></div>
+                <div class="input-type-card"><code>number</code><br><input type="number" min="0" max="10" value="5" class="mini-input"></div>
+                <div class="input-type-card"><code>date</code><br><input type="date" class="mini-input"></div>
+                <div class="input-type-card"><code>color</code><br><input type="color" value="#e34f26" class="mini-input"></div>
+                <div class="input-type-card"><code>checkbox</code><br><input type="checkbox" checked></div>
+                <div class="input-type-card"><code>radio</code><br><input type="radio" name="r" checked></div>
+                <div class="input-type-card"><code>range</code><br><input type="range" min="0" max="100" class="mini-input"></div>
+                <div class="input-type-card"><code>file</code><br><input type="file" class="mini-input"></div>
+                <div class="input-type-card"><code>tel</code><br><input type="tel" placeholder="55-1234" class="mini-input"></div>
+                <div class="input-type-card"><code>url</code><br><input type="url" placeholder="https://..." class="mini-input"></div>
+            </div>
+
+            <h3>Formulario de ejemplo</h3>
+            <form class="demo-form" id="demoForm" novalidate>
+                <fieldset>
+                    <legend>Información personal</legend>
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required minlength="3">
+                        <span class="form-error">Mínimo 3 caracteres</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                        <span class="form-error">Correo inválido</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="asunto">Asunto:</label>
+                        <select id="asunto" name="asunto" required>
+                            <option value="">Selecciona...</option>
+                            <option value="consulta">Consulta</option>
+                            <option value="soporte">Soporte</option>
+                            <option value="sugerencia">Sugerencia</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Intereses:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" name="intereses" value="html"> HTML</label>
+                            <label class="checkbox-label"><input type="checkbox" name="intereses" value="css"> CSS</label>
+                            <label class="checkbox-label"><input type="checkbox" name="intereses" value="js"> JS</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Experiencia:</label>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="experiencia" value="ninguna" checked> Ninguna</label>
+                            <label class="radio-label"><input type="radio" name="experiencia" value="basica"> Básica</label>
+                            <label class="radio-label"><input type="radio" name="experiencia" value="intermedia"> Intermedia</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" rows="3" placeholder="Escribe aquí..." required minlength="10"></textarea>
+                        <span class="form-error">Mínimo 10 caracteres</span>
+                    </div>
+                </fieldset>
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Enviar</button>
+                    <button type="reset" class="btn-reset">Limpiar</button>
+                </div>
+                <div id="formFeedback" class="form-feedback" hidden role="alert" aria-live="polite"></div>
+            </form>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio 7</h4>
+                <p>Crea un formulario de registro con: nombre, email, contraseña (<code>type="password"</code>), confirmar contraseña y botón de registro. Todos los campos deben ser <code>required</code>.</p>
+                <button class="btn-exercise" data-exercise="form">Mostrar pista</button>
+                <p class="hint" id="hint-form" hidden>💡 Asocia cada <code>&lt;label&gt;</code> con su <code>&lt;input&gt;</code> usando el atributo <code>for</code>.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 10: SEMÁNTICA Y ACCESIBILIDAD                       -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s10">
+            <h2>10. Semántica y Accesibilidad</h2>
+            <p>Las etiquetas semánticas describen el <strong>significado</strong> del contenido, no solo su apariencia. Esto mejora la accesibilidad y el SEO.</p>
+
+            <div class="semantic-demo">
+                <div class="semantic-layout">
+                    <div class="sem-header"><code>&lt;header&gt;</code> — Encabezado de la página</div>
+                    <div class="sem-nav"><code>&lt;nav&gt;</code> — Navegación principal</div>
+                    <div class="sem-main">
+                        <code>&lt;main&gt;</code> — Contenido principal
+                        <div class="sem-section"><code>&lt;section&gt;</code> — Sección temática</div>
+                        <div class="sem-article"><code>&lt;article&gt;</code> — Artículo independiente</div>
+                    </div>
+                    <div class="sem-aside"><code>&lt;aside&gt;</code> — Contenido relacionado</div>
+                    <div class="sem-footer"><code>&lt;footer&gt;</code> — Pie de página</div>
+                </div>
+            </div>
+
+            <h3>ARIA básico</h3>
+            <p>Los atributos ARIA mejoran la accesibilidad para lectores de pantalla:</p>
+            <div class="code-example">
+                <pre><code>&lt;!-- Atributos ARIA comunes --&gt;
+&lt;nav aria-label="Navegación principal"&gt;
+&lt;button aria-label="Cerrar ventana"&gt;X&lt;/button&gt;
+&lt;div role="alert" aria-live="polite"&gt;Mensaje importante&lt;/div&gt;</code></pre>
+            </div>
+            <ul class="concept-list">
+                <li><code>aria-label</code> — describe un elemento sin texto visible</li>
+                <li><code>role</code> — define el propósito del elemento</li>
+                <li><code>aria-live</code> — notifica cambios a lectores de pantalla</li>
+            </ul>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 11: BUENAS PRÁCTICAS                                -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s11">
+            <h2>11. Métodos y Buenas Prácticas</h2>
+            <ul class="best-practices">
+                <li>✅ Usa <strong>indentación consistente</strong> (2 o 4 espacios)</li>
+                <li>✅ Siempre incluye <code>alt</code> en las imágenes</li>
+                <li>✅ Usa <strong>minúsculas</strong> para etiquetas y atributos</li>
+                <li>✅ Cierra siempre las etiquetas (<code>&lt;p&gt;&lt;/p&gt;</code>, no <code>&lt;p&gt;</code>)</li>
+                <li>✅ Usa etiquetas <strong>semánticas</strong> en lugar de <code>&lt;div&gt;</code> cuando sea posible</li>
+                <li>✅ Valida tu HTML con el <a href="https://validator.w3.org/" target="_blank" rel="noopener">validador W3C</a></li>
+                <li>✅ Usa entidades HTML para caracteres especiales: <code>&amp;copy;</code> = &copy;</li>
+            </ul>
+
+            <h3>Entidades HTML comunes</h3>
+            <div class="entities-grid">
+                <span class="entity-card"><code>&amp;lt;</code> → &lt;</span>
+                <span class="entity-card"><code>&amp;gt;</code> → &gt;</span>
+                <span class="entity-card"><code>&amp;amp;</code> → &amp;</span>
+                <span class="entity-card"><code>&amp;quot;</code> → &quot;</span>
+                <span class="entity-card"><code>&amp;copy;</code> → &copy;</span>
+                <span class="entity-card"><code>&amp;nbsp;</code> → espacio</span>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 12: PROYECTO FINAL                                  -->
+        <!-- ============================================================ -->
+        <section class="content-section" id="s12">
+            <h2>🎯 12. Proyecto Final</h2>
+            <p>Combina todo lo aprendido: crea una página HTML completa que contenga:</p>
             <ol class="project-list">
-                <li>Un <strong>formulario de registro</strong> con nombre, email, contraseña, país (select) e intereses (checkboxes)</li>
-                <li>Una <strong>tabla</strong> con los datos de los últimos 3 cursos que has tomado (fechas, nombres, duración)</li>
-                <li>Al menos una <strong>imagen</strong> con <code>&lt;figure&gt;</code> y una <strong>leyenda</strong></li>
-                <li>Un <strong>video</strong> o <strong>audio</strong> embebido</li>
-                <li>Uso de etiquetas <strong>semánticas</strong> como <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code> y <code>&lt;footer&gt;</code></li>
+                <li><strong>Encabezados</strong> (<code>h1</code> a <code>h3</code>) con jerarquía clara</li>
+                <li><strong>Formato de texto</strong>: negrita, cursiva, resaltado, citas</li>
+                <li><strong>Enlaces</strong> de navegación interna (anclas)</li>
+                <li>Una <strong>imagen</strong> con <code>&lt;figure&gt;</code> y <code>&lt;figcaption&gt;</code></li>
+                <li>Una <strong>lista</strong> ordenada o desordenada</li>
+                <li>Una <strong>tabla</strong> con datos organizados</li>
+                <li>Un <strong>formulario</strong> con al menos 3 campos diferentes</li>
+                <li>Etiquetas <strong>semánticas</strong>: <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code></li>
             </ol>
-            <p class="project-tip">💡 Crea un nuevo archivo <code>html/mi-proyecto.html</code> y empieza desde ahí.</p>
+            <p class="project-tip">💡 Crea un archivo <code>html/mi-proyecto.html</code> y usa esta página como referencia.</p>
         </section>
 
     </div>

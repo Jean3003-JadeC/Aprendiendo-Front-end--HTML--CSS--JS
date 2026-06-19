@@ -5,7 +5,6 @@
  * 
  * 💡 APRENDE: Bootstrap usa variables CSS (:root) que puedes sobrescribir
  *   para personalizar colores, bordes, fuentes y más.
- *   ¡EVITA usar !important a menos que sea realmente necesario!
  */
 
 /* === Tipografía === */
@@ -17,8 +16,30 @@
     color: #1a1a2e;
 }
 
-h2 code {
-    font-size: inherit;
+/* === Índice de contenidos === */
+.toc-list {
+    padding-left: 1.25rem;
+    margin: 0;
+    column-count: 2;
+    column-gap: 2rem;
+}
+
+.toc-list li {
+    margin-bottom: 0.4rem;
+    break-inside: avoid;
+}
+
+.toc-list a {
+    color: #7952b3;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.toc-list a:hover {
+    color: #5a3d8a;
+    text-decoration: underline;
 }
 
 /* === Cajas de demostración === */
@@ -50,6 +71,17 @@ h2 code {
 
 .code-demo code {
     color: #cdd6f4;
+}
+
+/* === Grid Demo === */
+.grid-demo {
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.grid-demo:hover {
+    transform: scale(1.02);
 }
 
 /* === Code Toggle (details/summary) === */
@@ -147,13 +179,18 @@ h2 code {
     color: #1a1a2e;
 }
 
-/* === Navbar ajuste para scroll interno === */
-.sticky-top {
-    top: 0;
-    z-index: 1030;
+/* === Scroll margin para secciones (anclas no ocultas tras navbar sticky) === */
+[id^="s-"] {
+    scroll-margin-top: 70px;
 }
 
-/* === Responsive para tablas en móvil === */
+/* === Responsive for TOC === */
+@media (max-width: 768px) {
+    .toc-list {
+        column-count: 1;
+    }
+}
+
 @media (max-width: 576px) {
     .table {
         font-size: 0.85rem;
@@ -162,9 +199,8 @@ h2 code {
 
 /* 
  * 🧪 EJERCICIOS SUGERIDOS:
- * 1. Cambia el color primary de Bootstrap sobrescribiendo --bs-primary en :root
- * 2. Agrega una animación CSS personalizada a las cards
- * 3. Usa las utilidades Bootstrap para crear un layout de 2 columnas
+ * 1. Cambia el color primary sobrescribiendo --bs-primary en :root
+ * 2. Crea un layout de 2 columnas con offsets
  */
 
 /* Fin de styles.css */

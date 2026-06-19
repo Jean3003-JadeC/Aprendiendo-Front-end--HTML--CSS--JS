@@ -1,7 +1,7 @@
 // script.js - JavaScript personalizado para el módulo de JavaScript
 // 
-// 📖 PROPÓSITO: Demostraciones interactivas de DOM, Fetch API, Promesas
-//   y delegación de eventos. ¡Modifica el código y experimenta!
+// 📖 PROPÓSITO: Demostraciones interactivas de variables, funciones,
+//   objetos, arrays, strings, DOM, Fetch API y Promesas.
 //
 // 💡 APRENDE: Cada sección demuestra un concepto fundamental de JS.
 //   Abre la consola (F12) para ver los mensajes de depuración.
@@ -10,17 +10,178 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('⚡ Módulo de JavaScript cargado correctamente');
     console.log('💡 Abre la consola (F12 > Console) para ver mensajes');
 
+    setupExerciseHints();
+    setupObjectDemo();
+    setupArrayDemo();
+    setupStringDemo();
     setupTodoList();
     setupEventDelegation();
     setupFetchApi();
     setupAsyncDemo();
-    setupLegacyDemo();
 
     console.log('✅ Todos los módulos cargados. ¡Experimenta!');
 });
 
 // ============================================================
-// DEMO 1: TO-DO LIST
+// UTILIDADES
+// ============================================================
+function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+// ============================================================
+// EJERCICIOS: MOSTRAR PISTAS
+// ============================================================
+function setupExerciseHints() {
+    document.querySelectorAll('.btn-exercise').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const exercise = this.dataset.exercise;
+            const hint = document.getElementById('hint-' + exercise);
+            if (hint) {
+                hint.hidden = !hint.hidden;
+                this.textContent = hint.hidden ? 'Mostrar pista' : 'Ocultar pista';
+            }
+        });
+    });
+}
+
+// ============================================================
+// DEMO 1: OBJETOS - GENERADOR DE PERSONAS
+// ============================================================
+function setupObjectDemo() {
+    const btn = document.getElementById('objectDemoBtn');
+    const output = document.getElementById('objectDemoOutput');
+    if (!btn || !output) return;
+
+    const nombres = ["Ana", "Carlos", "María", "Luis", "Sofía", "Pedro", "Elena", "Diego"];
+    const ciudades = ["Madrid", "Buenos Aires", "México DF", "Bogotá", "Lima", "Santiago", "Quito"];
+    const profesiones = ["Desarrolladora", "Diseñadora", "Ingeniera", "Docente", "Arquitecta", "Médica"];
+
+    btn.addEventListener('click', function () {
+        const persona = {
+            nombre: nombres[Math.floor(Math.random() * nombres.length)],
+            edad: Math.floor(Math.random() * 40) + 18,
+            ciudad: ciudades[Math.floor(Math.random() * ciudades.length)],
+            profesion: profesiones[Math.floor(Math.random() * profesiones.length)],
+            saludar: function () {
+                return `¡Hola! Soy ${this.nombre}, ${this.profesion} de ${this.ciudad}.`;
+            }
+        };
+
+        // Destructuración
+        const { nombre, edad, profesion } = persona;
+
+        output.innerHTML = `🧑 ${nombre}, ${edad} años — ${profesion}\n🔍 Objeto completo:\n${JSON.stringify(persona, null, 2)}\n💬 ${persona.saludar()}`;
+
+        console.log('🎲 Objeto generado:', persona);
+        console.log('💬', persona.saludar());
+    });
+}
+
+// ============================================================
+// DEMO 2: ARRAYS - MAP / FILTER / REDUCE
+// ============================================================
+function setupArrayDemo() {
+    const display = document.getElementById('arrayDisplay');
+    const mapBtn = document.getElementById('arrayMapBtn');
+    const filterBtn = document.getElementById('arrayFilterBtn');
+    const reduceBtn = document.getElementById('arrayReduceBtn');
+    const resetBtn = document.getElementById('arrayResetBtn');
+    if (!display) return;
+
+    const numerosOriginales = [1, 2, 3, 4, 5];
+    let numerosActuales = [...numerosOriginales];
+
+    function actualizarDisplay(arr, etiqueta) {
+        display.textContent = `📊 ${etiqueta}: [${arr.join(', ')}]`;
+    }
+
+    function resetArray() {
+        numerosActuales = [...numerosOriginales];
+        actualizarDisplay(numerosActuales, 'Original');
+    }
+
+    if (mapBtn) {
+        mapBtn.addEventListener('click', function () {
+            const dobles = numerosActuales.map(n => n * 2);
+            actualizarDisplay(dobles, 'map(x2)');
+            console.log('✨ Array doblado:', dobles);
+        });
+    }
+
+    if (filterBtn) {
+        filterBtn.addEventListener('click', function () {
+            const pares = numerosActuales.filter(n => n % 2 === 0);
+            actualizarDisplay(pares, 'filter(pares)');
+            console.log('🔢 Números pares:', pares);
+        });
+    }
+
+    if (reduceBtn) {
+        reduceBtn.addEventListener('click', function () {
+            const suma = numerosActuales.reduce((acc, n) => acc + n, 0);
+            display.textContent = `➕ reduce(suma): ${suma}`;
+            console.log('➕ Suma total:', suma);
+        });
+    }
+
+    if (resetBtn) {
+        resetBtn.addEventListener('click', resetArray);
+    }
+
+    resetArray();
+}
+
+// ============================================================
+// DEMO 3: STRINGS - TRANSFORMADOR DE TEXTO
+// ============================================================
+function setupStringDemo() {
+    const input = document.getElementById('stringInput');
+    const output = document.getElementById('stringOutput');
+    const upperBtn = document.getElementById('stringUpperBtn');
+    const lowerBtn = document.getElementById('stringLowerBtn');
+    const countBtn = document.getElementById('stringCountBtn');
+    const reverseBtn = document.getElementById('stringReverseBtn');
+    if (!input || !output) return;
+
+    function getTexto() {
+        return input.value || '(vacío)';
+    }
+
+    if (upperBtn) {
+        upperBtn.addEventListener('click', function () {
+            const texto = getTexto();
+            output.textContent = `🔠 MAYÚSCULAS: ${texto.toUpperCase()}`;
+        });
+    }
+
+    if (lowerBtn) {
+        lowerBtn.addEventListener('click', function () {
+            const texto = getTexto();
+            output.textContent = `🔡 minúsculas: ${texto.toLowerCase()}`;
+        });
+    }
+
+    if (countBtn) {
+        countBtn.addEventListener('click', function () {
+            const texto = getTexto();
+            output.textContent = `🔢 Longitud: ${texto.length} caracteres | Sin espacios: ${texto.replace(/\s/g, '').length} caracteres`;
+        });
+    }
+
+    if (reverseBtn) {
+        reverseBtn.addEventListener('click', function () {
+            const texto = getTexto();
+            const invertido = texto.split('').reverse().join('');
+            output.textContent = `🔄 Invertido: ${invertido}`;
+        });
+    }
+}
+
+// ============================================================
+// DEMO: TO-DO LIST (DOM)
 // ============================================================
 function setupTodoList() {
     const input = document.getElementById('todoInput');
@@ -96,7 +257,7 @@ function setupTodoList() {
 }
 
 // ============================================================
-// DEMO 2: EVENT DELEGATION
+// DEMO: EVENT DELEGATION
 // ============================================================
 function setupEventDelegation() {
     const list = document.getElementById('delegationList');
@@ -118,8 +279,8 @@ function setupEventDelegation() {
         const difficultyStars = { facil: '⭐', medio: '⭐⭐', dificil: '⭐⭐⭐' };
 
         output.innerHTML = `
-            <strong>📌 ${text}</strong><br>
-            Categoría: ${categoryEmojis[category] || '📁'} ${category}<br>
+            📌 ${text}\n
+            Categoría: ${categoryEmojis[category] || '📁'} ${category}\n
             Dificultad: ${difficultyStars[difficulty] || '❓'} ${difficulty}
         `;
 
@@ -128,22 +289,22 @@ function setupEventDelegation() {
 }
 
 // ============================================================
-// DEMO 3: FETCH API - RANDOM USER GENERATOR
+// DEMO: FETCH API - RANDOM USER GENERATOR
 // ============================================================
 function setupFetchApi() {
     const btn = document.getElementById('fetchUserBtn');
     const loading = document.getElementById('fetchLoading');
-    const error = document.getElementById('fetchError');
+    const errorEl = document.getElementById('fetchError');
     const result = document.getElementById('fetchResult');
     const codeDisplay = document.getElementById('fetchCodeDisplay');
 
-    if (!btn || !loading || !error || !result) return;
+    if (!btn || !loading || !errorEl || !result) return;
 
     btn.addEventListener('click', async function () {
         btn.disabled = true;
         btn.textContent = '⏳ Cargando...';
         result.hidden = true;
-        error.hidden = true;
+        errorEl.hidden = true;
         loading.hidden = false;
 
         try {
@@ -167,7 +328,6 @@ function setupFetchApi() {
             loading.hidden = true;
             result.hidden = false;
 
-            // Mostrar solo código de ejemplo + confirmación
             if (codeDisplay) {
                 codeDisplay.innerHTML = `<pre><code>async function obtenerUsuario() {
     try {
@@ -186,8 +346,8 @@ function setupFetchApi() {
         } catch (err) {
             console.error('❌ Error en fetch:', err.message);
             loading.hidden = true;
-            error.hidden = false;
-            error.textContent = `❌ Error: ${err.message}. ¿Tienes conexión a internet?`;
+            errorEl.hidden = false;
+            errorEl.textContent = `❌ Error: ${err.message}. ¿Tienes conexión a internet?`;
         } finally {
             btn.disabled = false;
             btn.textContent = '🎲 Generar usuario';
@@ -196,7 +356,7 @@ function setupFetchApi() {
 }
 
 // ============================================================
-// DEMO 4: PROMESAS Y ASYNC - SIMULACIÓN VISUAL
+// DEMO: PROMESAS Y ASYNC - SIMULACIÓN VISUAL
 // ============================================================
 function setupAsyncDemo() {
     const seriesBtn = document.getElementById('asyncSeriesBtn');
@@ -265,7 +425,7 @@ function setupAsyncDemo() {
 
     seriesBtn.addEventListener('click', async function () {
         resetTracks();
-        result.textContent = '⏳ Ejecutando en serie... (1s + 2s + 1.5s = ~4.5s total)';
+        result.textContent = '▶️ Serie: (1s + 2s + 1.5s = ~4.5s total)';
         result.style.borderLeftColor = '#f7df1e';
 
         const start = Date.now();
@@ -281,7 +441,7 @@ function setupAsyncDemo() {
 
     parallelBtn.addEventListener('click', async function () {
         resetTracks();
-        result.textContent = '⏩ Ejecutando en paralelo... (≈ 2s total)';
+        result.textContent = '⏩ Paralelo: todas a la vez (~2s total)';
         result.style.borderLeftColor = '#0d6efd';
 
         const start = Date.now();
@@ -317,60 +477,16 @@ function setupAsyncDemo() {
 
     resetBtn.addEventListener('click', function () {
         resetTracks();
-        result.textContent = '💡 Elige un modo de ejecución para comenzar';
+        result.textContent = '💡 Elige un modo de ejecución';
         result.style.borderLeftColor = '#f7df1e';
     });
-}
-
-// ============================================================
-// DEMO 5: Botón de clics (legacy)
-// ============================================================
-function setupLegacyDemo() {
-    const demoBtn = document.getElementById('demo-btn');
-    let clickCount = 0;
-
-    if (demoBtn) {
-        const counter = document.createElement('p');
-        counter.className = 'output';
-        counter.textContent = '🖱️ Haz clic en el botón para empezar';
-        demoBtn.parentNode.insertBefore(counter, demoBtn.nextSibling);
-
-        demoBtn.addEventListener('click', function () {
-            clickCount++;
-            this.textContent = `Clics: ${clickCount}`;
-            counter.textContent = `✅ Has hecho ${clickCount} clic${clickCount !== 1 ? 's' : ''}`;
-            const colors = ['#f7df1e', '#0d6efd', '#198754', '#dc3545', '#6f42c1'];
-            this.style.backgroundColor = colors[clickCount % colors.length];
-        });
-    }
-
-    const titulo = document.querySelector('h1');
-    if (titulo) {
-        titulo.style.cursor = 'pointer';
-        titulo.addEventListener('click', function () {
-            this.textContent = this.textContent === 'Lecciones de JavaScript'
-                ? '⚡ ¡Has hecho clic en el título!'
-                : 'Lecciones de JavaScript';
-        });
-    }
-}
-
-// ============================================================
-// UTILIDADES
-// ============================================================
-function escapeHtml(str) {
-    const div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
 }
 
 /*
  * 🧪 EJERCICIOS AVANZADOS SUGERIDOS:
  * 1. Agrega persistencia al To-Do List usando localStorage
- * 2. Modifica la demo de Fetch para traer 5 usuarios y mostrarlos en cards
- * 3. Agrega un control para cancelar una promesa en medio de la ejecución
- * 4. Crea un filtro visual para la delegación de eventos (mostrar solo ciertas categorías)
- * 5. Implementa una barra de progreso que se llene mientras se cargan múltiples fetch
+ * 2. Modifica la demo de Fetch para traer 5 usuarios con Promise.all
+ * 3. Crea tu propia demo de objetos con propiedades calculadas
  */
 
 /* Fin de script.js */

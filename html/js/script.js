@@ -134,17 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ============================================================
-    // DEMO 4: Validación específica para inputs de tipo color
-    // ============================================================
-    const colorInput = document.getElementById('color');
-    if (colorInput) {
-        colorInput.addEventListener('input', function () {
-            console.log(`🎨 Color seleccionado: ${this.value}`);
-        });
-    }
-
-    // ============================================================
-    // DEMO 5: Contador de elementos HTML en la página
+    // DEMO 4: Contador de elementos HTML en la página
     // ============================================================
     setTimeout(() => {
         const stats = {
