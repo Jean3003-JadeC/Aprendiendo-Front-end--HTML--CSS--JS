@@ -104,6 +104,10 @@ Este proyecto está diseñado para que **aprendas haciendo**:
 - **YouTube**: canales como *Traversy Media*, *The Net Ninja*, *FreeCodeCamp.org*
 - **Libros**: *HTML & CSS: Diseño y construcción de sitios web* (Jon Duckett), *JavaScript: La guía definitiva* (David Flanagan), *CSS Secrets* (Lea Verou)
 
+## 👤 Autor
+
+**Jean Paul Abarca Ccama** — _Jade Core_
+
 ## 🛡️ Licencia
 
 Este proyecto es de uso libre para fines educativos. Si lo utilizas o lo compartes, por favor menciona la fuente.

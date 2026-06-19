@@ -97,3 +97,5 @@ Cada módulo está pensado para ser una unidad de aprendizaje autónoma; puedes 
 
 ---
 *Esta estructura facilita el aprendizaje progresivo: comienza con HTML para la estructura, continúa con CSS para el diseño, luego JavaScript para la interactividad y finalmente Bootstrap como herramienta de productividad.*
+
+**Autor:** Jean Paul Abarca Ccama — _Jade Core_
