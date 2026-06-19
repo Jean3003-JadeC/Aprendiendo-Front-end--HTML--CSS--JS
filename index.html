@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend desde Cero - Hub de Aprendizaje</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .btn {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 12px 24px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 220px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Frontend desde Cero</h1>
+        <p>Tu ruta de aprendizaje paso a paso para dominar HTML, CSS, JavaScript y Bootstrap</p>
+    </header>
+
+    <div class="cards">
+        <div class="card">
+            <h3>HTML</h3>
+            <p>Aprende la estructura básica de las páginas web: etiquetas, atributos, formas, tablas y semántica.</p>
+            <a href="html/index.html" class="btn">Ver Lecciones</a>
+        </div>
+        <div class="card">
+            <h3>CSS</h3>
+            <p>Domina el diseño y estilo: selectores, propiedades, flexbox, grid, animaciones y responsive design.</p>
+            <a href="css/index.html" class="btn">Ver Lecciones</a>
+        </div>
+        <div class="card">
+            <h3>JavaScript</h3>
+            <p>Aprende a hacer páginas interactivas: manipulación del DOM, eventos, AJAX, ES6+ y frameworks básicos.</p>
+            <a href="js/index.html" class="btn">Ver Lecciones</a>
+        </div>
+        <div class="card">
+            <h3>Bootstrap 5.3.8</h3>
+            <p>Aprende a usar el framework más popular para crear sitios web responsivos y modernos rápidamente.</p>
+            <a href="bootstrap/index.html" class="btn">Ver Lecciones</a>
+        </div>
+    </div>
+
+    <footer>
+        <p><small>Proyecto educativo para aprender frontend desde cero</small></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,13 @@
+/* styles.css - Estilos para las lecciones de JavaScript */
+/* Puedes añadir aquí estilos personalizados para los ejemplos */
+
+/* Ejemplo: resaltar salida de console o resultados */
+.output {
+    background-color: #e9ecef;
+    border-left: 4px solid #007bff;
+    padding: 12px;
+    margin: 12px 0;
+    font-family: monospace;
+}
+
+/* Fin de estilos para JavaScript */

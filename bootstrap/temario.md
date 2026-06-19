@@ -1,0 +1,237 @@
+# Temario Completo de Bootstrap 5.3.8
+
+## 1. Introducción a Bootstrap
+- 1.1. Qué es Bootstrap y su historia
+- 1.2. Características principales: responsive, componentes preconstruidos, utilidades, plugins JS
+- 1.3. Diferencias entre versiones (v3, v4, v5) y novedades de v5.3.8
+- 1.4. Requisitos: navegadores soportados, dependencias (Popper)
+- 1.5. Formas de include: CSS/JS descargados, CDN, gestores de paquetes (npm, yarn)
+
+## 2. Instalación y Configuración
+- 2.1. Descarga del código fuente y archivos compilados
+- 2.2. Incluir mediante <link> y <script> en HTML
+- 2.3. Uso con gestores de paquetes: npm install bootstrap@5.3.8
+- 2.4. Importar en Sass: @import "bootstrap";
+- 2.5. Personalización mediante variables de Sass
+- 2.6. Herramientas de construcción: Webpack, Vite, Parcel con Bootstrap
+- 2.7. Plantilla inicial (starter template) recomendada
+
+## 3. Sistema de Rejilla (Grid)
+- 3.1. Conceptos: contenedor (.container, .container-fluid, .container-{breakpoint}), filas (.row), columnas (.col-*)
+- 3.2. Breakpoints: xs (<576px), sm (≥576px), md (≥768px), lg (≥992px), xl (≥1200px), xxl (≥1400px)
+- 3.3. Columnas automáticas y basada en ancho
+- 3.4. Anchura de columnas: .col, .col-{breakpoint}-{numero} (1‑12), .col-{breakpoint}-auto
+- 3.5. Orden de columnas: .order-{breakpoint}-{numero}, .order-first, .order-last
+- 3.6. Desplazamiento (offset): .offset-{breakpoint}-{numero}, usar márgenes utilities también
+- 3.7. Anidamiento de filas y columnas
+- 3.8. Columnas que se rompen (wrapping)
+- 3.9. Gutters (espaciado): clases .g-*, .gx-*, .gy-*, modificar con Sass ($grid-gutter-width)
+- 3.10. Rejillas responsivas: combinación de clases para distintos breakpoints
+- 3.11. Plantillas de layouts comunes: barra lateral, diseño de revista, formulario inline
+
+## 4. Contenido (Tipografía, Imágenes, Tablas, Figuras)
+- 4.1. Tipografía base: tamaños de fuente (rem), pesos, familia predeterminada (system UI stack)
+- 4.2. Encabezados h1‑h6 y clases de visualización .display-1…4
+- 4.3. Lead paragraph (.lead)
+- 4.4. Estilos en línea: .mark, .small, .text‑break, .text‑monospace
+- 4.5. Transformación y peso: .text‑lowercase, .text‑uppercase, .text‑capitalize, .fw‑*
+- 4.6. Alineación de texto: .text‑start, .text‑center, .text‑end, .text‑justify (breakpoint opcional)
+- 4.7. Decoración: .text‑decoration‑none, .text‑decoration‑underline, line‑through
+- 4.8. Sombra de texto (utilidades)
+- 4.9. Truncado de texto: .text‑truncate
+- 4.10. Monospace y code: <code>, <kbd>, <samp>, <pre>, clases .font‑monospace
+- 4.11. Imágenes responsivas: .img‑fluid, .img‑thumbnail
+- 4.12. Alineación de imágenes: float utilities (*-start, *-end, *-center) y text‑center en contenedor
+- 4.13. Figuras: <figure> y <figcaption> con .figure, .figure‑img, .figure‑caption
+- 4.14. Tablas: .table y variantes
+  - .table‑striped, .table‑bordered, .table‑borderless, .table‑hover, .table‑sm, .table‑active
+  - Colores de fondo mediante clases contextuales (.table‑primary, etc.)
+  - Cabecera y pie de tabla: <thead>, <tbody>, <tfoot> con scope
+  - Tablas responsivas: .table‑responsive{-breakpoint}
+  - Tablas con flex utilities para alineación vertical
+- 4.15. Etiquetas de contenido: <blockquote>, <dl>, <ol>, <ul>, <menu>, <li>
+- 4.16. Sistema de iconos (Bootstrap Icons) – inclusión y uso
+
+## 5. Componentes
+- 5.1. Alertas (.alert y .alert-{color}), enlaces dentro, descartar (.alert‑dismissible) y animación
+- 5.2. Insignia (.badge y .badge-{color}), uso como contadores
+- 5.3. Barra de migas (.breadcrumb y .breadcrumb-item)
+- 5.4. Botones
+  - Estilos: .btn, .btn-{color}, .btn-outline-{color}
+  - Tamaños: .btn‑sm, .btn‑lg, .btn‑block (utilizando .d‑grid y gap)
+  - Estados activos y desactivados (.active, .disabled)
+  - Botón de envoltura de grupos (.btn‑group, .btn‑group-{size}, .btn‑group‑vertical)
+  - Barra de herramientas con .input‑group y .btn
+  - Botones de toggle y checkbox/radio style
+- 5.5. Botón desplegable (.dropdown) 
+  - Menú desplegable (.dropdown-menu) y sus ítems (.dropdown-item)
+  - Encabezados, divisores, texto deshabilitado dentro del menú
+  - Alineación (dropstart, dropend, dropup, dropdown-center) y desplazamiento
+  - Menú responsivo
+  - Uso con navs y barra de navegación
+- 5.6. Grupo de enlaces y botones de lista (.list-group y .list-group-item)
+  - Variantes: activos, deshabilitados, con colores, con badges
+  - Encabezados (.list-group-item-action) y elementos con flex utilities
+- 5.7. Ventana modal
+  - Estructura base: .modal, .modal-dialog, .modal-content, .modal-header, .modal-body, .modal-footer
+  - Activación mediante data‑bs‑target y data‑bs‑toggle="modal"
+  - Opciones: fondo, teclado, enfoque, scroll
+  - Tamaños: .modal-sm, .modal-dialog‑centered, .modal-dialog‑scrollable, .modal-lg, .modal-xl, .modal-fullscreen
+  - Animaciones y eventos JS (show, shown, hide, hidden)
+  - Modales anidados y uso de enfoque atrapado
+- 5.8. Barra de navegación (.navbar)
+  - Diseño responsive: .navbar‑expanding{-breakpoint}
+  - Contenedor dentro: .container o .container-fluid
+  - Marca: .navbar‑brand
+  - Nav y elementos: .navbar‑nav, .nav‑link
+  - Desplegables dentro de la barra
+  - Formularios dentro: .form‑control y .input‑group dentro de .navbar‑collapse
+  - Texto: .navbar‑text
+  - Colores: .navbar‑{color}, .navbar‑dark, .navbar‑light y variantes de background utilities
+  - Posición fija: .fixed‑top, .fixed‑bottom, .sticky‑top
+  - Offcanvas como alternativa a barra colapsable
+- 5.9. Navs y pastillas (.nav) 
+  - Estilos: .nav, .nav‑{justified, fill, pills, tabs}
+  - Elementos: .nav‑item, .nav‑link
+  - Estados activos y deshabilitados (.active, .disabled)
+  - Desplegables dentro de navs (.dropdown)
+  - Alineación vertical y horizontal con utilidades flex
+  - Tabs con contenido tabulable (usando data‑bs‑toggle="tab")
+  - Pildoras y pastillas con fondo
+- 5.10. Barra de progreso (.progress y .progress-bar)
+  - Variantes de color y estilo (striped, animated)
+  - Múltiples barras en un mismo componente
+  - Etiquetas de porcentaje
+  - Altura mediante utilities de altura
+- 5.11. Imagen de carrusel (.carousel)
+  - Estructura: .carousel, .carousel-inner, .carousel-item
+  - Controles: .carousel-control‑prev, .carousel-control‑next, iconos
+  - Indicadores: .carousel-indicators
+  - Animación de desplazamiento (data‑bs‑ride="carousel" o mediante JS)
+  - Opciones: interval, pausa al pasar el ratón, wrap, teclado
+  - Leyendas: .carousel-caption
+  - Variantes: diapositivas cruzadas (fade) usando .carousel‑fade
+- 5.12. Espaciador (spacer) y relación de aspecto (ratio)
+  - Clases de ratio: .ratio, .ratio‑16x9, .ratio‑4x3, .ratio‑1x1, .ratio‑21x9
+  - Uso con iframes, videos embed
+- 5.13. Otros componentes: 
+  - Offcanvas (.offcanvas, .offcanvas-{start,end,top,bottom})
+  - Toast (.toast, .toast-header, .toast-body) y su temporalización
+  - Placeholder (.placeholder, .placeholder‑wave, .placeholder‑glow)
+  - Spinner (.spinner‑border, .spinner‑grow, colores, tamaño)
+  - Accordion (.accordion, .accordion‑item, .accordion‑header, .accordion‑button, .accordion‑body)
+  - Close button (.btn‑close, .btn‑close‑white)
+
+## 6. Utilidades (Utilities API)
+- 6.1. Sistemas de utilidades: cómo se generan (map‑based, modificables vía Sass)
+- 6.2. Espaciado (margen y padding)
+  - .m-{tipo}-{breakpoint}-{tamaño}: m, mt, me, mb, ms, mx, my; t=top, e=end, b=bottom, s=start, x=horizontal, y=vertical
+  - Tamaños: 0, 1, 2, 3, 4, 5, auto (y negativos –n1 … -n5)
+  - Ejemplos: .ms‑3, .me‑mt‑2
+- 6.3. Color
+  - Colores de texto: .text‑{color} (primary, secondary, success, danger, warning, info, light, dark, white, black, body, muted, white‑50, black‑50)
+  - Colores de fondo: .bg‑{color} (igual que texto) y variantes de trasparencia (bg‑opacity‑10, 25, 50, 75)
+  - Gradientes: bg‑gradient, bg‑gradient‑primary etc. (opcional mediante extensiones)
+  - Color de enlace: .link‑{color}, .link‑offset‑{size}, .link‑underline‑opción
+- 6.4. Visibilidad
+  - .visible, .invisible
+  - .visually‑hidden (accesible) y .visually‑hidden‑focusable
+- 6.5. Posición
+  - .position‑static, .relative, .absolute, .fixed, .sticky
+  - .top‑0, .top‑50, .top‑100, etc. (utilizando 0, 50, 100 para %)
+  - .start‑0, .end‑0, etc.
+  - .translate‑middle para centrado absoluto usando translate
+- 6.6. Flex
+  - .d‑flex, d‑inline‑flex
+  - Direcciones: .flex‑row, .flex‑row‑reverse, .flex‑column, .flex‑column‑reverse
+  - Justificación: .justify‑content‑{start,end,center,between,around,evenly}
+  - Alineación de items: .align‑items‑{start,end,center,baseline,stretch}
+  - Alineación de contenido múltiple: .align‑content‑{...}
+  - Flex‑grow‑0, .flex‑grow‑1, .flex‑shrink‑{0,1}, .flex‑wrap‑{nowrap,wrap,wrap-reverse}
+  - Order: .order‑{0‑12}, .order‑first, .order‑last
+  - Márgenes automáticos con .m‑auto en ejes: .ms‑auto, .me‑auto
+- 6.7. Grid (solo para contenedores de display: grid)
+  - .d‑grid, d‑inline‑grid
+  - .grid‑columns‑{numero}, .gap‑{size} (g‑*, gx‑*, gy‑*)
+- 6.8. Flint
+  - .text‑{break, nowrap, lowercase, uppercase, capitalize}
+  - Decoración: .text‑decoration‑none, .underline, .line‑through
+  - Transformación: .fw‑{light, normal, bold, bolder} y .fs‑{1‑6}, .fst‑italic, .fst‑normal
+  - Fuente monoespaciada: .font‑monospace
+  - Peso y italic weight
+- 6.9. Fondos y bordes
+  - .bg‑{color} y .bg‑{gradient} (opcional)
+  - .border, .border‑{color}, .border‑{0‑5}
+  - .border‑top, .border‑end, .border‑bottom, .border‑start y versiones -{color}
+  - .border‑{rounded, rounded-0, rounded‑circle, rounded‑pill}
+  - .shadow, .shadow‑{none, sm, lg}, .shadow‑{none, sm, lg} (utilities de sombra)
+  - .position‑relative para referencia de posición absoluta interna
+- 6.10. Ratio (relación de aspecto) – ver sección 5.12
+- 6.11. Sizing ( ancho y alto )
+  - .w‑{25,50,75,100, auto}, .vw‑{100}
+  - .h‑{25,50,75,100, auto}, .vh‑{100}
+  - .mw‑100, .mh‑100 (máx‑width, máx‑height)
+  - .min‑vw‑100, .min‑vh‑100 (mín‑width, mín‑height)
+- 6.12. Espaciopleh (Espaciado entre elementos en flex/grid)
+  - .gap‑{size}, .gap‑x‑{size}, .gap‑y‑{size}
+  - .gap‑{0‑5} y valores arbitrarios mediante utilities API
+- 6.13. Texto
+  - .text‑{start,center,end,justify} – alineación
+  - .text‑{break, nowrap}
+  - .text‑{lowercase, uppercase, capitalize}
+  - .text‑{truncate} (elipsis)
+  - .text‑{responsive} (ejem.: text‑text‑sm‑center)
+  - .text‑{bg‑*}: elegantes fondos de texto (opcional)
+- 6.14. Otros
+  - .overflow‑{auto,hidden,scroll,visible} y versiones -x, -y
+  - .pe-none (pointer‑events)
+  - .pe-auto
+  - .user-select‑{all, auto, none, text}
+  - .cursor‑{pointer, default, wait, move, not‑allowed, …}
+  - .resize‑{none, both, horizontal, vertical}
+  - .svg‑svg (para asegurar que SVG se comporte como imagen)
+  - .visually‑hidden (ya mencionado)
+  - .stretched‑link (para hacer que un elemento ocupe todo su contenedor, útil en tarjetas)
+  - .ratio y ratio‑* (ya mencionado)
+
+## 7. Extendiendo y Personalizando Bootstrap
+- 7.1. Variables de Sass ($theme-colors, $body-bg, $font-family-base, $border-radius, $enable-*)
+- 7.2. Mapas: $theme-colors, $gutter-width, $breakpoints, $spacing, $font-weights, $line-heights, $colors
+- 7.3. Override mediante propias variables antes de importar bootstrap
+- 7.4. Creación de componentes propios usando mixins de Bootstrap (@include make-col, make-row, make-container, make-grid-columns, make-xs-grid-column, etc.)
+- 7.5. Utilizar utilities API para crear clases propias
+- 7.6. Tema oscuro: activar mediante prefers-color-schema o clase .dark en <html> o <body> y variables correspondientes
+- 7.7. Fuentes locales vs CDN, optimización de carga (preload, prefetch)
+- 7.8. Desempaquetar sólo lo necesario (por ejemplo, usar solo la rejilla y los botones) para reducir tamaño
+- 7.9. Integración con frameworks de JavaScript (React, Vue, Angular) mediante paquetes oficiales (react-bootstrap, bootstrap-vue, ng-bootstrap)
+
+## 8. Optimización y Buenas Prácticas
+- 8.1. Uso del bootstrap.min.js y bootstrap.min.css para producción
+- 8.2. PurgeCSS o similares para eliminar clases no usadas (Tailwind‑style purge)
+- 8.3. Carga diferida de componentes JS (solo inicializar lo necesario)
+- 8.4. Evitar sobre‑especificación: aprovechar las utilities y evitar CSS custom cuando no sea necesario
+- 8.5. Accesibilidad: asegurar contraste suficiente, usar ARIA cuando componentes nativos no lo cubran (por ejemplo, menús, modales)
+- 8.6. Evitar !important salvo excepciones
+- 8.7. Mantener actualizado y seguir changelog de v5.3.x
+- 8.8. Uso de variables CSS (custom properties) para theming en tiempo de ejecución
+- 8.9. Pruebas cross‑browser y dispositivos reales
+
+## 9. Integración con Otros Tecnologías
+- 9.1. Bootstrap + Figma: usar kits de diseño oficial
+- 9.2. Plantillas de inicio (Starter Templates) y temas gratuitos/pagados
+- 9.3. Uso con preprocesadores (Sass/SCSS) y postprocesadores (Autoprefixer, cssnano)
+- 9.4. Bootstrap en entornos de micro‑frontends o web components
+- 9.5. Internacionalización (i18n): dir="rtl", clases de texto‑direction, usar variables de Sass para idioma
+- 9.6. Acceso a datos y estado: combinar con fetch/AJAX, GraphQL, estado global de frameworks
+- 9.7. Animaciones personales: usar transiciones de CSS propias o libreria externa (Animate.css, GSAP) junto a componentes
+
+## 10. Recursos y Próximos Pasos
+- 10.1. Documentación oficial: https://getbootstrap.com/docs/5.3/
+- 10.2. Ejemplos oficiales (Examples section) y temas (Themes)
+- 10.3. Comunidad: Stack Overflow, GitHub Discussions, Reddit r/bootstrap
+- 10.4. Libros y cursos recomendados
+- 10.5. Proyecto de práctica: crear un panel de administrador, una landing page, un blog, un e‑commerce simple usando componentes de Bootstrap
+- 10.6. Cómo continuar aprendiendo sobre CSS avanzado, JavaScript y frameworks
+
+---
+*Este temario sirve como guía de estudio. Cada tema puede ampliarse con ejemplos de código, ejercicios y referencias adicionales según el nivel de profundidad deseado.*

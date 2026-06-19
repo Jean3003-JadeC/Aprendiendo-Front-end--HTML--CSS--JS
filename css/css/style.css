@@ -1,0 +1,50 @@
+/* styles.css - Hoja de estilo personalizada para el proyecto Frontend desde Cero */
+
+/* Ejemplo de estilos básicos */
+/* Puedes modificar estos valores para ver el efecto en tiempo real */
+
+/* Fondo y color de texto del body */
+body {
+    background-color: #f8f9fa; /* Gris muy claro */
+    color: #212529; /* Casi negro */
+}
+
+/* Estilos para los encabezados */
+h1, h2, h3, h4, h5, h6 {
+    color: #0d6efd; /* Azul Bootstrap primario */
+    margin-top: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+/* Resaltar párrafos importantes */
+p.important {
+    font-weight: 600;
+    color: #dc3545; /* Rojo danger */
+}
+
+/* Estilos para listas personalizadas */
+.custom-list {
+    list-style-type: square; /* Cambia los bullets a cuadrados */
+    padding-left: 2rem;
+}
+
+/* Estilos para tablas adicionales */
+.table-custom {
+    background-color: #fff;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+/* Estilos para formularios */
+form .form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 .25rem rgba(13,110,253,.25);
+}
+
+/* Ejemplo de clases de utilidad que puedes usar en HTML */
+/* .bg-light   → fondo claro */
+/* .text-center → alineación centrada */
+/* .mt-3       → margen top 1rem (spacing scale) */
+/* Puedes combinar con clases de Bootstrap */
+
+/* Fin de styles.css */
