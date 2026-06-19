@@ -23,32 +23,272 @@
             <p><strong>JavaScript</strong> es un lenguaje de programación que permite añadir <strong>interactividad</strong> a las páginas web. Manipula el DOM, responde a eventos, se comunica con servidores y mucho más.</p>
         </section>
 
+        <!-- ============================================================ -->
+        <!-- DEMO 1: DOM MANIPULATION - TO-DO LIST                       -->
+        <!-- ============================================================ -->
         <section class="content-section">
-            <h2>Temario</h2>
-            <p>Consulta el archivo <a href="temario.md" target="_blank">temario.md</a> para ver la lista completa de temas a cubrir.</p>
+            <h2>📋 DOM: Lista de Tareas (To-Do List)</h2>
+            <p><strong>Manipulación del DOM:</strong> Agrega y elimina elementos de la lista usando <code>createElement</code>, <code>appendChild</code> y <code>removeChild</code>.</p>
+
+            <div class="todo-container">
+                <div class="todo-input-group">
+                    <input type="text" id="todoInput" class="todo-input" placeholder="Escribe una tarea..." maxlength="60">
+                    <button id="todoAddBtn" class="btn-demo">➕ Agregar</button>
+                </div>
+                <ul id="todoList" class="todo-list">
+                    <li class="todo-item">
+                        <span>Aprender manipulación del DOM</span>
+                        <button class="todo-delete" aria-label="Eliminar">✕</button>
+                    </li>
+                    <li class="todo-item">
+                        <span>Practicar con eventos</span>
+                        <button class="todo-delete" aria-label="Eliminar">✕</button>
+                    </li>
+                    <li class="todo-item">
+                        <span>¡Completar este proyecto!</span>
+                        <button class="todo-delete" aria-label="Eliminar">✕</button>
+                    </li>
+                </ul>
+                <div class="todo-stats">
+                    <span id="todoCount">3 tareas</span>
+                    <button id="todoClearBtn" class="btn-small">Limpiar todo</button>
+                </div>
+            </div>
+
+            <details class="code-toggle">
+                <summary>📝 Ver código: crear elemento</summary>
+                <div class="code-example">
+                    <pre><code>// Crear un nuevo elemento li
+const li = document.createElement('li');
+li.className = 'todo-item';
+li.innerHTML = `&lt;span&gt;${texto}&lt;/span&gt;
+    &lt;button class=&quot;todo-delete&quot;&gt;✕&lt;/button&gt;`;
+
+// Agregarlo a la lista
+lista.appendChild(li);
+
+// Eliminar un elemento
+li.remove();</code></pre>
+                </div>
+            </details>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Contador de tareas pendientes</h4>
+                <p>Modifica el código para que muestre "X tarea(s) pendiente(s)" y cambie de color cuando no haya tareas.</p>
+                <button class="btn-exercise" data-exercise="todo-counter">Mostrar pista</button>
+                <p class="hint" id="hint-todo-counter" hidden>💡 Usa <code>document.querySelectorAll('.todo-item').length</code> para contar los items. Si es 0, muestra un mensaje especial.</p>
+            </div>
         </section>
 
+        <!-- ============================================================ -->
+        <!-- DEMO 2: EVENT DELEGATION - LISTA INTERACTIVA                -->
+        <!-- ============================================================ -->
         <section class="content-section">
-            <h2>Ejemplo básico</h2>
-            <div class="code-example">
-                <pre><code>// Mensaje en consola
-console.log('¡Hola, mundo!');
+            <h2>🖱️ Event Delegation: Lista interactiva</h2>
+            <p><strong>Delegación de eventos:</strong> Un solo event listener en el contenedor maneja clics en múltiples elementos hijos.</p>
 
-// Manipulación del DOM
-document.querySelector('h1').style.color = 'blue';
+            <div class="delegation-container">
+                <p class="demo-instruction">Haz clic en cualquier elemento de la lista:</p>
+                <ul id="delegationList" class="delegation-list">
+                    <li data-category="frontend" data-difficulty="facil">📄 HTML - Estructura básica</li>
+                    <li data-category="frontend" data-difficulty="medio">🎨 CSS - Flexbox y Grid</li>
+                    <li data-category="frontend" data-difficulty="dificil">⚡ JavaScript - Promesas</li>
+                    <li data-category="backend" data-difficulty="medio">🖥️ Node.js - Servidores</li>
+                    <li data-category="database" data-difficulty="dificil">🗄️ SQL - Bases de datos</li>
+                </ul>
+                <div id="delegationOutput" class="output">
+                    💡 Haz clic en un tema para ver sus detalles
+                </div>
+            </div>
 
-// Función con evento
-function saludar(nombre) {
-    alert(`¡Hola, ${nombre}!`);
+            <details class="code-toggle">
+                <summary>📝 Ver código: delegación de eventos</summary>
+                <div class="code-example">
+                    <pre><code>// Un solo event listener en el padre
+lista.addEventListener('click', function(e) {
+    const item = e.target.closest('li');
+    if (!item) return;
+
+    const categoria = item.dataset.category;
+    const dificultad = item.dataset.difficulty;
+    console.log(`Clic en: ${item.textContent}`);
+});</code></pre>
+                </div>
+            </details>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Resaltar por categoría</h4>
+                <p>Agrega botones para filtrar la lista: "Frontend", "Backend", "Database". Al hacer clic, solo deben mostrarse los elementos de esa categoría.</p>
+                <button class="btn-exercise" data-exercise="event-filter">Mostrar pista</button>
+                <p class="hint" id="hint-event-filter" hidden>💡 Usa <code>item.style.display = item.dataset.category === filtro ? '' : 'none'</code>. Usa delegación también para los botones de filtro.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- DEMO 3: FETCH API - GENERADOR DE USUARIOS                   -->
+        <!-- ============================================================ -->
+        <section class="content-section">
+            <h2>🌐 Fetch API: Generador de usuarios aleatorios</h2>
+            <p><strong>Promesas y Fetch:</strong> Obtén datos de una API real (<a href="https://randomuser.me" target="_blank" rel="noopener">randomuser.me</a>) y muéstralos en pantalla.</p>
+
+            <div class="fetch-container">
+                <button id="fetchUserBtn" class="btn-demo">🎲 Generar usuario</button>
+
+                <div id="fetchLoading" class="fetch-loading" hidden>
+                    <div class="spinner"></div>
+                    <span>Cargando usuario...</span>
+                </div>
+
+                <div id="fetchError" class="fetch-error" hidden></div>
+
+                <div id="fetchResult" class="user-card" hidden>
+                    <img id="userAvatar" class="user-avatar" src="" alt="Avatar">
+                    <div class="user-info">
+                        <h3 id="userName"></h3>
+                        <p id="userEmail"></p>
+                        <p id="userLocation"></p>
+                        <p id="userPhone"></p>
+                    </div>
+                </div>
+
+                <div id="fetchCodeDisplay" class="code-example" style="margin-top:1rem;">
+                    <pre><code>// Fetch API con async/await
+async function obtenerUsuario() {
+    try {
+        const res = await fetch('https://randomuser.me/api/');
+        const data = await res.json();
+        return data.results[0];
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }</code></pre>
+                </div>
             </div>
-            <p>Abre la consola del navegador (F12) para ver los mensajes de ejemplo.</p>
-            <div class="interactive-demo">
-                <button id="demo-btn" class="btn-demo">Haz clic aquí</button>
+
+            <details class="code-toggle">
+                <summary>📝 Ver más: Promise.then vs async/await</summary>
+                <div class="code-example">
+                    <pre><code>// Con promesas (.then)
+fetch('https://api.example.com')
+    .then(resp => resp.json())
+    .then(data => console.log(data))
+    .catch(err => console.error(err));
+
+// Con async/await (más legible)
+async function getData() {
+    try {
+        const resp = await fetch('https://api.example.com');
+        const data = await resp.json();
+        console.log(data);
+    } catch (err) {
+        console.error(err);
+    }
+}</code></pre>
+                </div>
+            </details>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Múltiples usuarios</h4>
+                <p>Modifica el código para que al hacer clic en "Generar usuario", obtenga <strong>3 usuarios</strong> de una sola vez usando <code>Promise.all</code> y los muestre en una cuadrícula.</p>
+                <button class="btn-exercise" data-exercise="fetch-multiple">Mostrar pista</button>
+                <p class="hint" id="hint-fetch-multiple" hidden>💡 Usa <code>Promise.all([fetch(url1), fetch(url2), fetch(url3)])</code> o simplemente cambia el parámetro: <code>?results=3</code> en la URL de randomuser.</p>
             </div>
         </section>
 
-        <!-- Aquí irán más ejemplos y ejercicios a medida que avances en el temario -->
+        <!-- ============================================================ -->
+        <!-- DEMO 4: PROMESAS Y ASYNC - OPERACIONES SIMULADAS            -->
+        <!-- ============================================================ -->
+        <section class="content-section">
+            <h2>⏳ Promesas y Async/Await: Operaciones simuladas</h2>
+            <p><strong>Asincronía:</strong> Ejecuta operaciones que toman tiempo (simuladas con <code>setTimeout</code>) en <strong>serie</strong> y en <strong>paralelo</strong>.</p>
+
+            <div class="async-container">
+                <div class="async-controls">
+                    <button id="asyncSeriesBtn" class="btn-demo">▶️ Ejecutar en serie</button>
+                    <button id="asyncParallelBtn" class="btn-demo">⏩ Ejecutar en paralelo</button>
+                    <button id="asyncRaceBtn" class="btn-demo">🏁 Carrera (race)</button>
+                    <button id="asyncResetBtn" class="btn-small">Reiniciar</button>
+                </div>
+
+                <div class="async-tracks" id="asyncTracks">
+                    <div class="async-track" data-op="1">
+                        <span class="track-label">📦 Operación 1 (1s)</span>
+                        <div class="track-bar">
+                            <div class="track-fill" id="track1"></div>
+                        </div>
+                        <span class="track-status" id="status1">⏳ Esperando...</span>
+                    </div>
+                    <div class="async-track" data-op="2">
+                        <span class="track-label">📦 Operación 2 (2s)</span>
+                        <div class="track-bar">
+                            <div class="track-fill" id="track2"></div>
+                        </div>
+                        <span class="track-status" id="status2">⏳ Esperando...</span>
+                    </div>
+                    <div class="async-track" data-op="3">
+                        <span class="track-label">📦 Operación 3 (1.5s)</span>
+                        <div class="track-bar">
+                            <div class="track-fill" id="track3"></div>
+                        </div>
+                        <span class="track-status" id="status3">⏳ Esperando...</span>
+                    </div>
+                </div>
+
+                <div id="asyncResult" class="output">
+                    💡 Elige un modo de ejecución para comenzar
+                </div>
+            </div>
+
+            <details class="code-toggle">
+                <summary>📝 Ver código: serie vs paralelo</summary>
+                <div class="code-example">
+                    <pre><code>// EN SERIE: una después de otra (~4.5s total)
+async function enSerie() {
+    const r1 = await op1();  // 1s
+    const r2 = await op2();  // 2s
+    const r3 = await op3();  // 1.5s
+    return [r1, r2, r3];
+}
+
+// EN PARALELO: todas a la vez (~2s total)
+async function enParalelo() {
+    const results = await Promise.all([
+        op1(),  // 1s
+        op2(),  // 2s
+        op3()   // 1.5s
+    ]);
+    return results;
+}</code></pre>
+                </div>
+            </details>
+
+            <div class="exercise-box">
+                <h4>🧪 Ejercicio: Simular carga de imágenes</h4>
+                <p>Crea una función que simule la carga de 3 imágenes con tiempos diferentes (1s, 0.5s, 2s). Muestra cada imagen (con un placeholder) a medida que se "carga", no todas al final.</p>
+                <button class="btn-exercise" data-exercise="async-loading">Mostrar pista</button>
+                <p class="hint" id="hint-async-loading" hidden>💡 No necesitas Promise.all para esto. Itera con un for...of y await cada operación individualmente: <code>for (const img of imagenes) { await cargar(img); }</code></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- PROYECTO FINAL                                              -->
+        <!-- ============================================================ -->
+        <section class="content-section">
+            <h2>🎯 Proyecto final del módulo</h2>
+            <p>Crea una pequeña aplicación que combine todo lo aprendido:</p>
+            <ol class="project-list">
+                <li>Un <strong>buscador de usuarios de GitHub</strong> usando la <a href="https://api.github.com/" target="_blank" rel="noopener">API de GitHub</a></li>
+                <li>Input para escribir un nombre de usuario + botón de búsqueda</li>
+                <li>Al enviar, mostrar: avatar, nombre, bio, repositorios públicos y seguidores</li>
+                <li>Manejar estados: <strong>loading</strong>, <strong>success</strong>, <strong>error</strong> (usuario no encontrado)</li>
+                <li>Mostrar los resultados con manipulación del DOM</li>
+            </ol>
+            <div class="project-hint">
+                <p>🔗 API: <code>https://api.github.com/users/{username}</code></p>
+                <p>💡 Crea un archivo <code>js/mi-proyecto.html</code> y empieza desde ahí. ¡Ya tienes todo lo necesario!</p>
+            </div>
+        </section>
+
     </div>
 
     <footer>

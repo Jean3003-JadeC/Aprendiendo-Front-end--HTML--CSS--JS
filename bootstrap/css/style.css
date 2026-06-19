@@ -8,35 +8,26 @@
  *   ¡EVITA usar !important a menos que sea realmente necesario!
  */
 
-/* === Navegación entre módulos (clase propia, sin conflicto con Bootstrap) === */
-.module-nav {
-    padding: 0.8rem 2rem;
+/* === Tipografía === */
+.section-title {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #7952b3;
+    color: #1a1a2e;
 }
 
-.module-nav a {
-    color: rgba(255, 255, 255, 0.85);
-    text-decoration: none;
-    transition: opacity 0.2s;
+h2 code {
+    font-size: inherit;
 }
 
-.module-nav a:hover {
-    color: white;
-    text-decoration: underline;
-}
-
-.module-nav span {
-    margin-left: 0.5rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-/* === Secciones de demostración === */
-.demo-section {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
+/* === Cajas de demostración === */
+.demo-box {
+    background: #f8f9fa;
     border: 1px dashed #dee2e6;
     border-radius: 0.5rem;
-    background: #f8f9fa;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
 
 /* === Bloques de código === */
@@ -47,21 +38,133 @@
     border-radius: 0.375rem;
     font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
     overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
 }
 
-/* === Encabezados de sección === */
-section h2 {
-    font-weight: 700;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 3px solid #7952b3;
+.code-demo pre {
+    margin: 0;
+    color: #cdd6f4;
+}
+
+.code-demo code {
+    color: #cdd6f4;
+}
+
+/* === Code Toggle (details/summary) === */
+.code-toggle {
+    margin: 0.75rem 0;
+}
+
+.code-toggle summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #7952b3;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    transition: background 0.2s;
+    user-select: none;
+    background: #f3eef8;
+    display: inline-block;
+}
+
+.code-toggle summary:hover {
+    background: #e8dff2;
+}
+
+/* === Ejercicios === */
+.exercise-box {
+    background: #f3eef8;
+    border: 2px solid #7952b3;
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.exercise-box h4 {
+    color: #5a3d8a;
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+}
+
+.btn-exercise {
+    background: #7952b3;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.btn-exercise:hover {
+    background: #5a3d8a;
+    transform: translateY(-1px);
+}
+
+.hint {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    background: #ede4f7;
+    border-radius: 6px;
+    border-left: 4px solid #7952b3;
+    font-size: 0.9rem;
+    color: #4a2d6a;
+}
+
+.hint[hidden] {
+    display: none;
+}
+
+/* === Proyecto final === */
+.project-list {
+    padding-left: 1.5rem;
+}
+
+.project-list li {
+    margin-bottom: 0.5rem;
+}
+
+.project-hint {
+    background: #f3eef8;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    border-left: 4px solid #7952b3;
+    margin-top: 1rem;
+}
+
+.project-hint p {
+    margin: 0.3rem 0;
+}
+
+/* === Tabs content === */
+.tab-content {
+    color: #1a1a2e;
+}
+
+/* === Navbar ajuste para scroll interno === */
+.sticky-top {
+    top: 0;
+    z-index: 1030;
+}
+
+/* === Responsive para tablas en móvil === */
+@media (max-width: 576px) {
+    .table {
+        font-size: 0.85rem;
+    }
 }
 
 /* 
  * 🧪 EJERCICIOS SUGERIDOS:
- * 1. Cambia el color primary de Bootstrap a otro tono usando variables CSS
- * 2. Crea una clase CSS personalizada para un botón
- * 3. Agrega una animación CSS a las cards de Bootstrap
+ * 1. Cambia el color primary de Bootstrap sobrescribiendo --bs-primary en :root
+ * 2. Agrega una animación CSS personalizada a las cards
+ * 3. Usa las utilidades Bootstrap para crear un layout de 2 columnas
  */
 
 /* Fin de styles.css */

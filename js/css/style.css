@@ -49,7 +49,7 @@ body {
 
 /* === Contenedor principal === */
 .container {
-    max-width: 900px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 2rem;
     color: #e0e0e0;
@@ -77,6 +77,29 @@ h2 {
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 3px solid #f7df1e;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f7df1e;
+    margin: 0 0 0.5rem;
+}
+
+code {
+    background: rgba(247, 223, 30, 0.15);
+    padding: 0.15rem 0.35rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #f7df1e;
+}
+
+a {
+    color: #f7df1e;
+}
+
+a:hover {
+    color: #ffe44d;
 }
 
 /* === Secciones de contenido === */
@@ -108,12 +131,16 @@ h2 {
 
 .code-example code {
     font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #cdd6f4;
     line-height: 1.5;
+    background: transparent;
+    padding: 0;
 }
 
-/* === Output / Resultados === */
+/* ============================================================ */
+/* OUTPUT / RESULTADOS                                          */
+/* ============================================================ */
 .output {
     background-color: #0d1117;
     border-left: 4px solid #f7df1e;
@@ -122,33 +149,470 @@ h2 {
     font-family: 'Cascadia Code', 'Consolas', monospace;
     border-radius: 0 8px 8px 0;
     color: #cdd6f4;
+    font-size: 0.9rem;
 }
 
-/* === Botón de demostración interactiva === */
-.interactive-demo {
-    margin: 1rem 0;
-}
-
+/* ============================================================ */
+/* BOTONES                                                      */
+/* ============================================================ */
 .btn-demo {
     background: #f7df1e;
     color: #1a1a2e;
     border: none;
-    padding: 0.8rem 2rem;
+    padding: 0.7rem 1.5rem;
     border-radius: 50px;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.95rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(247, 223, 30, 0.3);
+    box-shadow: 0 4px 12px rgba(247, 223, 30, 0.25);
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
 .btn-demo:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(247, 223, 30, 0.4);
+    box-shadow: 0 6px 20px rgba(247, 223, 30, 0.35);
 }
 
 .btn-demo:active {
     transform: translateY(0);
+}
+
+.btn-demo:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-small {
+    background: transparent;
+    color: #a0a0b0;
+    border: 1px solid #3a4a5a;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.btn-small:hover {
+    border-color: #f7df1e;
+    color: #f7df1e;
+}
+
+/* ============================================================ */
+/* CODE TOGGLE                                                  */
+/* ============================================================ */
+.code-toggle {
+    margin: 0.75rem 0;
+}
+
+.code-toggle summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #f7df1e;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: background 0.2s;
+    user-select: none;
+}
+
+.code-toggle summary:hover {
+    background: rgba(247, 223, 30, 0.1);
+}
+
+.code-toggle[open] summary {
+    margin-bottom: 0.5rem;
+}
+
+.code-toggle .code-example {
+    margin: 0;
+}
+
+/* ============================================================ */
+/* TO-DO LIST                                                   */
+/* ============================================================ */
+.todo-container {
+    margin: 1rem 0;
+}
+
+.todo-input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.todo-input {
+    flex: 1;
+    padding: 0.65rem 1rem;
+    border: 2px solid #3a4a5a;
+    border-radius: 8px;
+    background: #0d1117;
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.todo-input:focus {
+    outline: none;
+    border-color: #f7df1e;
+    box-shadow: 0 0 0 3px rgba(247, 223, 30, 0.15);
+}
+
+.todo-input::placeholder {
+    color: #5a6a7a;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.75rem;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 0.35rem;
+    background: #0d1117;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+    transition: all 0.2s;
+    animation: slideIn 0.25s ease;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.todo-item:hover {
+    border-color: #4a5a6a;
+}
+
+.todo-item span {
+    flex: 1;
+    font-size: 0.9rem;
+}
+
+.todo-delete {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+    opacity: 0.6;
+}
+
+.todo-delete:hover {
+    opacity: 1;
+    background: rgba(220, 53, 69, 0.15);
+}
+
+.todo-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #8a9aaa;
+}
+
+.todo-stats .empty-message {
+    color: #dc3545;
+    font-style: italic;
+}
+
+.todo-empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: #5a6a7a;
+    font-style: italic;
+}
+
+/* ============================================================ */
+/* EVENT DELEGATION                                             */
+/* ============================================================ */
+.delegation-container {
+    margin: 1rem 0;
+}
+
+.demo-instruction {
+    font-size: 0.9rem;
+    color: #8a9aaa;
+    margin-bottom: 0.75rem;
+}
+
+.delegation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.75rem;
+}
+
+.delegation-list li {
+    padding: 0.7rem 1rem;
+    margin-bottom: 0.35rem;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+.delegation-list li:hover {
+    border-color: #f7df1e;
+    background: rgba(247, 223, 30, 0.05);
+}
+
+.delegation-list li.selected {
+    border-color: #f7df1e;
+    background: rgba(247, 223, 30, 0.1);
+}
+
+.delegation-list li .item-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 50px;
+    margin-left: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-frontend { background: rgba(13, 110, 253, 0.2); color: #6ea8fe; }
+.badge-backend { background: rgba(25, 135, 84, 0.2); color: #75b798; }
+.badge-database { background: rgba(111, 66, 193, 0.2); color: #b197fc; }
+
+/* ============================================================ */
+/* FETCH API - USER CARD                                        */
+/* ============================================================ */
+.fetch-container {
+    margin: 1rem 0;
+}
+
+.fetch-loading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    color: #8a9aaa;
+    font-size: 0.9rem;
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid #30363d;
+    border-top-color: #f7df1e;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.fetch-error {
+    padding: 0.75rem 1rem;
+    background: rgba(220, 53, 69, 0.15);
+    border: 1px solid rgba(220, 53, 69, 0.3);
+    border-radius: 8px;
+    color: #f87171;
+    font-size: 0.9rem;
+    margin: 0.75rem 0;
+}
+
+.user-card {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    margin: 0.75rem 0;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.user-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid #f7df1e;
+    object-fit: cover;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-info h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.2rem;
+    color: #f0f0f0;
+}
+
+.user-info p {
+    margin: 0.2rem 0;
+    font-size: 0.85rem;
+    color: #8a9aaa;
+}
+
+.user-info .user-label {
+    color: #f7df1e;
+    font-weight: 600;
+}
+
+/* ============================================================ */
+/* PROMESAS / ASYNC - TRACKS                                    */
+/* ============================================================ */
+.async-container {
+    margin: 1rem 0;
+}
+
+.async-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.async-tracks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.async-track {
+    display: grid;
+    grid-template-columns: 140px 1fr 100px;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.track-label {
+    font-size: 0.8rem;
+    color: #8a9aaa;
+    font-weight: 600;
+}
+
+.track-bar {
+    height: 28px;
+    background: #0d1117;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #30363d;
+    position: relative;
+}
+
+.track-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 14px;
+    transition: width 0.3s ease;
+}
+
+[data-op="1"] .track-fill { background: linear-gradient(90deg, #e34f26, #f97316); }
+[data-op="2"] .track-fill { background: linear-gradient(90deg, #1572b6, #38bdf8); }
+[data-op="3"] .track-fill { background: linear-gradient(90deg, #198754, #4ade80); }
+
+.track-status {
+    font-size: 0.8rem;
+    color: #8a9aaa;
+    font-weight: 500;
+}
+
+.track-status.done {
+    color: #4ade80;
+}
+
+.track-status.failed {
+    color: #f87171;
+}
+
+/* ============================================================ */
+/* EJERCICIOS                                                   */
+/* ============================================================ */
+.exercise-box {
+    background: rgba(247, 223, 30, 0.06);
+    border: 1px solid rgba(247, 223, 30, 0.2);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.exercise-box h4 {
+    color: #f7df1e;
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+}
+
+.btn-exercise {
+    background: #f7df1e;
+    color: #1a1a2e;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.btn-exercise:hover {
+    background: #ffe44d;
+    transform: translateY(-1px);
+}
+
+.hint {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(247, 223, 30, 0.08);
+    border-left: 4px solid #f7df1e;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #d4c04a;
+}
+
+.hint[hidden] {
+    display: none;
+}
+
+/* === Project === */
+.project-list {
+    padding-left: 1.5rem;
+}
+
+.project-list li {
+    margin-bottom: 0.5rem;
+}
+
+.project-hint {
+    background: rgba(247, 223, 30, 0.08);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    border-left: 4px solid #f7df1e;
+    margin-top: 1rem;
+}
+
+.project-hint p {
+    margin: 0.3rem 0;
 }
 
 /* === Footer === */
@@ -179,6 +643,25 @@ footer a:hover {
     }
     .content-section {
         padding: 1rem;
+    }
+    .user-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .async-track {
+        grid-template-columns: 100px 1fr 80px;
+        gap: 0.5rem;
+    }
+    .track-label {
+        font-size: 0.7rem;
+    }
+    .async-controls {
+        flex-direction: column;
+    }
+    .async-controls .btn-demo {
+        width: 100%;
+        justify-content: center;
     }
 }
 
