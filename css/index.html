@@ -3,15 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecciones de CSS</title>
+    <title>CSS - Frontend desde Cero</title>
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+    <nav class="breadcrumb">
+        <a href="../index.html">🏠 Inicio</a>
+        <span>🎨 CSS</span>
+    </nav>
+
     <div class="container">
-        <h1>Lecciones de CSS</h1>
-        <p>En esta sección encontrarás explicaciones, ejemplos y ejercicios para aprender todo sobre CSS: selectores, propiedades, caja modelo, flexbox, grid, animaciones, transiciones, responsive design y metodologías como BEM.</p>
-        <!-- Los ejemplos específicos irán aquí -->
+        <header>
+            <h1>Lecciones de CSS</h1>
+            <p class="subtitle">Dale estilo y vida a tus páginas web</p>
+        </header>
+
+        <section class="content-section">
+            <h2>¿Qué es CSS?</h2>
+            <p><strong>CSS</strong> (<em>Cascading Style Sheets</em>) es el lenguaje que describe la <strong>presentación visual</strong> de un documento HTML. Controla colores, fuentes, espaciado, layout y diseño responsivo.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Temario</h2>
+            <p>Consulta el archivo <a href="temario.md" target="_blank">temario.md</a> para ver la lista completa de temas a cubrir.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Ejemplo básico</h2>
+            <div class="code-example">
+                <pre><code>/* Selector de etiqueta */
+h1 {
+    color: #0d6efd;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Selector de clase */
+.destacado {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 1rem;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Aquí irán más ejemplos y ejercicios a medida que avances en el temario -->
     </div>
+
+    <footer>
+        <p><a href="../index.html">← Volver al hub de aprendizaje</a></p>
+    </footer>
+
     <script src="js/script.js"></script>
 </body>
 </html>

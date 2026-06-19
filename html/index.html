@@ -3,15 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecciones de HTML</title>
+    <title>HTML - Frontend desde Cero</title>
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+    <nav class="breadcrumb">
+        <a href="../index.html">🏠 Inicio</a>
+        <span>📄 HTML</span>
+    </nav>
+
     <div class="container">
-        <h1>Lecciones de HTML</h1>
-        <p>En esta sección encontrarás explicaciones, ejemplos y ejercicios para aprender todo sobre HTML: estructura básica, etiquetas, atributos, formas, tablas, semántica y mejores prácticas.</p>
-        <!-- Los ejemplos específicos irán aquí -->
+        <header>
+            <h1>Lecciones de HTML</h1>
+            <p class="subtitle">Aprende la estructura y semántica de la web</p>
+        </header>
+
+        <section class="content-section">
+            <h2>¿Qué es HTML?</h2>
+            <p>HTML (<strong>HyperText Markup Language</strong>) es el lenguaje de marcado estándar para crear páginas web. Define la <strong>estructura</strong> y el <strong>significado</strong> del contenido web.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Temario</h2>
+            <p>Consulta el archivo <a href="temario.md" target="_blank">temario.md</a> para ver la lista completa de temas a cubrir.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Ejemplo básico</h2>
+            <div class="code-example">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mi primera página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;¡Hola, mundo!&lt;/h1&gt;
+    &lt;p&gt;Esta es mi primera página web.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Aquí irán más ejemplos y ejercicios a medida que avances en el temario -->
     </div>
+
+    <footer>
+        <p><a href="../index.html">← Volver al hub de aprendizaje</a></p>
+    </footer>
+
     <script src="js/script.js"></script>
 </body>
 </html>

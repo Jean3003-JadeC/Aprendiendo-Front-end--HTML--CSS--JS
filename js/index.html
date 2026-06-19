@@ -3,15 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecciones de JavaScript</title>
+    <title>JavaScript - Frontend desde Cero</title>
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+    <nav class="breadcrumb">
+        <a href="../index.html">🏠 Inicio</a>
+        <span>⚡ JavaScript</span>
+    </nav>
+
     <div class="container">
-        <h1>Lecciones de JavaScript</h1>
-        <p>En esta sección encontrarás explicaciones, ejemplos y ejercicios para aprender todo sobre JavaScript: sintaxis básica, tipos de datos, estructuras de control, funciones, DOM, eventos, AJAX, ES6+ y introducción a frameworks.</p>
-        <!-- Los ejemplos específicos irán aquí -->
+        <header>
+            <h1>Lecciones de JavaScript</h1>
+            <p class="subtitle">Dale interactividad y lógica a tus páginas web</p>
+        </header>
+
+        <section class="content-section">
+            <h2>¿Qué es JavaScript?</h2>
+            <p><strong>JavaScript</strong> es un lenguaje de programación que permite añadir <strong>interactividad</strong> a las páginas web. Manipula el DOM, responde a eventos, se comunica con servidores y mucho más.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Temario</h2>
+            <p>Consulta el archivo <a href="temario.md" target="_blank">temario.md</a> para ver la lista completa de temas a cubrir.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Ejemplo básico</h2>
+            <div class="code-example">
+                <pre><code>// Mensaje en consola
+console.log('¡Hola, mundo!');
+
+// Manipulación del DOM
+document.querySelector('h1').style.color = 'blue';
+
+// Función con evento
+function saludar(nombre) {
+    alert(`¡Hola, ${nombre}!`);
+}</code></pre>
+            </div>
+            <p>Abre la consola del navegador (F12) para ver los mensajes de ejemplo.</p>
+            <div class="interactive-demo">
+                <button id="demo-btn" class="btn-demo">Haz clic aquí</button>
+            </div>
+        </section>
+
+        <!-- Aquí irán más ejemplos y ejercicios a medida que avances en el temario -->
     </div>
+
+    <footer>
+        <p><a href="../index.html">← Volver al hub de aprendizaje</a></p>
+    </footer>
+
     <script src="js/script.js"></script>
 </body>
 </html>

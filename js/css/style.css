@@ -1,13 +1,185 @@
-/* styles.css - Estilos para las lecciones de JavaScript */
-/* Puedes añadir aquí estilos personalizados para los ejemplos */
+/* styles.css - Estilos para las lecciones de JavaScript
+ * 
+ * 📖 PROPÓSITO: Este archivo contiene estilos para visualizar los
+ *   resultados de los ejemplos y ejercicios de JavaScript.
+ * 
+ * 💡 APRENDE: JavaScript puede modificar estos estilos en tiempo real.
+ *   Observa cómo el código JS interactúa con el CSS.
+ */
 
-/* Ejemplo: resaltar salida de console o resultados */
-.output {
-    background-color: #e9ecef;
-    border-left: 4px solid #007bff;
-    padding: 12px;
-    margin: 12px 0;
-    font-family: monospace;
+/* === Reset básico === */
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
-/* Fin de estilos para JavaScript */
+/* === Estilos base === */
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #1a1a2e;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* === Navegación (breadcrumb) === */
+.breadcrumb {
+    background: linear-gradient(135deg, #d4a017, #b8860b);
+    padding: 0.8rem 2rem;
+    color: white;
+}
+
+.breadcrumb a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.breadcrumb a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    margin-left: 0.5rem;
+    font-weight: 600;
+}
+
+/* === Contenedor principal === */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: #e0e0e0;
+}
+
+/* === Encabezados === */
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #f7df1e;
+    margin-bottom: 0.3rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #a0a0b0;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f7df1e;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #f7df1e;
+}
+
+/* === Secciones de contenido === */
+.content-section {
+    background: #1e2a3a;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.content-section p {
+    color: #c0c8d8;
+}
+
+/* === Bloques de código === */
+.code-example {
+    background-color: #0d1117;
+    border-radius: 10px;
+    padding: 1.2rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+    border: 1px solid #30363d;
+}
+
+.code-example pre {
+    margin: 0;
+}
+
+.code-example code {
+    font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+    font-size: 0.9rem;
+    color: #cdd6f4;
+    line-height: 1.5;
+}
+
+/* === Output / Resultados === */
+.output {
+    background-color: #0d1117;
+    border-left: 4px solid #f7df1e;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-family: 'Cascadia Code', 'Consolas', monospace;
+    border-radius: 0 8px 8px 0;
+    color: #cdd6f4;
+}
+
+/* === Botón de demostración interactiva === */
+.interactive-demo {
+    margin: 1rem 0;
+}
+
+.btn-demo {
+    background: #f7df1e;
+    color: #1a1a2e;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(247, 223, 30, 0.3);
+}
+
+.btn-demo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(247, 223, 30, 0.4);
+}
+
+.btn-demo:active {
+    transform: translateY(0);
+}
+
+/* === Footer === */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: #0d1117;
+    margin-top: 2rem;
+}
+
+footer a {
+    color: #f7df1e;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+    header h1 {
+        font-size: 1.6rem;
+    }
+    .content-section {
+        padding: 1rem;
+    }
+}
+
+/* Fin de styles.css */

@@ -5,83 +5,369 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frontend desde Cero - Hub de Aprendizaje</title>
     <style>
+        /* === Reset y Base === */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            color: #1a1a2e;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
         }
-        .btn {
-            display: inline-block;
-            background: #007bff;
+
+        /* === Hero Section === */
+        .hero {
+            background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
             color: white;
-            padding: 12px 24px;
-            margin: 10px;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background 0.3s;
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            position: relative;
+            overflow: hidden;
         }
-        .btn:hover {
-            background: #0056b3;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            animation: heroGlow 8s ease-in-out infinite alternate;
         }
-        .cards {
+
+        @keyframes heroGlow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-10%, -10%); }
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: relative;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, #ffd700, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* === Cards Grid === */
+        .cards-container {
+            max-width: 1100px;
+            margin: -2rem auto 2rem;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .card:nth-child(1)::before { background: #e34f26; }
+        .card:nth-child(2)::before { background: #1572b6; }
+        .card:nth-child(3)::before { background: #f7df1e; }
+        .card:nth-child(4)::before { background: #7952b3; }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #1a1a2e;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .card-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 0.4rem;
             justify-content: center;
-            margin-top: 30px;
+            margin-bottom: 1.5rem;
         }
-        .card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            width: 220px;
+
+        .card-tags span {
+            font-size: 0.7rem;
+            background: #f0f0f5;
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            color: #6c757d;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-card {
+            display: inline-block;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            border: 2px solid;
+            background: transparent;
+        }
+
+        .card:nth-child(1) .btn-card {
+            color: #e34f26;
+            border-color: #e34f26;
+        }
+        .card:nth-child(1) .btn-card:hover {
+            background: #e34f26;
+            color: white;
+        }
+
+        .card:nth-child(2) .btn-card {
+            color: #1572b6;
+            border-color: #1572b6;
+        }
+        .card:nth-child(2) .btn-card:hover {
+            background: #1572b6;
+            color: white;
+        }
+
+        .card:nth-child(3) .btn-card {
+            color: #d4a017;
+            border-color: #d4a017;
+        }
+        .card:nth-child(3) .btn-card:hover {
+            background: #d4a017;
+            color: white;
+        }
+
+        .card:nth-child(4) .btn-card {
+            color: #7952b3;
+            border-color: #7952b3;
+        }
+        .card:nth-child(4) .btn-card:hover {
+            background: #7952b3;
+            color: white;
+        }
+
+        /* === Stats / Info Bar === */
+        .info-bar {
+            max-width: 1100px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .info-item {
+            background: white;
+            border-radius: 12px;
+            padding: 1.2rem;
             text-align: center;
-            transition: transform 0.2s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+        .info-item .number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0d6efd;
         }
-        .card h3 {
-            margin-top: 0;
-            color: #007bff;
+
+        .info-item .label {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+
+        /* === Footer === */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* === Responsive === */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .cards-container {
+                padding: 0 1rem;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Frontend desde Cero</h1>
-        <p>Tu ruta de aprendizaje paso a paso para dominar HTML, CSS, JavaScript y Bootstrap</p>
-    </header>
+    <section class="hero">
+        <div class="hero-badge">🚀 Ruta de aprendizaje 2026</div>
+        <h1>Frontend desde <span>Cero</span></h1>
+        <p>Tu guía completa y progresiva para dominar el desarrollo web frontend, desde los fundamentos hasta herramientas modernas.</p>
+    </section>
 
-    <div class="cards">
-        <div class="card">
-            <h3>HTML</h3>
-            <p>Aprende la estructura básica de las páginas web: etiquetas, atributos, formas, tablas y semántica.</p>
-            <a href="html/index.html" class="btn">Ver Lecciones</a>
-        </div>
-        <div class="card">
-            <h3>CSS</h3>
-            <p>Domina el diseño y estilo: selectores, propiedades, flexbox, grid, animaciones y responsive design.</p>
-            <a href="css/index.html" class="btn">Ver Lecciones</a>
-        </div>
-        <div class="card">
-            <h3>JavaScript</h3>
-            <p>Aprende a hacer páginas interactivas: manipulación del DOM, eventos, AJAX, ES6+ y frameworks básicos.</p>
-            <a href="js/index.html" class="btn">Ver Lecciones</a>
-        </div>
-        <div class="card">
-            <h3>Bootstrap 5.3.8</h3>
-            <p>Aprende a usar el framework más popular para crear sitios web responsivos y modernos rápidamente.</p>
-            <a href="bootstrap/index.html" class="btn">Ver Lecciones</a>
+    <div class="cards-container">
+        <div class="cards-grid">
+            <div class="card">
+                <span class="card-icon">📄</span>
+                <h3>HTML</h3>
+                <p>Estructura y semántica de la web. Aprende etiquetas, formularios, tablas, multimedia y accesibilidad.</p>
+                <div class="card-tags">
+                    <span>semántica</span>
+                    <span>forms</span>
+                    <span>SEO</span>
+                    <span>accesibilidad</span>
+                </div>
+                <a href="html/index.html" class="btn-card">Comenzar →</a>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">🎨</span>
+                <h3>CSS</h3>
+                <p>Diseño visual profesional. Domina Flexbox, Grid, animaciones, responsive design y metodologías.</p>
+                <div class="card-tags">
+                    <span>flexbox</span>
+                    <span>grid</span>
+                    <span>animaciones</span>
+                    <span>responsive</span>
+                </div>
+                <a href="css/index.html" class="btn-card">Comenzar →</a>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">⚡</span>
+                <h3>JavaScript</h3>
+                <p>Interactividad y lógica. DOM, eventos, asincronía, APIs web, ES6+, módulos y fundamentos de frameworks.</p>
+                <div class="card-tags">
+                    <span>DOM</span>
+                    <span>ES6+</span>
+                    <span>async</span>
+                    <span>APIs</span>
+                </div>
+                <a href="js/index.html" class="btn-card">Comenzar →</a>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">🅱️</span>
+                <h3>Bootstrap 5.3.8</h3>
+                <p>El framework CSS más popular. Grid, componentes, utilidades y personalización con Sass.</p>
+                <div class="card-tags">
+                    <span>grid</span>
+                    <span>componentes</span>
+                    <span>utilidades</span>
+                    <span>responsive</span>
+                </div>
+                <a href="bootstrap/index.html" class="btn-card">Comenzar →</a>
+            </div>
         </div>
     </div>
 
+    <section class="info-bar">
+        <div class="info-grid">
+            <div class="info-item">
+                <div class="number">4</div>
+                <div class="label">Módulos de aprendizaje</div>
+            </div>
+            <div class="info-item">
+                <div class="number">🎯</div>
+                <div class="label">De básico a avanzado</div>
+            </div>
+            <div class="info-item">
+                <div class="number">📝</div>
+                <div class="label">Teoría + ejercicios</div>
+            </div>
+            <div class="info-item">
+                <div class="number">🔓</div>
+                <div class="label">100% gratuito</div>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p><small>Proyecto educativo para aprender frontend desde cero</small></p>
+        <p>Proyecto educativo para aprender frontend desde cero</p>
+        <p><small>HTML · CSS · JavaScript · Bootstrap 5.3.8</small></p>
     </footer>
 </body>
 </html>

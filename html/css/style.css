@@ -1,13 +1,141 @@
-/* styles.css - Estilos para las lecciones de HTML */
-/* Puedes añadir aquí estilos personalizados para los ejemplos */
+/* styles.css - Estilos para las lecciones de HTML
+ * 
+ * 📖 PROPÓSITO: Este archivo contiene estilos específicos para los
+ *   ejemplos y ejercicios del módulo de HTML.
+ * 
+ * 💡 APRENDE: Aquí puedes experimentar añadiendo tus propios estilos
+ *   y viendo cómo afectan a los elementos HTML.
+ */
 
-/* Ejemplo: resaltar bloques de código */
-.code-example {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    padding: 16px;
-    margin: 16px 0;
+/* === Estilos base === */
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #1a1a2e;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
 }
 
-/* Fin de estilos para HTML */
+/* === Navegación (breadcrumb) === */
+.breadcrumb {
+    background: linear-gradient(135deg, #e34f26, #d43f00);
+    padding: 0.8rem 2rem;
+    color: white;
+}
+
+.breadcrumb a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.breadcrumb a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    margin-left: 0.5rem;
+    font-weight: 600;
+}
+
+/* === Contenedor principal === */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* === Encabezados === */
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #e34f26;
+    margin-bottom: 0.3rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #e34f26;
+}
+
+/* === Secciones de contenido === */
+.content-section {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* === Bloques de código === */
+.code-example {
+    background-color: #1e1e2e;
+    border-radius: 10px;
+    padding: 1.2rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+
+.code-example pre {
+    margin: 0;
+}
+
+.code-example code {
+    font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+    font-size: 0.9rem;
+    color: #cdd6f4;
+    line-height: 1.5;
+}
+
+/* Resaltado básico para etiquetas (los navegadores no colorean sintaxis por defecto) */
+.code-example .tag { color: #89b4fa; }
+.code-example .attr { color: #a6e3a1; }
+.code-example .value { color: #f9e2af; }
+.code-example .comment { color: #6c7086; font-style: italic; }
+
+/* === Footer === */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: #1a1a2e;
+    margin-top: 2rem;
+}
+
+footer a {
+    color: #e34f26;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+    header h1 {
+        font-size: 1.6rem;
+    }
+    .content-section {
+        padding: 1rem;
+    }
+}
+
+/* Fin de styles.css */

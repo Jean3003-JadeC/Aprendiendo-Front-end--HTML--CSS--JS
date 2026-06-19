@@ -3,19 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecciones de Bootstrap 5.3.8</title>
+    <title>Bootstrap - Frontend desde Cero</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <!-- Bootstrap CSS desde CDN (opcional, si quieres usarlo en las lecciones) -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 </head>
 <body>
-    <div class="container">
-        <h1>Lecciones de Bootstrap 5.3.8</h1>
-        <p>En esta sección encontrarás explicaciones, ejemplos y ejercicios para aprender todo sobre Bootstrap 5.3.8: sistema de grid, componentes, utilidades, plugins JavaScript y cómo crear diseños responsivos rápidamente.</p>
-        <!-- Los ejemplos específicos irán aquí -->
+    <nav class="module-nav bg-dark p-3">
+        <a href="../index.html">🏠 Inicio</a>
+        <span>🅱️ Bootstrap 5.3.8</span>
+    </nav>
+
+    <div class="container py-4">
+        <header class="mb-4">
+            <h1 class="display-4">Lecciones de Bootstrap 5.3.8</h1>
+            <p class="lead">Crea interfaces responsivas y modernas sin escribir CSS desde cero</p>
+        </header>
+
+        <section class="mb-4 p-4 bg-light rounded-3">
+            <h2>¿Qué es Bootstrap?</h2>
+            <p><strong>Bootstrap</strong> es el framework de CSS más popular. Proporciona un <strong>sistema de grid</strong>, <strong>componentes preconstruidos</strong> (botones, modales, navbar) y <strong>utilidades</strong> para crear sitios web responsivos rápida y consistentemente.</p>
+        </section>
+
+        <section class="mb-4">
+            <h2>Temario</h2>
+            <p>Consulta el archivo <a href="temario.md" target="_blank">temario.md</a> para la lista completa de temas.</p>
+        </section>
+
+        <section class="mb-4">
+            <h2>Ejemplo: Sistema de Grid</h2>
+            <div class="row mb-3">
+                <div class="col-md-4 mb-2">
+                    <div class="p-3 bg-primary text-white rounded">Columna 1</div>
+                </div>
+                <div class="col-md-4 mb-2">
+                    <div class="p-3 bg-success text-white rounded">Columna 2</div>
+                </div>
+                <div class="col-md-4 mb-2">
+                    <div class="p-3 bg-warning text-dark rounded">Columna 3</div>
+                </div>
+            </div>
+            <p class="text-muted"><small>Redimensiona la ventana para ver el comportamiento responsive.</small></p>
+        </section>
+
+        <section class="mb-4">
+            <h2>Componentes de Bootstrap</h2>
+            <div class="d-flex gap-2 flex-wrap mb-3">
+                <button class="btn btn-primary">Primary</button>
+                <button class="btn btn-secondary">Secondary</button>
+                <button class="btn btn-success">Success</button>
+                <button class="btn btn-danger">Danger</button>
+                <button class="btn btn-warning">Warning</button>
+                <button class="btn btn-info">Info</button>
+            </div>
+
+            <div class="alert alert-info" role="alert">
+                💡 <strong>Tip:</strong> Bootstrap ya viene con estos estilos. Solo añade las clases correspondientes.
+            </div>
+        </section>
+
+        <section class="mb-4">
+            <h2>Card de ejemplo</h2>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Tarjeta Bootstrap</h5>
+                    <p class="card-text">Las cards son uno de los componentes más versátiles de Bootstrap.</p>
+                    <a href="#" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-4">
+            <h2>Demo interactiva</h2>
+            <p>Haz clic en el botón para abrir un modal creado dinámicamente con JavaScript + Bootstrap API.</p>
+            <button id="demo-modal-btn" class="btn btn-primary btn-lg">
+                🚀 Abrir Modal de demostración
+            </button>
+        </section>
+
+        <!-- Aquí irán más ejemplos y ejercicios a medida que avances en el temario -->
     </div>
+
+    <footer class="text-center py-3 bg-dark text-white-50">
+        <p class="mb-0"><a href="../index.html" class="text-white">← Volver al hub de aprendizaje</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
-    <!-- Bootstrap JS con Popper desde CDN (opcional) -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script> -->
 </body>
 </html>
