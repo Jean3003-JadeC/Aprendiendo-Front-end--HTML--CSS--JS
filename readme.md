@@ -67,7 +67,7 @@ Aprendiendo Front-end/
 
 1. **Clona o descarga el repositorio**  
    ```bash
-   git clone <URL-del-repositorio>
+   git clone https://github.com/Jean3003-JadeC/Aprendiendo-Front-end--HTML--CSS--JS
    cd Aprendiendo Front-end
    ```
 
